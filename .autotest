@@ -1,0 +1,8 @@
+# ~.autotest
+require 'redgreen/autotest'
+require 'autotest_notification'
+SPEAKING = false
+DOOM_EDITION = false
+BUUF = false
+PENDING = false
+STICKY = false
