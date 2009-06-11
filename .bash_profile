@@ -9,7 +9,7 @@ alias sstu='svn st -u' # remote repository changes
 alias scom='svn commit' # commit
 alias svnclear='find . -name .svn -print0 | xargs -0 rm -rf' # removes all .svn folders from directory recursively
 alias svnaddall='svn status | grep "^\?" | awk "{print \$2}" | xargs svn add' # adds all unadded files
-alias svndeleteall='find ./ -name ".svn" | xargs rm -Rf' # deletes all missing files
+alias svndeleteall='svn status | grep "^\!" | awk "{print \$2}" | xargs svn rm' # deletes all missing files
 
 #*****************************************************************************
 # Git
@@ -52,9 +52,27 @@ alias ctar='tar -zcvf' # archive_name.tar.gz directory_to_compress
 alias etar='tar -zxvf' # archive_name.tar.gz (-C /tmp/extract_here/)
 
 #*****************************************************************************
+# gem edit
+#*****************************************************************************
+
+complete -C "/usr/bin/gemedit --complete" gemedit
+
+#*****************************************************************************
+# rails
+#*****************************************************************************
+
+alias ss='script/server'
+alias sc='script/console'
+
+export RUBYLIB=".:test:$RUBYLIB" # rails-test-serving
+
+alias ts="ruby test/test_helper.rb --serve"
+
+#*****************************************************************************
 # Other
 #*****************************************************************************
 
 alias flushcache='sudo dscacheutil -flushcache'
+alias xs='xrefresh-server'
 
-export EDITOR='/usr/bin/mate -w'
+export EDITOR='/usr/bin/mate_wait'
