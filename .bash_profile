@@ -74,5 +74,6 @@ alias ts="ruby test/test_helper.rb --serve"
 
 alias flushcache='sudo dscacheutil -flushcache'
 alias xs='xrefresh-server'
+alias dd='cd ~/Source/rails_apps/'
 
 export EDITOR='/usr/bin/mate_wait'
