@@ -1,0 +1,62 @@
+#*****************************************************************************
+# SVN
+#*****************************************************************************
+alias sup='svn up' # trust me 3 chars makes a different
+alias sst='svn st' # local file changes
+alias sstu='svn st -u' # remote repository changes
+alias scom='svn commit' # commit
+alias svnclear='find . -name .svn -print0 | xargs -0 rm -rf' # removes all .svn folders from directory recursively
+alias svnaddall='svn status | grep "^\?" | awk "{print \$2}" | xargs svn add' # adds all unadded files
+alias svndeleteall='svn status | grep "^\!" | awk "{print \$2}" | xargs svn rm' # deletes all missing files
+
+#*****************************************************************************
+# Git
+#*****************************************************************************
+
+alias gst='git status'
+alias gl='git pull'
+alias gp='git push'
+alias gd='git diff | mate'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gb='git branch'
+alias gba='git branch -a'
+
+alias git-remove='git ls-files --deleted | xargs git rm'
+
+#*****************************************************************************
+# Configs
+#*****************************************************************************
+
+alias edit-http='mate /etc/apache2/extra/http'
+
+#*****************************************************************************
+# Tar/Compress
+#*****************************************************************************
+
+alias ctar='tar -zcvf' # archive_name.tar.gz directory_to_compress
+alias etar='tar -zxvf' # archive_name.tar.gz (-C /tmp/extract_here/)
+
+#*****************************************************************************
+# gem edit
+#*****************************************************************************
+
+complete -C "/usr/bin/gemedit --complete" gemedit
+
+#*****************************************************************************
+# rails
+#*****************************************************************************
+
+alias ss='script/server'
+alias sc='script/console'
+
+export RUBYLIB=".:test:$RUBYLIB" # rails-test-serving
+
+alias ts="ruby test/test_helper.rb --serve"
+
+#*****************************************************************************
+# Other
+#*****************************************************************************
+
+alias flushcache='sudo dscacheutil -flushcache'
+alias xs='xrefresh-server'

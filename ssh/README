@@ -1,0 +1,7 @@
+Add config file here and link from ~/.ssh/config
+
+Use this format:
+
+Host alias
+  HostName host_name
+  User     deploy

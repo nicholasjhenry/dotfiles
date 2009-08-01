@@ -1,0 +1,10 @@
+#*****************************************************************************
+# Git Prompt
+#*****************************************************************************
+
+function parse_git_branch {
+  ref=$(/usr/local/libexec/git-core/git-symbolic-ref HEAD 2> /dev/null) || return
+  echo "("${ref#refs/heads/}")" 
+}
+
+PS1="\h: \w \$(parse_git_branch)\$ "
