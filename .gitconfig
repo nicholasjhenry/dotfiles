@@ -1,9 +1,0 @@
-[user]
-	name = Nicholas Henry
-	email = nicholas.henry@gmail.com
-[alias]
-	co = checkout
-[apply]
-	whitespace = nowarn
-[color]
-	ui = auto
