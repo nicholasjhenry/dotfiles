@@ -60,3 +60,9 @@ alias ts="ruby test/test_helper.rb --serve"
 
 alias flushcache='sudo dscacheutil -flushcache'
 alias xs='xrefresh-server'
+
+#*****************************************************************************
+# Shortcuts
+#*****************************************************************************
+
+alias cds='cd ~/Source/rails_apps'
