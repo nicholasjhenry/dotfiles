@@ -29,7 +29,7 @@ alias git-remove='git ls-files --deleted | xargs git rm'
 #*****************************************************************************
 
 alias edit-http='mate /etc/apache2/extra/http'
-alias edit-dot='mate Documents/Development/dotfiles/'
+alias edit-dot='mate ~/Documents/Development/dotfiles/'
 
 #*****************************************************************************
 # Tar/Compress
@@ -74,3 +74,4 @@ alias xs='xrefresh-server'
 #*****************************************************************************
 
 alias cds='cd ~/Source/rails_apps'
+alias cdd=""
