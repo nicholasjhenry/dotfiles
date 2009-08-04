@@ -25,10 +25,11 @@ alias gba='git branch -a'
 alias git-remove='git ls-files --deleted | xargs git rm'
 
 #*****************************************************************************
-# Configs
+# Text Mate Shortcuts
 #*****************************************************************************
 
 alias edit-http='mate /etc/apache2/extra/http'
+alias edit-dot='mate Documents/Development/dotfiles/'
 
 #*****************************************************************************
 # Tar/Compress
