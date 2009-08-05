@@ -30,6 +30,7 @@ alias git-remove='git ls-files --deleted | xargs git rm'
 
 alias edit-http='mate /etc/apache2'
 alias edit-dot='mate ~/Documents/Development/dotfiles/'
+alias edit-cheat='mate ~/Documents/My\ Documents/Firsthand/Assets/Cheat\ Sheets/'
 
 #*****************************************************************************
 # Tar/Compress
