@@ -59,8 +59,13 @@ alias sb="staticmatic build ."
 alias ss='script/server'
 alias sc='script/console'
 
-export RUBYLIB=".:test:$RUBYLIB" # rails-test-serving
+# rails-test-serving
+# must have the following setup in test_helper.rb
+# require 'rubygems'
+# require 'rails_test_serving'
+# RailsTestServing.boot
 
+export RUBYLIB=".:test:$RUBYLIB" 
 alias ts="ruby test/test_helper.rb --serve"
 
 #*****************************************************************************
