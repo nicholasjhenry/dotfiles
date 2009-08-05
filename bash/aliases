@@ -74,4 +74,4 @@ alias xs='xrefresh-server'
 #*****************************************************************************
 
 alias cds='cd ~/Source/rails_apps'
-alias cdd="~/Documents/Development/dotfiles/"
+alias cdd="cd ~/Documents/Development/dotfiles/"
