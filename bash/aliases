@@ -28,7 +28,7 @@ alias git-remove='git ls-files --deleted | xargs git rm'
 # Text Mate Shortcuts
 #*****************************************************************************
 
-alias edit-http='mate /etc/apache2/extra/http'
+alias edit-http='mate /etc/apache2'
 alias edit-dot='mate ~/Documents/Development/dotfiles/'
 
 #*****************************************************************************
