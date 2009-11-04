@@ -74,6 +74,7 @@ alias ts="ruby test/test_helper.rb --serve"
 
 alias flushcache='sudo dscacheutil -flushcache'
 alias xs='xrefresh-server'
+alias dus='du -skh' # as in disk usage summary
 
 #*****************************************************************************
 # Shortcuts
