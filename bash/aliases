@@ -72,7 +72,7 @@ alias ts="ruby test/test_helper.rb --serve"
 # Other
 #*****************************************************************************
 
-alias flushcache='sudo dscacheutil -flushcache'
+alias flushcache='dscacheutil -flushcache'
 alias xs='xrefresh-server'
 alias dus='du -skh' # as in disk usage summary
 alias wtf='cat ~/Documents/Development/dotfiles/bash/aliases'
