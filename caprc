@@ -23,4 +23,4 @@
 # ssh_options[:paranoid] = false
 
 $:.unshift File.dirname(__FILE__)
-require 'Documents/Development/cap/firsthand'
+require 'Source/cap/firsthand'

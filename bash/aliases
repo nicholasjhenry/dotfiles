@@ -29,7 +29,7 @@ alias git-remove='git ls-files --deleted | xargs git rm'
 #*****************************************************************************
 
 alias edit-http='mate /etc/apache2'
-alias edit-dot='mate ~/Documents/Development/dotfiles/'
+alias edit-dot='mate ~/Source/dotfiles/'
 alias edit-cheat='mate ~/Documents/My\ Documents/Firsthand/Assets/Cheat\ Sheets/'
 
 #*****************************************************************************
@@ -82,4 +82,4 @@ alias wtf='cat ~/Documents/Development/dotfiles/bash/aliases'
 #*****************************************************************************
 
 alias cds='cd ~/Source/rails_apps'
-alias cdd="cd ~/Documents/Development/dotfiles/"
+alias cdd="cd ~/Source/dotfiles/"
