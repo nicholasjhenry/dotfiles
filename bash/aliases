@@ -81,5 +81,5 @@ alias wtf='mate ~/Source/dotfiles/bash/aliases'
 # Shortcuts
 #*****************************************************************************
 
-alias cds='cd ~/Source/rails_apps'
+alias cds='cd ~/Source/apps'
 alias cdd="cd ~/Source/dotfiles/"
