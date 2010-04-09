@@ -20,3 +20,10 @@ if script_console_running
   require 'logger'
   Object.const_set(:RAILS_DEFAULT_LOGGER, Logger.new(STDOUT))
 end
+
+# http://github.com/cldwalker/hirb
+# If you need to disable: Hirb.disable. Remember to limit the columns returned
+# you can always use MyActiveRecord.all(:select => "column_name")
+#
+require 'hirb' 
+Hirb::View.enable
