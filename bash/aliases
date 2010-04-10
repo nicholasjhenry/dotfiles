@@ -76,6 +76,7 @@ alias flushcache='dscacheutil -flushcache'
 alias xs='xrefresh-server'
 alias dus='du -skh' # as in disk usage summary
 alias wtf='mate ~/Source/dotfiles/bash/aliases'
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 
 #*****************************************************************************
 # Shortcuts
@@ -83,3 +84,5 @@ alias wtf='mate ~/Source/dotfiles/bash/aliases'
 
 alias cds='cd ~/Source/apps'
 alias cdd="cd ~/Source/dotfiles/"
+
+
