@@ -1,0 +1,6 @@
+# http://maxogden.com/#/2010-04-08-colorizing-terminal-and-irb.html
+# http://blog.fallingsnow.net/2009/08/28/fixing-colors-in-terminal-app-on-10-6/
+
+export PS1='\[\033[36m\]\W\[\033[m\] $(__git_ps1 "(\[\033[32m\]%s\[\033[m\]) ")\[\033[31m\]→\[\033[m\] '
+export CLICOLOR=1
+export LS_COLORS=exfxcxdxbxegedabagacad
