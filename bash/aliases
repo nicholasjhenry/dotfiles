@@ -31,7 +31,7 @@ alias git-remove='git ls-files --deleted | xargs git rm'
 alias edit-http='mate /etc/apache2'
 alias edit-dot='mate ~/Source/dotfiles/'
 alias edit-cheat='mate ~/Documents/My\ Documents/Firsthand/Assets/Cheat\ Sheets/'
-alias edit-rails='mate app/ README config/ db/ lib/ public/ test/ spec/ features/ README.textile'
+alias edit-rails='mate app/ README config/ db/ lib/ public/ test/ spec/ features/ README.textile GemFile vendor/extensions'
 
 #*****************************************************************************
 # Tar/Compress
