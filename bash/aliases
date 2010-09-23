@@ -1,13 +1,15 @@
 #*****************************************************************************
-# SVN
+# Bundler
 #*****************************************************************************
-alias sup='svn up' # trust me 3 chars makes a different
-alias sst='svn st' # local file changes
-alias sstu='svn st -u' # remote repository changes
-alias scom='svn commit' # commit
-alias svnclear='find . -name .svn -print0 | xargs -0 rm -rf' # removes all .svn folders from directory recursively
-alias svnaddall='svn status | grep "^\?" | awk "{print \$2}" | xargs svn add' # adds all unadded files
-alias svndeleteall='svn status | grep "^\!" | awk "{print \$2}" | xargs svn rm' # deletes all missing files
+
+alias bi='bundle install --without production'
+
+#*****************************************************************************
+# Cucumber
+#*****************************************************************************
+
+alias autocuke='rstakeout "rake cucumber" "features/**/*"'
+alias autocuke-wip='rstakeout "rake cucumber:wip" "features/**/*"'
 
 #*****************************************************************************
 # Git
@@ -25,36 +27,18 @@ alias gba='git branch -a'
 alias git-remove='git ls-files --deleted | xargs git rm'
 
 #*****************************************************************************
-# Text Mate Shortcuts
+# SVN
 #*****************************************************************************
-
-alias edit-http='mate /etc/apache2'
-alias edit-dot='mate ~/Source/dotfiles/'
-alias edit-cheat='mate ~/Documents/My\ Documents/Firsthand/Assets/Cheat\ Sheets/'
-alias edit-rails='mate app/ README config/ db/ lib/ public/ test/ spec/ features/ README.textile GemFile vendor/extensions'
-
-#*****************************************************************************
-# Tar/Compress
-#*****************************************************************************
-
-alias ctar='tar -zcvf' # archive_name.tar.gz directory_to_compress
-alias etar='tar -zxvf' # archive_name.tar.gz (-C /tmp/extract_here/)
+alias sup='svn up' # trust me 3 chars makes a different
+alias sst='svn st' # local file changes
+alias sstu='svn st -u' # remote repository changes
+alias scom='svn commit' # commit
+alias svnclear='find . -name .svn -print0 | xargs -0 rm -rf' # removes all .svn folders from directory recursively
+alias svnaddall='svn status | grep "^\?" | awk "{print \$2}" | xargs svn add' # adds all unadded files
+alias svndeleteall='svn status | grep "^\!" | awk "{print \$2}" | xargs svn rm' # deletes all missing files
 
 #*****************************************************************************
-# gem edit
-#*****************************************************************************
-
-complete -C "/usr/bin/gemedit --complete" gemedit
-
-#*****************************************************************************
-# staticmatic
-#*****************************************************************************
-
-alias sp="staticmatic preview ."
-alias sb="staticmatic build ."
-
-#*****************************************************************************
-# rails
+# Rails
 #*****************************************************************************
 
 alias ss='script/server'
@@ -70,16 +54,33 @@ export RUBYLIB=".:test:$RUBYLIB"
 alias ts="ruby test/test_helper.rb --serve"
 
 #*****************************************************************************
-# Cucumber
-#*****************************************************************************
-alias autocuke='rstakeout "rake cucumber" "features/**/*"'
-alias autocuke-wip='rstakeout "rake cucumber:wip" "features/**/*"'
-
-#*****************************************************************************
 # RSpec
 #*****************************************************************************
 
 alias specdoc='spec spec/ --format specdoc'
+
+#*****************************************************************************
+# StaticMatic
+#*****************************************************************************
+
+alias sp="staticmatic preview ."
+alias sb="staticmatic build ."
+
+#*****************************************************************************
+# Tar/Compress
+#*****************************************************************************
+
+alias ctar='tar -zcvf' # archive_name.tar.gz directory_to_compress
+alias etar='tar -zxvf' # archive_name.tar.gz (-C /tmp/extract_here/)
+
+#*****************************************************************************
+# Text Mate Shortcuts
+#*****************************************************************************
+
+alias edit-http='mate /etc/apache2'
+alias edit-dot='mate ~/Source/dotfiles/'
+alias edit-cheat='mate ~/Documents/My\ Documents/Firsthand/Assets/Cheat\ Sheets/'
+alias edit-rails='mate app/ README config/ db/ lib/ public/ test/ spec/ features/ README.textile GemFile vendor/extensions'
 
 #*****************************************************************************
 # Other
