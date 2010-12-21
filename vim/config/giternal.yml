@@ -9,3 +9,7 @@ vim-rooter:
 vim-makegreen:
   repo: git://github.com/reinh/vim-makegreen.git
   path: bundle
+
+vim-rails:
+  repo: git://github.com/tpope/vim-rails.git
+  path: bundle
