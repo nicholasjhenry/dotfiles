@@ -1,0 +1,3 @@
+vim-rooter:
+  repo: git://github.com/airblade/vim-rooter.git
+  path: bundle
