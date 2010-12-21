@@ -2,6 +2,10 @@ ack:
   repo: git://github.com/mileszs/ack.vim.git
   path: bundle
 
+tcomment:
+  repo: git://github.com/tomtom/tcomment_vim.git
+  path: bundle
+
 vim-snipmate:
   repo: git://github.com/msanders/snipmate.vim.git
   path: bundle
