@@ -1,4 +1,5 @@
 .DS_Store
 ssh/config
 vim/.netrwhist
-vim/.vimrc.swp
+*.swp
+*.swo
