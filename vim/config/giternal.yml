@@ -1,3 +1,7 @@
 vim-rooter:
   repo: git://github.com/airblade/vim-rooter.git
   path: bundle
+
+vim-makegreen:
+  repo: git://github.com/reinh/vim-makegreen.git
+  path: bundle
