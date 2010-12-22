@@ -3,3 +3,4 @@ ssh/config
 vim/.netrwhist
 *.swp
 *.swo
+vim/tmp/*.*
