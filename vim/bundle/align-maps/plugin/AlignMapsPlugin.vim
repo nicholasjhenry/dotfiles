@@ -44,7 +44,7 @@ let g:loaded_AlignMapsPlugin = "v41"
 set cpo&vim
 
 " =====================================================================
-"  Maps: {{{1
+" Maps: {{{1
 
 " ---------------------------------------------------------------------
 " WS: wrapper start map (internal)  {{{2
@@ -161,7 +161,7 @@ if !hasmapto('<Plug>AM_tab')	|map <unique> <Leader>tab	<Plug>AM_tab|endif
 if !hasmapto('<Plug>AM_tml')	|map <unique> <Leader>tml	<Plug>AM_tml|endif
 if !hasmapto('<Plug>AM_tsp')	|map <unique> <Leader>tsp	<Plug>AM_tsp|endif
 if !hasmapto('<Plug>AM_tsq')	|map <unique> <Leader>tsq	<Plug>AM_tsq|endif
-if !hasmapto('<Plug>AM_tt')		|map <unique> <Leader>tt	<Plug>AM_tt|endif
+" if !hasmapto('<Plug>AM_tt')		|map <unique> <Leader>tt	<Plug>AM_tt|endif
 
 map <silent> <script> <Plug>AM_t|		<SID>WS:AlignCtrl mIp0P0=l <Bar><CR>:'a,.Align<CR><SID>WE
 map <silent> <script> <Plug>AM_t#		<SID>WS:AlignCtrl mIp0P0=l #<CR>:'a,.Align<CR><SID>WE
