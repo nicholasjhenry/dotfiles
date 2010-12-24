@@ -47,6 +47,7 @@ set expandtab                     " Use spaces instead of tabs
 set laststatus=2                  " Show the status line all the time
 
 set list                          " Show invisble chars
+set listchars=tab:▸\ ,eol:¬       " Use the same symbols as TextMate for tabstops and EOLs
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()} %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
@@ -75,13 +76,10 @@ map <leader>tm :tabmove
 "vnoremap ; :
 "vnoremap : ;
 
-" Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+" Automatic fold settings for specific files. 
+autocmd FileType ruby setlocal foldmethod=syntax
+autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
-" Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
- 
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
-
+" Custom Mappings
+nmap <leader>l :set list!<CR>      " Use the same symbols as TextMate for tabstops and EOLs
+nmap <leader>rt :%s=\s\+$==<CR>    " Removes trailing spaces
