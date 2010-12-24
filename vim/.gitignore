@@ -4,3 +4,4 @@ bundle/ack
 bundle/vim-rails
 bundle/vim-snipmate
 bundle/tcomment
+bundle/vim-git
