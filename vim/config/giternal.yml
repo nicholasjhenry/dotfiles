@@ -14,6 +14,10 @@ vim-git:
   repo: git://github.com/tpope/vim-fugitive.git
   path: bundle
 
+vim-ragtag:
+  repo: git://github.com/tpope/vim-ragtag.git
+  path: bundle
+
 vim-snipmate:
   repo: git://github.com/msanders/snipmate.vim.git
   path: bundle
