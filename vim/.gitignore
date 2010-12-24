@@ -6,3 +6,4 @@ bundle/vim-snipmate
 bundle/tcomment
 bundle/vim-git
 bundle/vim-haml
+bundle/vim-surrond

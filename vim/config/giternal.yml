@@ -18,6 +18,10 @@ vim-snipmate:
   repo: git://github.com/msanders/snipmate.vim.git
   path: bundle
 
+vim-surrond:
+  repo: git://github.com/tpope/vim-surround.git
+  path: bundle
+
 vim-rooter:
   repo: git://github.com/airblade/vim-rooter.git
   path: bundle
