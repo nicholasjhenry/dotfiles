@@ -24,8 +24,8 @@ hi Normal guifg=#222222 guibg=White
 hi ErrorMsg guibg=Red guifg=White
 hi IncSearch gui=reverse
 hi ModeMsg gui=bold
-hi StatusLine gui=reverse,bold guifg=#bbbbbb
-hi StatusLineNC gui=reverse
+hi StatusLine gui=reverse,bold guifg=#666666
+hi StatusLineNC gui=reverse guifg=#bbbbbb
 hi VertSplit gui=reverse
 hi Visual gui=reverse guifg=#eeeeee guibg=fg
 hi VisualNOS gui=underline,bold
