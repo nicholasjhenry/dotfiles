@@ -9,3 +9,4 @@ bundle/vim-haml
 bundle/vim-surrond
 bundle/vim-ragtag
 bundle/vim-endwise
+bundle/vim-cucumber

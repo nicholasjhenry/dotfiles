@@ -6,6 +6,10 @@ tcomment:
   repo: git://github.com/tomtom/tcomment_vim.git
   path: bundle
 
+vim-cucumber:
+  repo: git://github.com/tpope/vim-cucumber.git
+  path: bundle
+
 vim-endwise:
   repo: git://github.com/tpope/vim-endwise.git
   path: bundle
