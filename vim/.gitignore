@@ -10,3 +10,4 @@ bundle/vim-surrond
 bundle/vim-ragtag
 bundle/vim-endwise
 bundle/vim-cucumber
+vim-fugitive/vim-fugitive
