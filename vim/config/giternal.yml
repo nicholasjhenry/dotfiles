@@ -49,3 +49,7 @@ vim-makegreen:
 vim-rails:
   repo: git://github.com/tpope/vim-rails.git
   path: bundle
+
+vim-ruby-refactoring:
+  repo: git://github.com/ecomba/vim-ruby-refactoring.git
+  path: bundle

@@ -11,3 +11,5 @@ bundle/vim-ragtag
 bundle/vim-endwise
 bundle/vim-cucumber
 vim-fugitive/vim-fugitive
+bundle/vim-ruby-refactoring
+bundle/vim-fugitive
