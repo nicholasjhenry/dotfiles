@@ -2,6 +2,10 @@ ack:
   repo: git://github.com/mileszs/ack.vim.git
   path: bundle
 
+match-it:
+  repo: git://github.com/tsaleh/vim-matchit.git
+  path: bundle
+
 tcomment:
   repo: git://github.com/tomtom/tcomment_vim.git
   path: bundle

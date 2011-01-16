@@ -13,3 +13,4 @@ bundle/vim-cucumber
 vim-fugitive/vim-fugitive
 bundle/vim-ruby-refactoring
 bundle/vim-fugitive
+bundle/match-it
