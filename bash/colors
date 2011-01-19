@@ -2,4 +2,6 @@
 # http://blog.fallingsnow.net/2009/08/28/fixing-colors-in-terminal-app-on-10-6/
 
 export CLICOLOR=1
+
+# http://www.napolitopia.com/2010/03/lscolors-in-osx-snow-leopard-for-dummies/
 export LS_COLORS=exfxcxdxbxegedabagacad
