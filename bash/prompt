@@ -8,6 +8,7 @@ function parse_git_branch {
 function bash_prompt {
 
   # regular colors
+  local DEFAULT="\[\033[;0m\]"
   local K="\[\033[0;30m\]"    # black
   local R="\[\033[0;31m\]"    # red
   local G="\[\033[0;32m\]"    # green
@@ -40,7 +41,7 @@ function bash_prompt {
   local UC=$W                 # user's color
   [ $UID -eq "0" ] && UC=$R   # root's color
 
-  PS1="\h:\w$Y\$(parse_git_branch) $R\$(~/.rvm/bin/rvm-prompt) $K$ "
+  PS1="\h:\w$Y\$(parse_git_branch) $R\$(~/.rvm/bin/rvm-prompt) $DEFAULT $ "
 
 }
 
