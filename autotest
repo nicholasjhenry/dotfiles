@@ -1,6 +1,6 @@
 # ~.autotest
 
-# require 'redgreen/autotest' # doesn't agree with autospec
+require 'redgreen/autotest' unless ENV['RSPEC'] 
 
 # use fsevent on OSX to determine file changes
 #
@@ -19,5 +19,4 @@ STICKY       = false
 #
 Autotest.add_hook :initialize do |at|
   %w{.svn .hg .git vendor}.each {|exception| at.add_exception(exception)}
-end  
-
+end
