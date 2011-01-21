@@ -10,6 +10,10 @@ tcomment:
   repo: git://github.com/tomtom/tcomment_vim.git
   path: bundle
 
+tabular:
+  repo: git://github.com/godlygeek/tabular.git
+  path: plugin
+
 vim-cucumber:
   repo: git://github.com/tpope/vim-cucumber.git
   path: bundle

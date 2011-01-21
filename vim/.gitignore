@@ -14,3 +14,4 @@ vim-fugitive/vim-fugitive
 bundle/vim-ruby-refactoring
 bundle/vim-fugitive
 bundle/match-it
+bundle/tabular
