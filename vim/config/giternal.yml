@@ -61,3 +61,7 @@ vim-rails:
 vim-ruby-refactoring:
   repo: git://github.com/ecomba/vim-ruby-refactoring.git
   path: bundle
+
+vim-unimpaired:
+  repo: git://github.com/tpope/vim-unimpaired.git
+  path: bundle
