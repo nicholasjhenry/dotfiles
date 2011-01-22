@@ -90,6 +90,13 @@ nmap <leader>rt :%s=\s\+$==<CR>    " Removes trailing spaces
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
+nmap <Leader>ae :Tabularize /=<CR>
+vmap <Leader>ae :Tabularize /=<CR>
+nmap <Leader>ar :Tabularize /=><CR>
+vmap <Leader>ar :Tabularize /=><CR>
+nmap <Leader>ac :Tabularize /:\zs<CR>
+vmap <Leader>ac :Tabularize /:\zs<CR>
+
 function! s:ExecuteInShell(command, bang)
   let _ = a:bang != '' ? s:_ : a:command == '' ? '' : join(map(split(a:command), 'expand(v:val)'))
 
