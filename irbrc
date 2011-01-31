@@ -5,64 +5,6 @@ unless defined? ETC_IRBRC_LOADED
   # so I can use yaml (syntax: y object) for sane object printing:
   require 'yaml'
 
-  # http://pablotron.org/software/wirble/README
-  #
-  begin
-    require 'wirble'
-    Wirble.init
-    Wirble.colorize
-
-    colors = Wirble::Colorize.colors.merge({
-      # delimiter colors
-      :comma              => :white,
-      :refers             => :white,
-
-      # container colors (hash and array)
-      :open_hash          => :white,
-      :close_hash         => :white,
-      :open_array         => :white,
-      :close_array        => :white,
-
-      # object colors
-      :open_object        => :cyan,
-      :object_class       => :purple,
-      :object_addr_prefix => :cyan,
-      :object_addr        => :light_red,
-      :object_line_prefix => :cyan,
-      :object_line        => :yellow,
-      :close_object       => :cyan,
-
-      # symbol colors
-      :symbol             => :blue,
-      :symbol_prefix      => :blue,
-
-      # string colors
-      :open_string        => :green,
-      :string             => :green,
-      :close_string       => :green,
-
-      # misc colors
-      :number             => :blue,
-      :keyword            => :blue,
-      :class              => :purple,
-      :range              => :white
-    })                                     
-    Wirble::Colorize.colors = colors                                              
-    Wirble.colorize
-    
-    # colorize prompt
-    IRB.conf[:PROMPT][:CUSTOM] = {
-      :PROMPT_I =>    Wirble::Colorize.colorize_string(">> ", :cyan),
-      :PROMPT_S =>    Wirble::Colorize.colorize_string(">> ", :green),
-      :PROMPT_C => "#{Wirble::Colorize.colorize_string('..' , :cyan)} ",
-      :PROMPT_N => "#{Wirble::Colorize.colorize_string('..' , :cyan)} ",
-      :RETURN   => "#{Wirble::Colorize.colorize_string('→'  , :light_red)} %s\n"
-    }
-    IRB.conf[:PROMPT_MODE] = :CUSTOM
-  rescue LoadError
-    puts "Gem Wirble not installed. Do you need to add it to Bundler?"
-  end
-
   # http://github.com/michaeldv/awesome_print
   #
   begin
