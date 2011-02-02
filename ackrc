@@ -1,2 +1,3 @@
 --ignore-dir=rails
 --type-set=haml=.haml
+--type-set=sass=.sass
