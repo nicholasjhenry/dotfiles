@@ -41,8 +41,27 @@ alias svndeleteall='svn status | grep "^\!" | awk "{print \$2}" | xargs svn rm' 
 # Rails
 #*****************************************************************************
 
-alias ss='script/server'
-alias sc='script/console'
+function ss {
+  if [ -e script/rails ]; then
+    script/rails server $@
+  else
+    script/server $@
+  fi
+}
+function sc {
+  if [ -e script/rails ]; then
+    script/rails console $@
+  else
+    script/console $@
+  fi
+}
+function sg {
+  if [ -e script/rails ]; then
+    script/rails generate $@
+  else
+    script/generate $@
+  fi
+}
 
 # rails-test-serving
 # must have the following setup in test_helper.rb
