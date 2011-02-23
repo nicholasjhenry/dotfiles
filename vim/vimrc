@@ -58,6 +58,9 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('*C
 " Or use vividchalk
 colorscheme ir_black
 
+" Leader
+let mapleader = ","
+
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
