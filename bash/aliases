@@ -72,6 +72,16 @@ function sg {
 export RUBYLIB=".:test:$RUBYLIB" 
 alias ts="ruby test/test_helper.rb --serve"
 
+
+#*****************************************************************************
+# Rails application size
+# http://gilesbowkett.blogspot.com/2011/03/use-wc-l-for-quick-overviews-of-new.html
+#*****************************************************************************
+
+alias size-models="for MODEL in `ls app/models/`; do echo $MODEL; wc -l app/models/$MODEL; done"
+alias size-controllers="for CONTROLLER in `ls app/controllers/`; do echo $CONTROLLER; wc -l app/controllers/$CONTROLLER; done"
+alias size-views="for VIEW_DIR in `ls app/views/`; do for VIEW in `ls app/views/$VIEW_DIR`; do echo $VIEW_DIR $VIEW; wc -l app/views/$VIEW_DIR/$VIEW ; done; done"
+
 #*****************************************************************************
 # RSpec
 #*****************************************************************************
