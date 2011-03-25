@@ -36,5 +36,11 @@ unless defined? ETC_IRBRC_LOADED
     puts "Gem hirb not installed. Do you need to add it to Bundler?"
   end
 
+  begin
+    require 'interactive_editor'
+  rescue LoadError
+    puts "Gem interactive_editor not installed. Do you need to add it to Bundler?"
+  end
+
   ETC_IRBRC_LOADED=true
 end
