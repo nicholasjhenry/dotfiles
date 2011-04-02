@@ -100,6 +100,10 @@ vmap <Leader>ar :Tabularize /=><CR>
 nmap <Leader>ac :Tabularize /:\zs<CR>
 vmap <Leader>ac :Tabularize /:\zs<CR>
 
+" FuzzyFinder mappings
+
+map <Leader>FF :ruby finder.rescan!<ENTER>    "Refresh finder
+
 function! s:ExecuteInShell(command, bang)
   let _ = a:bang != '' ? s:_ : a:command == '' ? '' : join(map(split(a:command), 'expand(v:val)'))
 
