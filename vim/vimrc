@@ -56,7 +56,8 @@ set grepprg=ack                   " Use Ack instead of grep
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " Or use vividchalk
-colorscheme ir_black
+let g:solarized_termcolors = 16
+colorscheme solarized
 
 " Leader
 let mapleader = ","
