@@ -5,6 +5,12 @@ function parse_git_branch {
   echo " ("${ref#refs/heads/}")" 
 }
 
+# http://muffinresearch.co.uk/archives/2007/09/25/showing-last-two-directories-of-pwd-in-bash-prompt/#comment-63630
+function PWD {
+  tmp=${PWD%/*/*};
+  [ ${#tmp} -gt 0 -a "$tmp" != "$PWD" ] && echo ${PWD:${#tmp}+1} || echo $PWD;
+}
+
 function bash_prompt {
 
   # regular colors
@@ -41,8 +47,7 @@ function bash_prompt {
   local UC=$W                 # user's color
   [ $UID -eq "0" ] && UC=$R   # root's color
 
-  PS1="\h:\w$Y\$(parse_git_branch) $R\$(~/.rvm/bin/rvm-prompt) $DEFAULT $ "
-
+  PS1="♣ \$(PWD 3)$Y\$(parse_git_branch) $R\$(~/.rvm/bin/rvm-prompt)$DEFAULT $ "
 }
 
 bash_prompt
