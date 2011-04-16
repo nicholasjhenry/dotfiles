@@ -102,8 +102,10 @@ nmap <Leader>ac :Tabularize /:\zs<CR>
 vmap <Leader>ac :Tabularize /:\zs<CR>
 
 " FuzzyFinder mappings
-
 map <Leader>FF :ruby finder.rescan!<ENTER>    "Refresh finder
+
+" Command-T
+let g:CommandTMaxHeight = 10
 
 function! s:ExecuteInShell(command, bang)
   let _ = a:bang != '' ? s:_ : a:command == '' ? '' : join(map(split(a:command), 'expand(v:val)'))
