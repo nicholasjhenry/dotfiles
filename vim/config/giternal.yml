@@ -14,6 +14,10 @@ tabular:
   repo: git://github.com/godlygeek/tabular.git
   path: plugin
 
+vim-coffee-script:
+  repo: git://github.com/kchmck/vim-coffee-script.git
+  path: bundle
+
 vim-cucumber:
   repo: git://github.com/tpope/vim-cucumber.git
   path: bundle
