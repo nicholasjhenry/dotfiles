@@ -96,6 +96,9 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
