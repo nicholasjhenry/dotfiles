@@ -123,6 +123,7 @@ alias edit-rails='mate app/ README config/ db/ lib/ public/robots.txt public/jav
 #*****************************************************************************
 
 alias flushcache='dscacheutil -flushcache'
+alias r='source .rvmrc'
 alias xs='xrefresh-server'
 alias dus='du -skh' # as in disk usage summary
 alias wtf='mate ~/Source/dotfiles/bash/aliases'
