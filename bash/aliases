@@ -9,8 +9,8 @@ alias be='bundle exec'
 # Cucumber
 #*****************************************************************************
 
-alias autocuke='rstakeout "rake cucumber" "features/**/*"'
-alias autocuke-wip='rstakeout "rake cucumber:wip" "features/**/*"'
+alias autocuke='rstakeout "bundle exec rake cucumber" "features/**/*"'
+alias autocuke-wip='rstakeout "bundle exec rake cucumber:wip" "features/**/*"'
 
 #*****************************************************************************
 # Git
