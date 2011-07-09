@@ -18,3 +18,4 @@ bundle/tabular
 plugin/tabular
 bundle/vim-unimpaired
 bundle/vim-coffee-script
+bundle/vim-colors-solarized
