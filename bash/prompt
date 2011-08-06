@@ -1,7 +1,7 @@
 # Colours and help from: http://tammersaleh.com/posts/a-better-rvm-bash-prompt 
 
 function parse_git_branch {
-  ref=$(/usr/local/libexec/git-core/git-symbolic-ref HEAD 2> /dev/null) || return
+  ref=$(/usr/local/Cellar/git/1.7.6/libexec/git-core/git-symbolic-ref HEAD 2> /dev/null) || return
   echo " ("${ref#refs/heads/}")" 
 }
 
