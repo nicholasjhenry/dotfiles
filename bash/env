@@ -1,4 +1,4 @@
-export PATH="/opt/local/bin:/opt/local/sbin:/opt/subversion/bin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/mysql/bin:$HOME/Source/bin:$HOME"
+export PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$HOME/Source/bin:$HOME"
 
 export EDITOR='/usr/bin/mate_wait'
 
