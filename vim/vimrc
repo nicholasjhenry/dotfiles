@@ -119,6 +119,9 @@ let g:CommandTMaxHeight = 10
 map <Leader>T :CommandTFlush<CR>:CommandT<CR>
 map <Leader>t :CommandT<CR>
 
+" Save file with Sudo
+cmap w!! w !sudo tee % >/dev/null
+
 function! s:ExecuteInShell(command, bang)
   let _ = a:bang != '' ? s:_ : a:command == '' ? '' : join(map(split(a:command), 'expand(v:val)'))
 
