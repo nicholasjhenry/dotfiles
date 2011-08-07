@@ -1,8 +1,8 @@
-# Colours and help from: http://tammersaleh.com/posts/a-better-rvm-bash-prompt 
+# Colours and help from: http://tammersaleh.com/posts/a-better-rvm-bash-prompt
 
 function parse_git_branch {
   ref=$(/usr/local/Cellar/git/1.7.6/libexec/git-core/git-symbolic-ref HEAD 2> /dev/null) || return
-  echo " ("${ref#refs/heads/}")" 
+  echo " ("${ref#refs/heads/}")"
 }
 
 # http://muffinresearch.co.uk/archives/2007/09/25/showing-last-two-directories-of-pwd-in-bash-prompt/#comment-63630
@@ -47,7 +47,7 @@ function bash_prompt {
   local UC=$W                 # user's color
   [ $UID -eq "0" ] && UC=$R   # root's color
 
-  PS1="♣ \$(PWD 3)$Y\$(parse_git_branch) $R\$(~/.rvm/bin/rvm-prompt)$DEFAULT $ "
+  PS1="♣ \$(PWD 3)$Y\$(parse_git_branch) $R\$(~/.rvm/bin/rvm-prompt)$DEFAULT \n$ "
 }
 
 bash_prompt
