@@ -52,6 +52,8 @@ set listchars=tab:▸\ ,eol:¬,trail:. " Use the same symbols as TextMate for ta
 
 set grepprg=ack                   " Use Ack instead of grep
 
+set pastetoggle=<F2>
+
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
