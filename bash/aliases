@@ -70,7 +70,7 @@ function sg {
 # require 'rails_test_serving'
 # RailsTestServing.boot
 
-export RUBYLIB=".:test:$RUBYLIB" 
+export RUBYLIB=".:test:$RUBYLIB"
 alias ts="ruby test/test_helper.rb --serve"
 
 
@@ -110,6 +110,12 @@ alias etar='tar -zxvf' # archive_name.tar.gz (-C /tmp/extract_here/)
 alias ts='terminitor start'
 
 #*****************************************************************************
+# Development
+#*****************************************************************************
+
+alias memcache-start='memcached -vv'
+
+#*****************************************************************************
 # Text Mate Shortcuts
 #*****************************************************************************
 
@@ -135,5 +141,3 @@ alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 
 alias cds='cd ~/Source/apps'
 alias cdd="cd ~/Source/dotfiles/"
-
-
