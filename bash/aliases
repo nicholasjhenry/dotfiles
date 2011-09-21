@@ -97,6 +97,13 @@ alias size-views='for VIEW_DIR in `ls app/views/`; do for VIEW in `ls app/views/
 alias specdoc='spec spec/ --format specdoc'
 
 #*****************************************************************************
+# RVM
+#*****************************************************************************
+
+alias rgu="rvm gemset use"
+alias r='source .rvmrc'
+
+#*****************************************************************************
 # StaticMatic
 #*****************************************************************************
 
@@ -136,7 +143,6 @@ alias edit-rails='mate app/ README config/ db/ lib/ public/robots.txt public/jav
 #*****************************************************************************
 
 alias flushcache='dscacheutil -flushcache'
-alias r='source .rvmrc'
 alias xs='xrefresh-server'
 alias dus='du -skh' # as in disk usage summary
 alias wtf='mate ~/Source/dotfiles/bash/aliases'
