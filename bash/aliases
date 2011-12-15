@@ -147,6 +147,8 @@ alias xs='xrefresh-server'
 alias dus='du -skh' # as in disk usage summary
 alias wtf='mate ~/Source/dotfiles/bash/aliases'
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias myip="ifconfig | grep inet"
+alias exip="curl whatismyip.org"
 
 #*****************************************************************************
 # Shortcuts
