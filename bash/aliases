@@ -33,6 +33,11 @@ alias git-remove='git ls-files --deleted | xargs git rm'
 
 alias heroku-which-rev='heroku console "ENV[\\'COMMIT_HASH\\']"'
 
+# Usage: heroku-s3-mirror --remote staging
+function heroku-s3-mirror () {
+  export `heroku config \$@ | grep S3_ | sed -e "s/ //g" -e "s/>//g" | tr "\\n" " "`
+}
+
 # http://devcenter.heroku.com/articles/pgbackups
 #
 alias heroku-db-capture='heroku pgbackups:capture'
