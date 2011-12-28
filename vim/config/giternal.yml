@@ -73,3 +73,7 @@ vim-ruby-refactoring:
 vim-unimpaired:
   repo: git://github.com/tpope/vim-unimpaired.git
   path: bundle
+
+vim-zencoding:
+  repo: http://github.com/mattn/zencoding-vim.git
+  path: bundle

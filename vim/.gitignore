@@ -19,3 +19,5 @@ plugin/tabular
 bundle/vim-unimpaired
 bundle/vim-coffee-script
 bundle/vim-colors-solarized
+
+bundle/vim-zencoding
