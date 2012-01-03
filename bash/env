@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$HOME/Source/dotfiles/bin:$HOME/Source/bin:$HOME"
+export PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$HOME/Source/dotfiles/bin:$HOME/Source/bin:/usr/local/lib/node_modules:$HOME"
 
 export EDITOR='/usr/bin/mate_wait'
 
