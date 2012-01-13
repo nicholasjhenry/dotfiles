@@ -164,6 +164,7 @@ alias wtf='mate ~/Source/dotfiles/bash/aliases'
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias myip="ifconfig | grep inet"
 alias exip="curl whatismyip.org"
+alias tmux="TERM=screen-256color-bce tmux"
 
 #*****************************************************************************
 # Shortcuts
