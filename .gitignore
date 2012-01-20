@@ -4,3 +4,4 @@ vim/.netrwhist
 *.swp
 *.swo
 vim/tmp/*.*
+tmux*.log
