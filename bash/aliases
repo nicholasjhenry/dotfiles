@@ -17,9 +17,9 @@ alias autocuke-wip='rstakeout "bundle exec rake cucumber:wip" "features/**/*"'
 #*****************************************************************************
 
 alias gst='git status'
-alias gl='git pull'
-alias gp='git push'
-alias gd='git diff | mate'
+alias gp='git smart-pull'
+alias gl='git smart-log'
+alias gm='git smart-merge'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gb='git branch'
