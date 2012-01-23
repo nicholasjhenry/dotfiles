@@ -48,6 +48,11 @@ function heroku-db-download () {
   pg_restore --verbose --clean --no-acl --no-owner -U root -d $3 /tmp/heroku_db.dump
 }
 
+# Copy production database to staging
+function heroku-db-p2s () {
+  heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging
+}
+
 #*****************************************************************************
 # SVN
 #*****************************************************************************
