@@ -125,6 +125,14 @@ let g:CommandTMaxHeight = 10
 map <Leader>T :CommandTFlush<CR>:CommandT<CR>
 map <Leader>t :CommandT<CR>
 
+" Command-T and Tmux
+" https://wincent.com/blog/tweaking-command-t-and-vim-for-use-in-the-terminal-and-tmux
+if &term =~ "xterm" || &term =~ "screen"
+  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
+  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
+endif
+
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
