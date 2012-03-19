@@ -91,16 +91,6 @@ function sg {
   fi
 }
 
-# rails-test-serving
-# must have the following setup in test_helper.rb
-# require 'rubygems'
-# require 'rails_test_serving'
-# RailsTestServing.boot
-
-export RUBYLIB=".:test:$RUBYLIB"
-alias ts="ruby test/test_helper.rb --serve"
-
-
 #*****************************************************************************
 # Rails application size
 # http://gilesbowkett.blogspot.com/2011/03/use-wc-l-for-quick-overviews-of-new.html
