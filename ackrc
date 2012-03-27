@@ -1,4 +1,5 @@
 --ignore-dir=rails
+--ignore-dir=doc
 --type-set=haml=.haml
 --type-set=sass=.sass
 --type-set=bin=.pdf
