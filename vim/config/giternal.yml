@@ -82,6 +82,10 @@ vim-turbux:
   repo: git://github.com/jgdavey/vim-turbux.git
   path: bundle
 
+vim-vitality:
+  repo: git://github.com/sjl/vitality.vim.git
+  path: bundle
+
 vim-zencoding:
   repo: http://github.com/mattn/zencoding-vim.git
   path: bundle

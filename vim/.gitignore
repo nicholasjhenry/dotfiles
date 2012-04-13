@@ -25,3 +25,5 @@ bundle/vim-zencoding
 bundle/tslime.vim
 
 bundle/vim-turbux
+
+bundle/vim-vitality
