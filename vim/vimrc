@@ -221,3 +221,9 @@ let g:no_turbux_mappings = 'no'
 
 nmap <leader>r <Plug>SendTestToTmux
 nmap <leader>R <Plug>SendFocusedTestToTmux
+
+" Open files in directory of current file
+" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
