@@ -46,6 +46,10 @@ vim-git:
   repo: git://github.com/tpope/vim-fugitive.git
   path: bundle
 
+vim-markdown:
+  repo: git://github.com/tpope/vim-markdown.git
+  path: bundle
+
 vim-ragtag:
   repo: git://github.com/tpope/vim-ragtag.git
   path: bundle

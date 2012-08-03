@@ -31,3 +31,5 @@ bundle/vim-vitality
 bundle/vim-smartquotes
 
 bundle/command-t
+
+bundle/vim-markdown
