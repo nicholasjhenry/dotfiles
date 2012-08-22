@@ -22,6 +22,10 @@ tabular:
   repo: git://github.com/godlygeek/tabular.git
   path: plugin
 
+vim-clojure:
+  repo: git://github.com/vim-scripts/VimClojure.git
+  path: bundle
+
 vim-coffee-script:
   repo: git://github.com/kchmck/vim-coffee-script.git
   path: bundle
