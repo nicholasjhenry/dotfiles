@@ -229,3 +229,8 @@ nmap <leader>R <Plug>SendFocusedTestToTmux
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
+
+" Prevent <F24> <F25> showing up when I Command-Tab in command mode
+"
+cnoremap <f24> <nop>
+cnoremap <f25> <nop>
