@@ -1,0 +1,5 @@
+# Replicate a the database locally
+heroku-db-download --app your-app my_postgres_db
+
+# Replicate the production database to staging
+heroku-db-p2s

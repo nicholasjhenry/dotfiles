@@ -1,0 +1,17 @@
+To replace an existing SSL certificate, just copy it into the .crt file (backup the old first)
+
+    /etc/httpd/conf/ssl.crt/[application/host].crt
+
+Create a new CSR based on an existing key
+
+    sudo openssl req -new -key ssl.key/your_cert.key -out server.csr
+
+Installing SSL Certificate
+
+Get the following message?
+
+  SSLCertificateFile: file '/etc/httpd/conf/ssl.crt/your_certificate.crt' does not exist or is empty
+
+Check the read permissions on the file:
+
+  sudo chmod +r your_certificate.crt

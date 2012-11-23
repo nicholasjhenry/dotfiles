@@ -1,0 +1,10 @@
+Adding a Syntax Highlighter to Blogger
+
+    <link href='http://syntax.firsthand.ca/stylesheets/SyntaxHighlighter.css' rel='stylesheet' type='text/css'/>
+    <script src='http://syntax.firsthand.ca/javascripts/shCore.js' type='text/javascript'/>
+    <script src='http://syntax.firsthand.ca/javascripts/shBrushRuby.js' type='text/javascript'/>
+
+    <script language='javascript'>
+      dp.SyntaxHighlighter.BloggerMode();
+      dp.SyntaxHighlighter.HighlightAll('code');
+    </script>

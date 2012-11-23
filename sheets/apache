@@ -1,0 +1,10 @@
+Redirect a page:
+
+   redirect 301 /old-page.html http://www.domainname.com/new-page.html
+
+How to add a password:
+
+    htpasswd -c .htpasswd joesmith
+    New pssword:
+    Re-type new password:
+    Adding password for user joesmit

@@ -1,0 +1,7 @@
+# Add root password to my.cnf
+
+    # cat /root/my.cnf
+    [client]
+    password=secret
+
+You can chmod this file 600 so only root can read it.
