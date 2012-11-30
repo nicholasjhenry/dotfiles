@@ -28,32 +28,6 @@ alias gba='git branch -a'
 alias git-remove='git ls-files --deleted | xargs git rm'
 
 #*****************************************************************************
-# Heroku
-#*****************************************************************************
-
-alias heroku-which-rev='heroku console "ENV[\\'COMMIT_HASH\\']"'
-
-# Usage: heroku-s3-mirror --remote staging
-function heroku-s3-mirror () {
-  export `heroku config \$@ | grep S3_ | sed -e "s/ //g" -e "s/>//g" | tr "\\n" " "`
-}
-
-# http://devcenter.heroku.com/articles/pgbackups
-#
-alias heroku-db-capture='heroku pgbackups:capture'
-
-# Usage: heroku-db-download --app your-app my_postgres_db
-function heroku-db-download () {
-  curl -o /tmp/heroku_db.dump `heroku pgbackups:url $1 $2` &&
-  pg_restore --verbose --clean --no-acl --no-owner -U root -d $3 /tmp/heroku_db.dump
-}
-
-# Copy production database to staging
-function heroku-db-p2s () {
-  heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging
-}
-
-#*****************************************************************************
 # SVN
 #*****************************************************************************
 
