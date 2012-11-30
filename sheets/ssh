@@ -1,7 +1,0 @@
-# Concat a SSH key to authorized keys
-
-    cat id_rsa_desktop.pub >> ~/.ssh/authorized_keys
-
-or remotely:
-
-    cat .ssh/id_rsa.pub | ssh deploy@deployment.peepcode.com "cat >> .ssh/authorized_keys"

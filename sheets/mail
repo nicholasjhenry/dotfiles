@@ -1,1 +1,0 @@
-# mail -v nicholas@example.com < /dev/null # mail -s "subject" nicholas@example.com < /dev/null
