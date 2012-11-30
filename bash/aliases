@@ -77,7 +77,7 @@ alias memcache-start='memcached -vv'
 alias myip="ifconfig | grep inet"
 alias tmux="TERM=screen-256color-bce tmux"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias wtf='mate ~/Source/dotfiles/bash/aliases'
+alias wtf='vim ~/Source/dotfiles/bash/aliases'
 alias xs='xrefresh-server'
 
 #*****************************************************************************
