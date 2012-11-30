@@ -57,8 +57,9 @@ alias specdoc='spec spec/ --format specdoc'
 # RVM
 #*****************************************************************************
 
-alias rgu="rvm gemset use"
 alias r='source .rvmrc'
+alias rgu="rvm gemset use"
+alias rgob="$EDITOR ~/.rvm/gemsets/global.gems"
 
 #*****************************************************************************
 # Tar/Compress
