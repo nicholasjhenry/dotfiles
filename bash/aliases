@@ -102,15 +102,6 @@ alias ts='terminitor start'
 alias memcache-start='memcached -vv'
 
 #*****************************************************************************
-# Text Mate Shortcuts
-#*****************************************************************************
-
-alias edit-http='mate /etc/apache2'
-alias edit-dot='mate ~/Source/dotfiles/'
-alias edit-cheat='mate ~/Documents/My\ Documents/Firsthand/Assets/Cheat\ Sheets/'
-alias edit-rails='mate app/ README config/ db/ lib/ public/robots.txt public/javascripts public/stylesheets test/ spec/ features/ README.textile GemFile vendor/extensions'
-
-#*****************************************************************************
 # Other
 #*****************************************************************************
 
