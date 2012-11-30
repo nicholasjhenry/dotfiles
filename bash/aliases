@@ -13,21 +13,6 @@ alias autocuke='rstakeout "bundle exec rake cucumber" "features/**/*"'
 alias autocuke-wip='rstakeout "bundle exec rake cucumber:wip" "features/**/*"'
 
 #*****************************************************************************
-# Git
-#*****************************************************************************
-
-alias gst='git status'
-alias gp='git smart-pull'
-alias gl='git smart-log'
-alias gm='git smart-merge'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gb='git branch'
-alias gba='git branch -a'
-
-alias git-remove='git ls-files --deleted | xargs git rm'
-
-#*****************************************************************************
 # Rails
 #*****************************************************************************
 
