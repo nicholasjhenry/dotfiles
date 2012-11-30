@@ -28,18 +28,6 @@ alias gba='git branch -a'
 alias git-remove='git ls-files --deleted | xargs git rm'
 
 #*****************************************************************************
-# SVN
-#*****************************************************************************
-
-alias sup='svn up' # trust me 3 chars makes a different
-alias sst='svn st' # local file changes
-alias sstu='svn st -u' # remote repository changes
-alias scom='svn commit' # commit
-alias svnclear='find . -name .svn -print0 | xargs -0 rm -rf' # removes all .svn folders from directory recursively
-alias svnaddall='svn status | grep "^\?" | awk "{print \$2}" | xargs svn add' # adds all unadded files
-alias svndeleteall='svn status | grep "^\!" | awk "{print \$2}" | xargs svn rm' # deletes all missing files
-
-#*****************************************************************************
 # Rails
 #*****************************************************************************
 
