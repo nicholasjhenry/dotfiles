@@ -5,5 +5,6 @@
 
 source  /usr/local/etc/bash_completion.d/git-completion.bash
 
+. ~/Source/dotfiles/bash/completion/sheet
 . ~/Source/dotfiles/bash/sub
 . ~/Source/dotfiles/bash/rvm
