@@ -72,7 +72,6 @@ alias etar='tar -zxvf' # archive_name.tar.gz (-C /tmp/extract_here/)
 #*****************************************************************************
 
 alias dus='du -skh' # as in disk usage summary
-alias exip="curl whatismyip.org"
 alias flushcache='dscacheutil -flushcache'
 alias memcache-start='memcached -vv'
 alias myip="ifconfig | grep inet"
