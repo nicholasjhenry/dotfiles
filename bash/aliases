@@ -68,23 +68,18 @@ alias ctar='tar -zcvf' # archive_name.tar.gz directory_to_compress
 alias etar='tar -zxvf' # archive_name.tar.gz (-C /tmp/extract_here/)
 
 #*****************************************************************************
-# Development
-#*****************************************************************************
-
-alias memcache-start='memcached -vv'
-
-#*****************************************************************************
 # Other
 #*****************************************************************************
 
-alias flushcache='dscacheutil -flushcache'
-alias xs='xrefresh-server'
 alias dus='du -skh' # as in disk usage summary
-alias wtf='mate ~/Source/dotfiles/bash/aliases'
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias myip="ifconfig | grep inet"
 alias exip="curl whatismyip.org"
+alias flushcache='dscacheutil -flushcache'
+alias memcache-start='memcached -vv'
+alias myip="ifconfig | grep inet"
 alias tmux="TERM=screen-256color-bce tmux"
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias wtf='mate ~/Source/dotfiles/bash/aliases'
+alias xs='xrefresh-server'
 
 #*****************************************************************************
 # Shortcuts
