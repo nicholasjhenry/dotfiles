@@ -1,0 +1,1 @@
+eval "$($HOME/.dpt/bin/dpt init -)"
