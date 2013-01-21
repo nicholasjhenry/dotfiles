@@ -1,6 +1,7 @@
 --ignore-dir=rails
 --ignore-dir=doc
 --type-set=haml=.haml
+--type-set=rabl=.rabl
 --type-set=sass=.sass
 --type-set=bin=.pdf
 --type-set=feature=.feature
