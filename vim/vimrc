@@ -234,3 +234,6 @@ map <leader>v :view %%
 "
 cnoremap <f24> <nop>
 cnoremap <f25> <nop>
+
+" exit to normal mode with 'jj'
+inoremap jj <ESC>
