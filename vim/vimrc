@@ -221,8 +221,18 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " http://joshuadavey.com/post/15619414829/faster-tdd-feedback-with-tmux-tslime-vim-and
 let g:no_turbux_mappings = 'no'
 
+
 nmap <leader>r <Plug>SendTestToTmux
 nmap <leader>R <Plug>SendFocusedTestToTmux
+nmap <leader>g :call Run_all_specs()<cr>
+
+function! Run_all_specs()
+  if filereadable("./zeus.json")
+    return Send_to_Tmux("zeus rspec spec\n")
+  elseif
+    return Send_to_Tmux("rspec spec\n")
+  endif
+endfunction
 
 " Open files in directory of current file
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
