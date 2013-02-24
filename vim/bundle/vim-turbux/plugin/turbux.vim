@@ -20,10 +20,10 @@ function! s:turbux_command_setting(name, default_value)
   endif
 endfunction
 
-call s:turbux_command_setting("rspec_with_zeus", "zeus rspec")
+call s:turbux_command_setting("rspec_with_zeus", "zeus rspec --format documentation")
 call s:turbux_command_setting("cucumber_with_zeus", "zeus cucumber")
 
-call s:turbux_command_setting("rspec", "rspec")
+call s:turbux_command_setting("rspec", "rspec --format documentation")
 call s:turbux_command_setting("test_unit", "ruby -Itest")
 call s:turbux_command_setting("turnip", "rspec -rturnip")
 call s:turbux_command_setting("cucumber", "cucumber")
