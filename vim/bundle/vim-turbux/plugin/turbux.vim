@@ -53,13 +53,13 @@ function! s:gsub(str,pat,rep)
 endfunction
 
 function! s:prefix_for_test(file)
-  if filereadable("./zeus.json") && a:file =~# '_spec.rb$'
+  if filereadable("./.zeus.sock") && a:file =~# '_spec.rb$'
     return g:turbux_command_rspec_with_zeus
   elseif a:file =~# '_spec.rb$'
     return g:turbux_command_rspec
   elseif a:file =~# '\(\<test_.*\|_test\)\.rb$'
     return g:turbux_command_test_unit
-  elseif filereadable("./zeus.json") && a:file =~# '.feature$'
+  elseif filereadable("./.zeus.sock") && a:file =~# '.feature$'
     return g:turbux_command_cucumber_with_zeus
   elseif a:file =~# '.feature$'
     if a:file =~# '\<spec/'
