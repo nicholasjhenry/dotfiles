@@ -18,6 +18,10 @@ tslime.vim:
   repo: git://github.com/jgdavey/tslime.vim.git
   path: bundle
 
+adadfasdf
+adsfasdf
+adsfasdf
+
 tabular:
   repo: git://github.com/godlygeek/tabular.git
   path: plugin
@@ -48,6 +52,10 @@ vim-haml:
 
 vim-git:
   repo: git://github.com/tpope/vim-fugitive.git
+  path: bundle
+
+vim-gitgutter:
+  repo: git://github.com/airblade/vim-gitgutter.git
   path: bundle
 
 vim-markdown:
