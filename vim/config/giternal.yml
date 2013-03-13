@@ -18,10 +18,6 @@ tslime.vim:
   repo: git://github.com/jgdavey/tslime.vim.git
   path: bundle
 
-adadfasdf
-adsfasdf
-adsfasdf
-
 tabular:
   repo: git://github.com/godlygeek/tabular.git
   path: plugin
@@ -92,6 +88,10 @@ vim-makegreen:
 
 vim-rails:
   repo: git://github.com/tpope/vim-rails.git
+  path: bundle
+
+vim-ruby:
+  repo: git://github.com/t9md/vim-ruby-xmpfilter.git
   path: bundle
 
 vim-ruby-refactoring:
