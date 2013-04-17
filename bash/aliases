@@ -73,3 +73,12 @@ alias wtf='cat ~/Source/dotfiles/bash/aliases'
 
 alias cds='cd ~/Source/apps'
 alias cdd="cd ~/Source/dotfiles/"
+alias b="boom open"
+
+#*****************************************************************************
+# Git
+#*****************************************************************************
+
+alias g="git"
+alias ga="git add . -p"
+
