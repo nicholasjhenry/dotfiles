@@ -6,13 +6,6 @@ alias bi='bundle install --without production'
 alias be='bundle exec'
 
 #*****************************************************************************
-# Cucumber
-#*****************************************************************************
-
-alias autocuke='rstakeout "bundle exec rake cucumber" "features/**/*"'
-alias autocuke-wip='rstakeout "bundle exec rake cucumber:wip" "features/**/*"'
-
-#*****************************************************************************
 # Rails
 #*****************************************************************************
 
@@ -46,13 +39,6 @@ function sg {
 alias size-models='for MODEL in `ls app/models/`; do echo $MODEL; wc -l app/models/$MODEL; done'
 alias size-controllers='for CONTROLLER in `ls app/controllers/`; do echo $CONTROLLER; wc -l app/controllers/$CONTROLLER; done'
 alias size-views='for VIEW_DIR in `ls app/views/`; do for VIEW in `ls app/views/$VIEW_DIR`; do echo $VIEW_DIR $VIEW; wc -l app/views/$VIEW_DIR/$VIEW ; done; done'
-
-#*****************************************************************************
-# RSpec
-#*****************************************************************************
-
-alias r='bundle exec rspec spec/'
-alias specdoc='spec spec/ --format specdoc'
 
 #*****************************************************************************
 # RVM
