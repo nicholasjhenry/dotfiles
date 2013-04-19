@@ -37,3 +37,5 @@ bundle/vim-markdown
 bundle/vim-clojure
 
 bundle/vim-gitgutter
+
+bundle/vim-bundler
