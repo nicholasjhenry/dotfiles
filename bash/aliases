@@ -82,3 +82,10 @@ alias b="boom open"
 alias g="git"
 alias ga="git add . -p"
 
+#*****************************************************************************
+# Heroku
+#*****************************************************************************
+
+alias prod='heroku -r production'
+alias stag='heroku -r staging'
+
