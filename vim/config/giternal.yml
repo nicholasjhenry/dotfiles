@@ -2,8 +2,8 @@ ack:
   repo: git://github.com/mileszs/ack.vim.git
   path: bundle
 
-command-t:
-  repo: git://git.wincent.com/command-t.git
+ctrlp.vim:
+  repo:  git://github.com/kien/ctrlp.vim.git
   path: bundle
 
 match-it:

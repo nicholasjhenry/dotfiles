@@ -122,21 +122,10 @@ vmap <Leader>ar :Tabularize /=><CR>
 nmap <Leader>ac :Tabularize /:\zs<CR>
 vmap <Leader>ac :Tabularize /:\zs<CR>
 
-" FuzzyFinder mappings
-map <Leader>FF :ruby finder.rescan!<ENTER>    "Refresh finder
+" ctrlp.vim
 
-" Command-T
-let g:CommandTMaxHeight = 10
-map <Leader>T :CommandTFlush<CR>:CommandT<CR>
-map <Leader>t :CommandT<CR>
-
-" Command-T and Tmux
-" https://wincent.com/blog/tweaking-command-t-and-vim-for-use-in-the-terminal-and-tmux
-if &term =~ "xterm" || &term =~ "screen"
-  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
-  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
-  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
-endif
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<leader>t'
 
 " Easy window navigation
 map <C-h> <C-w>h
