@@ -91,3 +91,9 @@ eval "$(hub alias -s)"
 alias prod='heroku -r production'
 alias stag='heroku -r staging'
 
+#*****************************************************************************
+# Zeus
+#*****************************************************************************
+#
+alias zc='zeus cucumber features'
+alias zr='zeus rspec spec'
