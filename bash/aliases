@@ -96,4 +96,5 @@ alias stag='heroku -r staging'
 #*****************************************************************************
 #
 alias zc='zeus cucumber features'
-alias zr='zeus rspec spec'
+alias zs='zeus rspec spec'
+alias zr='zeus rake'
