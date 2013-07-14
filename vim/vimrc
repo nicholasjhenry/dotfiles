@@ -247,10 +247,10 @@ highlight clear SignColumn
 
 " Set mappings for xmpfilter
 
-nmap <buffer> <F5> <Plug>(xmpfilter-run)
-xmap <buffer> <F5> <Plug>(xmpfilter-run)
-imap <buffer> <F5> <Plug>(xmpfilter-run)
+nmap <buffer> <F7> <Plug>(xmpfilter-run)
+xmap <buffer> <F7> <Plug>(xmpfilter-run)
+imap <buffer> <F7> <Plug>(xmpfilter-run)
 
-nmap <buffer> <F4> <Plug>(xmpfilter-mark)
-xmap <buffer> <F4> <Plug>(xmpfilter-mark)
-imap <buffer> <F4> <Plug>(xmpfilter-mark)
+nmap <buffer> <F6> <Plug>(xmpfilter-mark)
+xmap <buffer> <F6> <Plug>(xmpfilter-mark)
+imap <buffer> <F6> <Plug>(xmpfilter-mark)
