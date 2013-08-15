@@ -41,3 +41,5 @@ bundle/vim-gitgutter
 bundle/vim-bundler
 
 bundle/ctrlp.vim
+
+bundle/vim-repeat

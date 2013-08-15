@@ -94,6 +94,10 @@ vim-rails:
   repo: git://github.com/tpope/vim-rails.git
   path: bundle
 
+vim-repeat:
+  repo: git://github.com/tpope/vim-repeat.git
+  path: bundle
+
 vim-ruby:
   repo: git://github.com/t9md/vim-ruby-xmpfilter.git
   path: bundle
