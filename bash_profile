@@ -6,3 +6,4 @@
 . ~/Source/dotfiles/bash/sub
 . ~/Source/dotfiles/bash/rvm
 . ~/Source/dotfiles/bash/hitch
+. ~/Source/dotfiles/bash/brew
