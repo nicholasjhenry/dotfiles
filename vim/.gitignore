@@ -28,8 +28,6 @@ bundle/vim-turbux
 
 bundle/vim-vitality
 
-bundle/vim-smartquotes
-
 bundle/command-t
 
 bundle/vim-markdown
@@ -43,3 +41,5 @@ bundle/vim-bundler
 bundle/ctrlp.vim
 
 bundle/vim-repeat
+
+bundle/vim-smartinput
