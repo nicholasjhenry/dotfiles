@@ -4,7 +4,7 @@
 . ~/Source/dotfiles/bash/aliases
 . ~/Source/dotfiles/bash/completion/sheet
 . ~/Source/dotfiles/bash/sub
-. ~/Source/dotfiles/bash/rvm
 . ~/Source/dotfiles/bash/hitch
 . ~/Source/dotfiles/bash/brew
 . ~/Source/dotfiles/bash/heroku
+. ~/Source/dotfiles/bash/rvm
