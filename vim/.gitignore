@@ -24,3 +24,7 @@ bundle/vim-turbux
 bundle/vim-unimpaired
 bundle/vim-vitality
 plugin/tabular
+
+bundle/tcomment
+
+bundle/vim-elixir

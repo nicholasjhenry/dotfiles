@@ -48,6 +48,10 @@ vim-cucumber:
   repo: git://github.com/tpope/vim-cucumber.git
   path: bundle
 
+vim-elixir:
+  repo: git@github.com:elixir-lang/vim-elixir.git
+  path: bundle
+
 vim-endwise:
   # Wisely add "end" in ruby, endfunction/endif/more in vim script
   repo: git://github.com/tpope/vim-endwise.git
