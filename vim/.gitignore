@@ -30,3 +30,5 @@ bundle/tcomment
 bundle/vim-elixir
 
 bundle/vim-ruby-xmpfilter
+
+bundle/vim-rubocop

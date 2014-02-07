@@ -116,6 +116,10 @@ vim-repeat:
   repo: git://github.com/tpope/vim-repeat.git
   path: bundle
 
+vim-rubocop:
+  repo: git@github.com:ngmy/vim-rubocop.git
+  path: bundle
+
 vim-ruby:
   repo: git@github.com:vim-ruby/vim-ruby.git
   path: bundle
