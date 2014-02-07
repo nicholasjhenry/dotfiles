@@ -117,8 +117,7 @@ vim-repeat:
   path: bundle
 
 vim-ruby:
-  # Vim/Ruby Configuration Files
-  repo: git://github.com/t9md/vim-ruby-xmpfilter.git
+  repo: git@github.com:vim-ruby/vim-ruby.git
   path: bundle
 
 vim-ruby-refactoring:
@@ -139,4 +138,8 @@ vim-turbux:
 vim-vitality:
   # Make Vim play nicely with iTerm 2 and tmux.
   repo: git://github.com/sjl/vitality.vim.git
+  path: bundle
+
+vim-ruby-xmpfilter:
+  repo: git://github.com/t9md/vim-ruby-xmpfilter.git
   path: bundle

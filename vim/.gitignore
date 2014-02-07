@@ -28,3 +28,5 @@ plugin/tabular
 bundle/tcomment
 
 bundle/vim-elixir
+
+bundle/vim-ruby-xmpfilter
