@@ -1,6 +1,8 @@
 bundle/ack
 bundle/ctrlp.vim
 bundle/match-it
+plugin/tabular
+bundle/tcomment
 bundle/tslime.vim
 bundle/vim-bundler
 bundle/vim-clojure
@@ -23,12 +25,7 @@ bundle/vim-surrond
 bundle/vim-turbux
 bundle/vim-unimpaired
 bundle/vim-vitality
-plugin/tabular
-
-bundle/tcomment
-
 bundle/vim-elixir
-
 bundle/vim-ruby-xmpfilter
-
 bundle/vim-rubocop
+bundle/vim-vinegar

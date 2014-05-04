@@ -139,6 +139,11 @@ vim-turbux:
   repo: git://github.com/jgdavey/vim-turbux.git
   path: bundle
 
+vim-vinegar:
+  # Nice enhancements to Netrw
+  repo: git://github.com/tpope/vim-vinegar.git
+  path: bundle
+
 vim-vitality:
   # Make Vim play nicely with iTerm 2 and tmux.
   repo: git://github.com/sjl/vitality.vim.git
