@@ -31,3 +31,5 @@ bundle/vim-vinegar
 bundle/tcomment
 bundle/dash
 bundle/funcoo
+
+bundle/vim-rubocop
