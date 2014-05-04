@@ -254,3 +254,7 @@ imap <buffer> <F7> <Plug>(xmpfilter-run)
 nmap <buffer> <F6> <Plug>(xmpfilter-mark)
 xmap <buffer> <F6> <Plug>(xmpfilter-mark)
 imap <buffer> <F6> <Plug>(xmpfilter-mark)
+
+" Vim Dash
+"
+:nmap <silent> <leader>d <Plug>DashSearch
