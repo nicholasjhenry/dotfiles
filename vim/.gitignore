@@ -33,3 +33,5 @@ bundle/dash
 bundle/funcoo
 
 bundle/vim-rubocop
+
+bundle/vim-slim

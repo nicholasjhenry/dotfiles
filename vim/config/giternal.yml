@@ -140,6 +140,11 @@ vim-ruby-refactoring:
   repo: git://github.com/ecomba/vim-ruby-refactoring.git
   path: bundle
 
+vim-slim:
+  # Slim template highlighting
+  repo: git://github.com/slim-template/vim-slim.git
+  path: bundle
+
 vim-unimpaired:
   # Pairs of handy bracket mappings
   repo: git://github.com/tpope/vim-unimpaired.git
