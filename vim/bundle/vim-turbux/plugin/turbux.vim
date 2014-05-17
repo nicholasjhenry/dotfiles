@@ -23,6 +23,10 @@ endfunction
 call s:turbux_command_setting("rspec_with_zeus", "zeus rspec --format documentation")
 call s:turbux_command_setting("cucumber_with_zeus", "zeus cucumber")
 
+call s:turbux_command_setting("rspec_with_binstub", "bin/rspec --format documentation")
+
+call s:turbux_command_setting("rspec_with_spring", "spring rspec --format documentation")
+
 call s:turbux_command_setting("rspec", "rspec --format documentation")
 call s:turbux_command_setting("test_unit", "ruby -Itest")
 call s:turbux_command_setting("turnip", "rspec -rturnip")
@@ -55,6 +59,10 @@ endfunction
 function! s:prefix_for_test(file)
   if filereadable("./zeus.json") && a:file =~# '_spec.rb$'
     return g:turbux_command_rspec_with_zeus
+  elseif filereadable("./bin/rspec") && a:file =~# '_spec.rb$'
+    return g:turbux_command_rspec_with_binstub
+  elseif filereadable("./config/spring.rb") && a:file =~# '_spec.rb$'
+    return g:turbux_command_rspec_with_spring
   elseif a:file =~# '_spec.rb$'
     return g:turbux_command_rspec
   elseif a:file =~# '\(\<test_.*\|_test\)\.rb$'
@@ -148,9 +156,62 @@ function! s:find_test_name_in_quotes()
 endfunction
 "}}}1
 
+" Determines the root path for the test, spec or feature.
+function s:determine_test_root_path(file)
+  let executable = s:command_for_file(a:file)
+  let file_path = matchstr(executable, '\S*\.rb\|feature$')
+
+  if file_path =~# '_spec.rb$'
+    let paths = split(file_path, 'spec')
+  elseif file_path =~# '_test.rb$'
+    let paths = split(file_path, 'test')
+  elseif file_path =~# '.feature$'
+    let paths = split(file_path, 'features')
+  end
+
+  if len(paths) == 2
+    return ''
+  else
+    return paths[0]
+  endif
+endfunction
+
+" Builds a path to the original location based on a target path.
+" e.g. `path/to/here` will build this `./../../..`
+function s:build_original_path(target_path)
+  let path_list = ['.']
+  for i in split(a:target_path, '/')
+    let path_list += ['..']
+  endfor
+  return join(path_list, '/')
+endfunction
+
+" Building the executable command requires determining where the root test
+" path is. This customizes turbux to allow for specs/features that are not in
+" the root of the application. Useful when apps are modularized with engines.
+function s:build_executable(file, focus)
+  let test_root_path = s:determine_test_root_path(a:file)
+
+  if test_root_path != ''
+    cd `=test_root_path`
+  endif
+
+  let original_path = s:build_original_path(test_root_path)
+
+  " Ensure the right command is generated as it might require a straight
+  " spring statement over a bin/rspec call as an example. i.e; the host
+  " application is setup differently than the engine.
+  let executable = s:command_for_file(a:file)
+  cd `=original_path`
+
+  let relative_executable = substitute(executable, test_root_path, '', '')
+  return 'cd ./'.test_root_path.'; '.relative_executable.a:focus.'; cd '.original_path
+endfunction
+
 " Public functions {{{1
 function! SendTestToTmux(file) abort
-  let executable = s:command_for_file(a:file)
+  let executable = s:build_executable(a:file, '')
+
   if !empty(executable)
     let g:tmux_last_command = executable
   endif
@@ -170,7 +231,7 @@ function! SendFocusedTestToTmux(file, line) abort
   endif
 
   if !empty(s:prefix_for_test(a:file))
-    let executable = s:command_for_file(a:file).focus
+    let executable = s:build_executable(a:file, focus)
     let g:tmux_last_focused_command = executable
   elseif exists("g:tmux_last_focused_command") && !empty(g:tmux_last_focused_command)
     let executable = g:tmux_last_focused_command
