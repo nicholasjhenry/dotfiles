@@ -261,3 +261,16 @@ imap <buffer> <F6> <Plug>(xmpfilter-mark)
 " Vim Dash
 "
 :nmap <silent> <leader>d <Plug>DashSearch
+
+
+" Promote Variable to RSpec Let
+"
+function! PromoteToLet()
+  :normal! dd
+  " :exec '?^\s*it\>'
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr>
