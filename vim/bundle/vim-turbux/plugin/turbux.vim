@@ -30,7 +30,7 @@ call s:turbux_command_setting("rspec_with_spring", "spring rspec --format docume
 call s:turbux_command_setting("rspec", "rspec --format documentation")
 call s:turbux_command_setting("test_unit", "ruby -Itest")
 call s:turbux_command_setting("turnip", "rspec -rturnip")
-call s:turbux_command_setting("cucumber", "cucumber")
+call s:turbux_command_setting("cucumber", "bin/cucumber")
 call s:turbux_command_setting("prefix", "")
 " }}}1
 
@@ -159,17 +159,19 @@ endfunction
 " Determines the root path for the test, spec or feature.
 function s:determine_test_root_path(file)
   let executable = s:command_for_file(a:file)
-  let file_path = matchstr(executable, '\S*\.rb\|feature$')
+  let file_path = matchstr(executable, '\S*\.rb\|\S*\.feature$')
 
   if file_path =~# '_spec.rb$'
     let paths = split(file_path, 'spec')
   elseif file_path =~# '_test.rb$'
     let paths = split(file_path, 'test')
   elseif file_path =~# '.feature$'
-    let paths = split(file_path, 'features')
+    let paths = split(file_path, 'feature')
+  else
+    echo 'Warning: No match for:' . file_path
   end
 
-  if len(paths) == 2
+  if len(paths) < 3
     return ''
   else
     return paths[0]
