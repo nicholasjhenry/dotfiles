@@ -30,7 +30,7 @@ call s:turbux_command_setting("rspec_with_spring", "spring rspec --format docume
 call s:turbux_command_setting("rspec", "rspec --format documentation")
 call s:turbux_command_setting("test_unit", "ruby -Itest")
 call s:turbux_command_setting("turnip", "rspec -rturnip")
-call s:turbux_command_setting("cucumber", "bin/cucumber")
+call s:turbux_command_setting("cucumber", "bin/cucumber -r features")
 call s:turbux_command_setting("prefix", "")
 " }}}1
 
