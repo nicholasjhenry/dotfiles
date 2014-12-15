@@ -3,7 +3,6 @@
 . ~/Source/dotfiles/bash/env
 . ~/Source/dotfiles/bash/aliases
 . ~/Source/dotfiles/bash/completion/sheet
-. ~/Source/dotfiles/bash/sub
 . ~/Source/dotfiles/bash/hitch
 . ~/Source/dotfiles/bash/brew
 . ~/Source/dotfiles/bash/heroku
