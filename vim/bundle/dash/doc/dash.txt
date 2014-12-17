@@ -19,7 +19,6 @@ CONTENTS                                                      *DashContents*
     2.1 Commands .................. |DashCommands|
         2.1 :Dash[!] .............. |:Dash|
         2.2 :DashKeywords ......... |:DashKeywords|
-        2.2 :DashSettings ......... |:DashSettings|
     3. Mappings ................... |DashMappings|
         3.1 Key bindings .......... |DashKeyBindings|
     4. Configuration .............. |DashConfig|
@@ -37,8 +36,8 @@ Going back and forth from your editor to your browser, searching for some term
 in that tab for the API docs for the language/framework you are working with
 can be a real pain in the behind.
 
-Dash.app made things simpler by agreggating a bunch of documentation from
-diverse sources into a single database that was easily queriable, but you
+Dash.app made things simpler by aggregating a bunch of documentation from
+diverse sources into a single database that was easily queryable, but you
 still had to alternate to it, and paste/write the thing you were looking for.
 
 Having the docs for the word under the cursor, from inside Vim, is just
@@ -52,7 +51,7 @@ priceless. This is what this plugin is about.
 
 Searches for the given term in specific docsets or in all of them. A keyword
 is a specific setting configured in Dash.app's Preferences that associates
-either either to a docset or a profile to a group of docsets.
+either to a docset or a profile to a group of docsets.
 
 Usage:
     >
@@ -93,21 +92,13 @@ Examples:
     >
     :DashKeywords backbone underscore javascript
 <
-    Sets the prefered docsets for lookup for the current buffer, in the given
+    Sets the preferred docsets for lookup for the current buffer, in the given
     order. Any following usages of |:Dash| where the 2nd argument is not
     provided will use default to searching 'backbone's docset.
 
     Tip: If you have bound <Plug>DashSearch, as in the example below, hitting
     '2<Leader>d' will search the 2nd docset ('underscore') and '3<Leader>d'
     will search the 3rd docset ('javascript'), for this example.
-
-------------------------------------------------------------------------------
-2.3 :DashSettings                                              *:DashSettings*
-
-Shows a summary of the following settings in Dash.app:
-
-* List of profiles triggered by keyword search and the docsets searched in it.
-* List of docsets and keyword used to search inside it.
 
 ==============================================================================
 3. Mappings                                                     *DashMappings*
@@ -138,17 +129,44 @@ For example, add this to your |.vimrc|:
 
 Allows configuration of mappings between Vim filetypes and Dash's docsets.
 
+The variable must be a dictionary where the key is the Vim filetype you want 
+to associate and the value can be one of two kinds:
+
+List                       If the value associated with the key is a list, 
+                           than the default list of docsets used by the given 
+                           filetype is replaced by the one user defined.
+
+String                     If the value associated with the key is a simple 
+                           string, than the given docset is prepended on the 
+                           list of available docsets to the given filetype.
+
 Example:
+
+The default java docsets defined in dash.vim is this:
+>
+      ['java', 'javafx', 'grails', 'groovy', 'playjava', 'spring', 'cvj',
+       'processing', 'javadoc']
+<
+If you have this in your .vimrc:
 >
     let g:dash_map = {
-        \ 'ruby'       : 'rails',
-        \ 'python'     : 'python2',
-        \ 'javascript' : 'backbone'
+        \ 'java' : 'android'
         \ }
 <
-This setting will make searches in filetypes in the 1st column be directed to
-the docsets in the 2nd column in Dash, when they are not specified as the 2nd
-option to |:Dash| or used through the <Plug> mappings.
+The java docset will be:
+>
+      ['android', 'java', 'javafx', 'grails', 'groovy', 'playjava',
+       'spring', 'cvj', 'processing', 'javadoc']
+<
+Now if you don't want the extra docsets to be used when you're editing a java file, 
+You could have:
+>
+    let g:dash_map = {
+        \ 'java' : ['android', 'java']
+        \ }
+<
+This would make java files have only "Android" and "Java" docsets to search 
+on.
 
 ==============================================================================
 5. License                                                       *DashLicense*

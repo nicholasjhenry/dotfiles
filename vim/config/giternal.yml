@@ -13,11 +13,6 @@ dash:
   repo: https://github.com/rizzatti/dash.vim.git
   path: bundle
 
-funcoo:
-  # Dash dependency
-  repo: git://github.com/rizzatti/funcoo.vim.git
-  path: bundle
-
 match-it:
   # Allows you to configure % to match more than just single characters
   repo: git://github.com/tsaleh/vim-matchit.git

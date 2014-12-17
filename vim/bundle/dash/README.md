@@ -17,14 +17,13 @@ Read the [help][vim-doc] to know more.
 
 ### Using [Vundle][vundle]:
 
-Just add this 2 lines to your `~/.vimrc`:
+Just add this line to your `~/.vimrc`:
 
 ```vim
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
+Plugin 'rizzatti/dash.vim'
 ```
 
-And run `:BundleInstall` inside Vim.
+And run `:PluginInstall` inside Vim.
 
 ### Using [pathogen.vim][pathogen]:
 
@@ -32,18 +31,26 @@ Copy and paste in your shell:
 
 ```bash
 cd ~/.vim/bundle
-git clone https://github.com/rizzatti/funcoo.vim.git
 git clone https://github.com/rizzatti/dash.vim.git
 ```
 
 ### Using [vpm][vpm]:
 
-Run these two commands in your shell:
+Run this command in your shell:
 
 ```bash
-vpm insert rizzatti/funcoo.vim
 vpm insert rizzatti/dash.vim
 ```
+
+### Using [Plug][plug]:
+
+Just add this line to your `~/.vimrc` inside plug call:
+
+```vim
+Plug 'rizzatti/dash.vim'
+```
+
+And run `:PlugInstall` inside Vim or `vim +PlugInstall +qa` from shell.
 
 ## License
 
@@ -51,6 +58,7 @@ MIT
 
 [Dash]: http://kapeli.com/
 [pathogen]: https://github.com/tpope/vim-pathogen
-[vim-doc]: http://vim-doc.heroku.com/view?https://raw.github.com/rizzatti/dash.vim/master/doc/dash.txt
+[vim-doc]: http://vim-doc.heroku.com/view?https://raw.githubusercontent.com/rizzatti/dash.vim/master/doc/dash.txt
 [vpm]: https://github.com/KevinSjoberg/vpm
 [vundle]: https://github.com/gmarik/vundle
+[plug]: https://github.com/junegunn/vim-plug
