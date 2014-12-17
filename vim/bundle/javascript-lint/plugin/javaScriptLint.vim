@@ -1,12 +1,12 @@
 " File:         javascriptLint.vim
 " Author:       Joe Stelmach (joe@zenbe.com)
 " Version:      0.2
-" Description:  javascriptLint.vim allows the JavaScript Lint (jsl) program 
-"               from http://www.javascriptlint.com/ to be tightly integrated 
-"               with vim.  The contents of a javascript file will be passed 
-"               through the jsl program after the file's buffer is saved.  
-"               Any lint warnings will be placed in the quickfix window.  
-"               JavaScript Lint must be installed on your system for this 
+" Description:  javascriptLint.vim allows the JavaScript Lint (jsl) program
+"               from http://www.javascriptlint.com/ to be tightly integrated
+"               with vim.  The contents of a javascript file will be passed
+"               through the jsl program after the file's buffer is saved.
+"               Any lint warnings will be placed in the quickfix window.
+"               JavaScript Lint must be installed on your system for this
 "               plugin to work properly.  This page should get you started:
 "               http://www.javascriptlint.com/docs/index.htm
 " Last Modified: May 5, 2009
@@ -16,7 +16,7 @@ if !exists("jslint_command")
 endif
 
 if !exists("jslint_command_options")
-  let jslint_command_options = '-conf ~/Source/bin/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
+  let jslint_command_options = '-conf ~/Development/bin/jsl.conf -nofilelisting -nocontext -nosummary -nologo -process'
 endif
 
 if !exists("jslint_highlight_color")
@@ -27,9 +27,9 @@ endif
 autocmd BufWritePost,FileWritePost *.js call JavascriptLint()
 autocmd BufWinLeave * call s:MaybeClearCursorLineColor()
 
-" Runs the current file through javascript lint and 
+" Runs the current file through javascript lint and
 " opens a quickfix window with any warnings
-function JavascriptLint() 
+function JavascriptLint()
   " run javascript lint on the current file
   let current_file = shellescape(expand('%:p'))
   let cmd_output = system(g:jslint_command . ' ' . g:jslint_command_options . ' ' . current_file)
@@ -40,16 +40,16 @@ function JavascriptLint()
     " ensure proper error format
     let s:errorformat = "%f(%l):\%m^M"
 
-    " write quickfix errors to a temp file 
+    " write quickfix errors to a temp file
     let quickfix_tmpfile_name = tempname()
     exe "redir! > " . quickfix_tmpfile_name
       silent echon cmd_output
     redir END
 
-    " read in the errors temp file 
+    " read in the errors temp file
     execute "silent! cfile " . quickfix_tmpfile_name
 
-    " change the cursor line to something hard to miss 
+    " change the cursor line to something hard to miss
     call s:SetCursorLineColor()
 
     " open the quicfix window
@@ -61,7 +61,7 @@ function JavascriptLint()
 
   " if no javascript warnings are found, we revert the cursorline color
   " and close the quick fix window
-  else 
+  else
     call s:ClearCursorLineColor()
     if(exists("s:qfix_buffer"))
       cclose
@@ -70,17 +70,17 @@ function JavascriptLint()
   endif
 endfunction
 
-" sets the cursor line highlight color to the error highlight color 
-function s:SetCursorLineColor() 
+" sets the cursor line highlight color to the error highlight color
+function s:SetCursorLineColor()
   " check for disabled cursor line
-  if(!exists("g:jslint_highlight_color") || strlen(g:jslint_highlight_color) == 0) 
-    return 
+  if(!exists("g:jslint_highlight_color") || strlen(g:jslint_highlight_color) == 0)
+    return
   endif
 
   call s:ClearCursorLineColor()
-  let s:highlight_on = 1 
+  let s:highlight_on = 1
 
-  " find the current cursor line highlight info 
+  " find the current cursor line highlight info
   redir => l:highlight_info
     silent highlight CursorLine
   redir END
@@ -90,7 +90,7 @@ function s:SetCursorLineColor()
   if(l:start_index > 0)
     let s:previous_cursor_guibg = strpart(l:highlight_info, l:start_index)
 
-  elseif(exists("s:previous_cursor_guibg")) 
+  elseif(exists("s:previous_cursor_guibg"))
     unlet s:previous_cursor_guibg
   endif
 
@@ -108,17 +108,17 @@ endfunction
 " Reverts the cursor line color
 function s:ClearCursorLineColor()
   " only revert if our highlight is currently enabled
-  if(exists("s:highlight_on") && s:highlight_on) 
-    let s:highlight_on = 0 
+  if(exists("s:highlight_on") && s:highlight_on)
+    let s:highlight_on = 0
 
     " if a previous cursor guibg color was recorded, we use it
-    if(exists("s:previous_cursor_guibg")) 
+    if(exists("s:previous_cursor_guibg"))
       execute "highlight CursorLine " . s:previous_cursor_guibg
       unlet s:previous_cursor_guibg
 
     " otherwise, we clear the curor line highlight entirely
     else
-      highlight clear CursorLine 
+      highlight clear CursorLine
     endif
   endif
 endfunction
