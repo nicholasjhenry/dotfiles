@@ -7,3 +7,4 @@
 . ~/Development/dotfiles/bash/brew
 . ~/Development/dotfiles/bash/heroku
 . ~/Development/dotfiles/bash/rvm
+. ~/Development/dotfiles/bash/local_aliases
