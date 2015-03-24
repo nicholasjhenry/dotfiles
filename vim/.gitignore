@@ -35,3 +35,5 @@ bundle/funcoo
 bundle/vim-rubocop
 
 bundle/vim-slim
+
+bundle/golden-ratio

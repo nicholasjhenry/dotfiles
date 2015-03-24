@@ -13,6 +13,10 @@ dash:
   repo: https://github.com/rizzatti/dash.vim.git
   path: bundle
 
+golden-ratio:
+  repo: git://github.com/roman/golden-ratio.git
+  path: bundle
+
 match-it:
   # Allows you to configure % to match more than just single characters
   repo: git://github.com/tsaleh/vim-matchit.git
