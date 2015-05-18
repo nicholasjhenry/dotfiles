@@ -25,7 +25,7 @@ call s:turbux_command_setting("cucumber_with_zeus", "zeus cucumber")
 
 call s:turbux_command_setting("rspec_with_binstub", "bin/rspec --format documentation")
 
-call s:turbux_command_setting("rspec_with_spring", "spring rspec --format documentation")
+call s:turbux_command_setting("rspec_with_spring", "bundle exec spring rspec --format documentation")
 
 call s:turbux_command_setting("rspec", "rspec --format documentation")
 call s:turbux_command_setting("test_unit", "ruby -Itest")
