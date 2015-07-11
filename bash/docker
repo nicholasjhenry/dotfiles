@@ -1,1 +1,5 @@
-eval `boot2docker shellinit 2>/dev/null`
+# It was recommended to add this the bash_profile, but if the VM isn't up yet
+# e.g boot2docker up; then this will block the shell from starting. Best
+# to manual initialize the shell.
+#
+# eval `boot2docker shellinit 2>/dev/null`
