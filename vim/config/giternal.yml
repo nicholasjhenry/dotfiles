@@ -167,3 +167,8 @@ vim-vitality:
 vim-ruby-xmpfilter:
   repo: git://github.com/t9md/vim-ruby-xmpfilter.git
   path: bundle
+
+footbits-vim:
+  repo: git://github.com/Floobits/floobits-vim
+  path: bundle
+

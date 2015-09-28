@@ -37,3 +37,5 @@ bundle/vim-rubocop
 bundle/vim-slim
 
 bundle/golden-ratio
+
+bundle/footbits-vim
