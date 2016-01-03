@@ -13,6 +13,10 @@ dash:
   repo: https://github.com/rizzatti/dash.vim.git
   path: bundle
 
+elm-vim:
+  repo: https://github.com/lambdatoast/elm.vim.git
+  path: bundle
+
 golden-ratio:
   repo: git://github.com/roman/golden-ratio.git
   path: bundle
