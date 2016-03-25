@@ -299,3 +299,10 @@ imap <buffer> <F7> <Plug>(xmpfilter-run)
 nmap <buffer> <F6> <Plug>(xmpfilter-mark)
 xmap <buffer> <F6> <Plug>(xmpfilter-mark)
 imap <buffer> <F6> <Plug>(xmpfilter-mark)
+
+" Code Climate
+"
+
+nmap <Leader>aa :CodeClimateAnalyzeProject<CR>
+nmap <Leader>ao :CodeClimateAnalyzeOpenFiles<CR>
+nmap <Leader>af :CodeClimateAnalyzeCurrentFile<CR>
