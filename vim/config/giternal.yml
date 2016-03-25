@@ -176,3 +176,6 @@ footbits-vim:
   repo: git://github.com/Floobits/floobits-vim
   path: bundle
 
+vim-code-climate:
+  repo: git://github.com/wfleming/vim-codeclimate
+  path: bundle

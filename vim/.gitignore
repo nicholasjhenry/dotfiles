@@ -41,3 +41,5 @@ bundle/golden-ratio
 bundle/footbits-vim
 
 bundle/elm-vim
+
+bundle/vim-code-climate
