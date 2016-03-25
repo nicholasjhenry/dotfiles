@@ -63,3 +63,9 @@ eval "$(hub alias -s)"
 
 alias prod='heroku -r production'
 alias stag='heroku -r staging'
+
+#*****************************************************************************
+# Docker
+#*****************************************************************************
+
+alias docset='eval $(docker-machine env)'
