@@ -6,32 +6,6 @@ alias bi='bundle install --without production'
 alias be='bundle exec'
 
 #*****************************************************************************
-# Rails
-#*****************************************************************************
-
-function ss {
-  if [ -e script/rails ]; then
-    script/rails server $@
-  else
-    script/server $@
-  fi
-}
-function sc {
-  if [ -e script/rails ]; then
-    script/rails console $@
-  else
-    script/console $@
-  fi
-}
-function sg {
-  if [ -e script/rails ]; then
-    script/rails generate $@
-  else
-    script/generate $@
-  fi
-}
-
-#*****************************************************************************
 # Rails application size
 # http://gilesbowkett.blogspot.com/2011/03/use-wc-l-for-quick-overviews-of-new.html
 #*****************************************************************************
@@ -89,11 +63,3 @@ eval "$(hub alias -s)"
 
 alias prod='heroku -r production'
 alias stag='heroku -r staging'
-
-#*****************************************************************************
-# Zeus
-#*****************************************************************************
-#
-alias zc='zeus cucumber features'
-alias zs='zeus rspec spec'
-alias zr='zeus rake'
