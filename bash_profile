@@ -9,3 +9,4 @@
 . ~/Development/dotfiles/bash/rvm
 . ~/Development/dotfiles/bash/local_aliases
 . ~/Development/dotfiles/bash/docker
+. ~/Development/dotfiles/bash/gpg
