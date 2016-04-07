@@ -1,5 +1,4 @@
-# It was recommended to add this the bash_profile, but if the VM isn't up yet
-# e.g boot2docker up; then this will block the shell from starting. Best
-# to manual initialize the shell.
+# Ensure VM is started on boot
+# https://gist.github.com/nicholasjhenry/c1c9feeec495cc69cf182dd396f96a64
 #
-# eval `boot2docker shellinit 2>/dev/null`
+eval $(docker-machine env)
