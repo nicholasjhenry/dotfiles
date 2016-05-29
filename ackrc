@@ -4,6 +4,7 @@
 --type-set=slim=.slim
 --type-set=rabl=.rabl
 --type-set=sass=.sass
+--type-set=json=.json
 --type-set=bin=.pdf
 --type-set=feature=.feature
 --type-add
