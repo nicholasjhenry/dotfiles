@@ -68,6 +68,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('*C
 " Or use vividchalk
 let g:solarized_termcolors = 16
 colorscheme solarized
+set background=light
 
 " Leader
 let mapleader = ","
