@@ -14,7 +14,7 @@ dash:
   path: bundle
 
 elm-vim:
-  repo: https://github.com/lambdatoast/elm.vim.git
+  repo: https://github.com/ElmCast/elm-vim.git
   path: bundle
 
 golden-ratio:

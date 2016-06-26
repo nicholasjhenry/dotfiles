@@ -1,66 +1,153 @@
-# elm.vim
+# elm-vim
 
-Vim plugin for the [Elm programming language](http://elm-lang.org/).
+![logo](https://raw.github.com/elmcast/elm-vim/master/screenshots/logo.png)
+
+## Features
+
+1. Syntax highlighting
+1. Automatic indentation
+1. Function completion
+1. Build and package commands
+1. Code formating and linting
+1. Documentation lookup
+1. Repl integration
+
+Check out this [ElmCast video](https://vimeo.com/132107269) for more detail.
 
 ## Installation
 
-Just like any other plugin, clone this repository into the `~/.vim/bundle` directory
+If you don't have a preferred installation method, I recommend installing [vim-plug](https://github.com/junegunn/vim-plug), and then simply add `Plug 'elmcast/elm-vim` to your plugin section:
 
-    cd ~/.vim/bundle && \
-    git clone https://github.com/lambdatoast/elm.vim.git
+Once help tags have been generated, you can view the manual with :help elm-vim.
 
-If you are unfamiliar with this process, please refer to the [Pathogen](https://github.com/tpope/vim-pathogen) project.
+### Requirements
 
-## System Requirements
+First, make sure you have the [Elm Platform](http://elm-lang.org/install) installed. The simplest method to get started is to use the official [npm](https://www.npmjs.com/package/elm) package.
 
-Nothing other than vim is needed for the syntax highlighting.
+```
+npm install -g elm
+```
 
-For the special commands and aliases (for compilation, etc), the plugin expects the following programs to be available:
+In order to run unit tests from within vim, install [elm-test](https://github.com/rtfeldman/node-elm-test)
 
-* `elm-make`: The Elm build tool.
-* `elm-repl`: The Elm REPL. The plugin sends it bits of code for evaluation.
+```
+npm install -g elm-test
+```
+
+For code completion and doc lookups, install [elm-oracle](https://github.com/elmcast/elm-oracle).
+
+```
+npm install -g elm-oracle
+```
+
+To automatically format your code, install `elm-format` from its [github page](https://github.com/avh4/elm-format).
+
+```vim
+let g:elm_format_autosave = 1
+```
+
+## Mappings
+
+The plugin provides several `<Plug>` mappings which can be used to create custom
+mappings. The following keybindings are provided by default:
+
+| Keybinding             | Description                                                         |
+| ---------------------- | ------------------------------------------------------------------- |
+| \<Leader>m              | Compile the current buffer.                                        |
+| \<Leader>b              | Compile the Main.elm file in the project.                          |
+| \<Leader>t              | Runs the tests of the current buffer or 'tests/TestRunner'.                              |
+| \<Leader>r              | Opens an elm repl in a subprocess.                                 |
+| \<Leader>e              | Shows the detail of the current error or warning.                  |
+| \<Leader>d              | Shows the type and docs for the word under the cursor.             |
+| \<Leader>w              | Opens the docs web page for the word under the cursor.             |
+
+You can disable these mappings if you want to use your own.
+
+```vim
+let g:elm_setup_keybindings = 0
+```
+
+## Highlighting
+
+Vim syntax highlighting is biased for the c family of languages, with entire syntax groups for the preprocessor. This can leave functional languages looking mismatched, so `elm-vim` has very opinionated highlighting. If you do not like that, you can switch to a more traditional mode.
+
+```vim
+g:elm_classic_highlighting = 1
+```
+
+## Integration
+
+### [Syntastic](https://github.com/scrooloose/syntastic)
+
+Syntastic support should work out of the box, but we recommend the following settings:
+
+```vim
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
+```
+
+### [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+
+```vim
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
+```
+
+### [Neocomplete](https://github.com/Shougo/neocomplete.vim)
+
+```vim
+call neocomplete#util#set_default_dictionary(
+  \ 'g:neocomplete#sources#omni#input_patterns',
+  \ 'elm',
+  \ '\.')
+```
 
 ## Usage
 
-These are the available commands. To get the most out of them,
-you should create mappings according to your needs.
+```vim
+:help elm-vim
+```
 
-### Compilation
+```vim
+let g:elm_jump_to_error = 0
+let g:elm_make_output_file = "elm.js"
+let g:elm_make_show_warnings = 0
+let g:elm_syntastic_show_warnings = 0
+let g:elm_browser_command = ""
+let g:elm_detailed_complete = 0
+let g:elm_format_autosave = 0
+let g:elm_setup_keybindings = 1
+let g:elm_classic_hightlighting = 0
+```
 
-* `:ElmMakeCurrentFile` compiles the current file.
-* `:ElmMakeMain` compiles an assumed `Main.elm` file.
-* `:ElmMakeFile <filename>` compiles `filename`.
+* `:ElmMake [filename]` calls `elm-make` with the given file. If no file is given it uses the current file being edited.
 
-### Evaluation
+* `:ElmMakeMain` attempts to call `elm-make` with "Main.elm".
 
-* `:ElmEvalLine` evaluates the current line and puts the result as a
-  comment in a new line below it.
-* `:ElmEvalSelection` evaluates a visual mode selection.
+* `:ElmTest` calls `elm-test` with the given file. If no file is given it runs it in the root of your project. 
 
-### REPL
+* `:ElmRepl` runs `elm-repl`, which will return to vim on exiting.
 
-* `:ElmRepl` switches to `elm-repl`, when closing the REPL you'll get back to vim.
+* `:ElmErrorDetail` shows the detail of the current error in the quickfix window.
 
-### Example mappings
+* `:ElmShowDocs` queries elm-oracle, then echos the type and docs for the word under the cursor.
 
-I use the following mappings in my .vimrc at the moment:
+* `:ElmBrowseDocs` queries elm-oracle, then opens docs web page for the word under the cursor.
+*
+* `:ElmFormat` formats the current buffer with elm-format.
 
-    nnoremap <leader>el :ElmEvalLine<CR>
-    vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
-    nnoremap <leader>em :ElmMakeCurrentFile<CR>
+## Screenshots
 
-### Example autocommands
+![errors and completion](https://raw.github.com/elmcast/elm-vim/master/screenshots/syntax_highlighting.png)
 
-Vim autocommands can make your life a lot easier.
-These are just some examples of what I use sometimes:
+## Credits
 
-* Compiling the current file on write:
-    + `:au BufWritePost *.elm ElmMakeCurrentFile`
-* Usually more useful: Compiling a specific file, e.g. "Main.elm", on file write to any file in the project:
-    + `:au BufWritePost *.elm ElmMakeFile("Main.elm")`
+* Other vim-plugins, thanks for inspiration (elm.vim, ocaml.vim, haskell-vim)
+* [Contributors](https://github.com/elmcast/elm-vim/graphs/contributors) of elm-vim
 
-Remember you can clear all these afterwards, with e.g. `:au! BufWritePost *.elm`
+## License
 
-## TODO
-
-* Integration with Elm docs.
+Copyright © Joseph Hager. See `LICENSE` for more details.
