@@ -6,3 +6,4 @@ vim/.netrwhist
 vim/tmp/*.*
 vim/view/*.*
 tmux*.log
+bundle/cache
