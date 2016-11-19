@@ -3,7 +3,9 @@
 
 set nocompatible                      " Must come first because it changes other options.
 
-execute pathogen#infect()
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 syntax enable                         " Turn on syntax highlighting.
 filetype plugin indent on             " Turn on file type detection.

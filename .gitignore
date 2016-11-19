@@ -7,3 +7,4 @@ vim/tmp/*.*
 vim/view/*.*
 tmux*.log
 bundle/cache
+vim/bundle
