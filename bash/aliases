@@ -69,3 +69,6 @@ alias stag='heroku -r staging'
 #*****************************************************************************
 
 alias docset='eval $(docker-machine env)'
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local

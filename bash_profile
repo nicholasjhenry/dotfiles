@@ -6,7 +6,6 @@
 . ~/Development/dotfiles/bash/hitch
 . ~/Development/dotfiles/bash/brew
 . ~/Development/dotfiles/bash/heroku
-. ~/Development/dotfiles/bash/local_aliases
 . ~/Development/dotfiles/bash/docker
 . ~/Development/dotfiles/bash/gpg
 . $HOME/.asdf/asdf.sh
