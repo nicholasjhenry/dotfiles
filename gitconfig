@@ -1,0 +1,44 @@
+[alias]
+	co = checkout
+	l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+	pom = push origin master
+	phm = push heroku master
+	revert-last-commit = reset --soft HEAD^
+	unstage = reset HEAD
+  sm = smart-merge
+  sp = smart-pull
+  sl = smart-log
+  s = status
+  rbm = rebase master
+	ctags = !.git/hooks/ctags
+  sweep = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  # https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/
+  sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
+  sbu = "!f() { git subtree pull --prefix $2 $1 master --squash; }; f"
+[apply]
+	whitespace = nowarn
+[color]
+	ui = auto
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+	# Rebase the branch master on top of the fetched branch, instead of merging the default branch from the default remote when "git pull" is run
+	rebase = true
+[core]
+	quotepath = false
+	excludesfile = ~/.gitignore
+[push]
+	# Push current branch even if you've never pushed it before
+	default = current
+[init]
+	templatedir = ~/.git_template
+[commit]
+	gpgsign = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[include]
+  path = ~/.gitconfig.local
