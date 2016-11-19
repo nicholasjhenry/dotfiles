@@ -322,3 +322,7 @@ nmap <Leader>af :CodeClimateAnalyzeCurrentFile<CR>
 " Plugin: Gutentags
 "
 let g:gutentags_cache_dir = '~/.tags_cache'
+
+" Plugin: NeoMake
+"
+autocmd! BufWritePost * Neomake
