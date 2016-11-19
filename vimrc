@@ -309,3 +309,7 @@ imap <buffer> <F6> <Plug>(xmpfilter-mark)
 nmap <Leader>aa :CodeClimateAnalyzeProject<CR>
 nmap <Leader>ao :CodeClimateAnalyzeOpenFiles<CR>
 nmap <Leader>af :CodeClimateAnalyzeCurrentFile<CR>
+
+" Plugin: Gutentags
+"
+let g:gutentags_cache_dir = '~/.tags_cache'
