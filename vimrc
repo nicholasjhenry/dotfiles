@@ -1,11 +1,20 @@
 " Example Vim configuration.
 " Copy or symlink to ~/.vimrc or ~/_vimrc.
 
-set nocompatible                      " Must come first because it changes other options.
+set nocompatible " Must come first because it changes other options.
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Manager
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax enable                         " Turn on syntax highlighting.
 filetype plugin indent on             " Turn on file type detection.
@@ -138,9 +147,9 @@ cnoremap <f25> <nop>
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
 
-"
-""" Scripts
-"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom Functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Execute in Shell
 "
@@ -219,44 +228,6 @@ endfunction
 :command! PromoteToLet :call PromoteToLet()
 :map <leader>p :PromoteToLet<cr>
 
-"
-""" Configure built-in components
-"
-
-" Netrw
-"
-let g:netrw_liststyle=3 " Use tree-mode as default view"
-" let g:netrw_browse_split=4 " Open file in previous buffer"
-" let g:netrw_winsize=20
-
-"
-""" Configure plugins
-"
-
-" CtrlP
-"
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<leader>t'
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
-
-" Vim Dash
-"
-:nmap <silent> <leader>d <Plug>DashSearch
-
-" Git-gutter
-"
-" Turn highlighting
-highlight clear SignColumn
-
-" Tabularize
-"
-nmap <Leader>ae :Tabularize /=<CR>
-vmap <Leader>ae :Tabularize /=<CR>
-nmap <Leader>ar :Tabularize /=><CR>
-vmap <Leader>ar :Tabularize /=><CR>
-nmap <Leader>ac :Tabularize /:\zs<CR>
-vmap <Leader>ac :Tabularize /:\zs<CR>
-
 " Add automatic aligment
 " http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -272,7 +243,46 @@ function! s:align()
   endif
 endfunction
 
-" Turbux
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure built-in components
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Netrw
+"
+let g:netrw_liststyle=3 " Use tree-mode as default view"
+" let g:netrw_browse_split=4 " Open file in previous buffer"
+" let g:netrw_winsize=20
+
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configure Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Plugin: CtrlP
+"
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<leader>t'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+
+" Plugin: Vim Dash
+"
+:nmap <silent> <leader>d <Plug>DashSearch
+
+" Plugin: Git-gutter
+"
+" Turn highlighting
+highlight clear SignColumn
+
+" Plugin: Tabularize
+"
+nmap <Leader>ae :Tabularize /=<CR>
+vmap <Leader>ae :Tabularize /=<CR>
+nmap <Leader>ar :Tabularize /=><CR>
+vmap <Leader>ar :Tabularize /=><CR>
+nmap <Leader>ac :Tabularize /:\zs<CR>
+vmap <Leader>ac :Tabularize /:\zs<CR>
+
+" Plugin: Turbux
 " http://joshuadavey.com/post/15619414829/faster-tdd-feedback-with-tmux-tslime-vim-and
 "
 let g:no_turbux_mappings = 'no'
@@ -293,7 +303,7 @@ nmap <leader>r <Plug>SendTestToTmux
 nmap <leader>R <Plug>SendFocusedTestToTmux
 nmap <leader>g :call Run_all_specs()<cr>
 
-" Xmpfilter
+" Plugin: Xmpfilter
 "
 nmap <buffer> <F7> <Plug>(xmpfilter-run)
 xmap <buffer> <F7> <Plug>(xmpfilter-run)
@@ -303,9 +313,8 @@ nmap <buffer> <F6> <Plug>(xmpfilter-mark)
 xmap <buffer> <F6> <Plug>(xmpfilter-mark)
 imap <buffer> <F6> <Plug>(xmpfilter-mark)
 
-" Code Climate
+" Plugin: Code Climate
 "
-
 nmap <Leader>aa :CodeClimateAnalyzeProject<CR>
 nmap <Leader>ao :CodeClimateAnalyzeOpenFiles<CR>
 nmap <Leader>af :CodeClimateAnalyzeCurrentFile<CR>
