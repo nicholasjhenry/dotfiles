@@ -1,4 +1,0 @@
-# Ensure VM is started on boot
-# https://gist.github.com/nicholasjhenry/c1c9feeec495cc69cf182dd396f96a64
-#
-eval $(docker-machine env)
