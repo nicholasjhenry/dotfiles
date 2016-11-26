@@ -18,13 +18,13 @@ Plug 'godlygeek/tabular' "Vim script for text filtering and alignment
 Plug 'tpope/vim-bundler' "Lightweight support for Ruby's Bundler
 Plug 'kchmck/vim-coffee-script' "CoffeeScript support for vim
 Plug 'tpope/vim-endwise' "Wisely add 'end' in ruby, endfunction/endif/more in vim script
-Plug 'tpope/vim-fugitive' "wrapper so awesome, it should be illegal
+Plug 'tpope/vim-eunuch' "Helpers for UNIX e.g. Rename
+Plug 'tpope/vim-fugitive' "A Git wrapper
 Plug 'airblade/vim-gitgutter' "A Vim plugin which shows a diff in the gutter
 Plug 'ludovicchabant/vim-gutentags' "A Vim plugin that manages your tag files
 Plug 'neomake/neomake' "Async :make and linting framework for Neovim/Vim
 Plug 'sheerun/vim-polyglot' "A solid language pack for Vim
 Plug 'tpope/vim-ragtag' "Ghetto HTML/XML mappings
-Plug 'danro/rename.vim' "Rename the current file in the vim buffer + retain relative path.
 Plug 'msanders/snipmate.vim' "Aims to be a concise vim script that implements some of TextMate's snippets features in Vim
 Plug 'altercation/vim-colors-solarized'
 Plug 'kana/vim-smartinput' "Punctuation pairs closed for you automatically
