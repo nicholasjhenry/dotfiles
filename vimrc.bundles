@@ -45,6 +45,7 @@ Plug 'tpope/vim-vinegar' "Nice enhancements to Netrw
 Plug 'sjl/vitality.vim' "Make Vim play nicely with iTerm 2 and tmux.
 Plug 't9md/vim-ruby-xmpfilter'
 Plug 'wfleming/vim-codeclimate'
+Plug 'posva/vim-vue' "Syntax highlighting for Vue.js
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
