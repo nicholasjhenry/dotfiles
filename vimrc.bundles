@@ -2,6 +2,9 @@ if &compatible
   set nocompatible
 end
 
+" To install after update:
+" - source $MYVIMRC
+" - PluginInstall
 call plug#begin('~/.vim/bundle')
 
 " Define bundles viahub repos
