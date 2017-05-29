@@ -64,7 +64,7 @@ set grepprg=ack                       " Use Ack instead of grep
 
 set pastetoggle=<F2>
 
-set colorcolumn=80                    " Highlights the 80th column
+set colorcolumn=100                    " Highlights the nth column
 
 " http://robots.thoughtbot.com/post/19398560514/how-to-copy-and-paste-with-tmux-on-mac-os-x
 set clipboard=unnamed
