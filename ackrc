@@ -1,5 +1,6 @@
 --ignore-dir=rails
 --ignore-dir=doc
+--ignore-dir=cover
 --type-set=haml=.haml
 --type-set=slim=.slim
 --type-set=rabl=.rabl
