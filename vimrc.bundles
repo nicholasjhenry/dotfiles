@@ -4,7 +4,7 @@ end
 
 " To install after update:
 " - source $MYVIMRC
-" - PluginInstall
+" - PlugInstall
 call plug#begin('~/.vim/bundle')
 
 " Define bundles viahub repos
