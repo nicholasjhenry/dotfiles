@@ -6,6 +6,5 @@
 . ~/Development/dotfiles/bash/hitch
 . ~/Development/dotfiles/bash/brew
 . ~/Development/dotfiles/bash/heroku
-. ~/Development/dotfiles/bash/gpg
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
