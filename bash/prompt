@@ -1,5 +1,5 @@
 function parse_git_branch {
-  ref=$(~/Development/dotfiles/bin/git-symbolic-ref HEAD 2> /dev/null) || return
+  ref=$(~/Development/dotfiles-local/bin/git-symbolic-ref HEAD 2> /dev/null) || return
   echo " ("${ref#refs/heads/}")"
 }
 
