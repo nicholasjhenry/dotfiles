@@ -374,3 +374,12 @@ let g:gutentags_cache_dir = '~/.tags_cache'
 " Plugin: NeoMake
 "
 autocmd! BufWritePost * Neomake
+
+" Plugin: Ack
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
