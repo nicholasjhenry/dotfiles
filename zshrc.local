@@ -1,3 +1,2 @@
-alias flushcache='dscacheutil -flushcache'
-
-export FZF_DEFAULT_COMMAND='fd --type f'
+source $HOME/Development/dotfiles-local/zsh/aliases
+source $HOME/Development/dotfiles-local/zsh/fzf
