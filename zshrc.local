@@ -1,2 +1,6 @@
+# Add to top of .zshrc
+# autoload -U compinit && compinit
+# fpath=($HOME/.zsh-completions $fpath)
+
 source $HOME/Development/dotfiles-local/zsh/aliases
 source $HOME/Development/dotfiles-local/zsh/fzf
