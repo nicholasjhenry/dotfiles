@@ -258,6 +258,26 @@ let g:netrw_liststyle=3 " Use tree-mode as default view"
 " Configure Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Plugin: Ack
+"
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
+autocmd QuickFixCmdPost *grep* cwindow
+
+" Plugin: Code Climate
+"
+nmap <Leader>aa :CodeClimateAnalyzeProject<CR>
+nmap <Leader>ao :CodeClimateAnalyzeOpenFiles<CR>
+nmap <Leader>af :CodeClimateAnalyzeCurrentFile<CR>
+
+" Plugin: Vim Dash
+"
+:nmap <silent> <leader>d <Plug>DashSearch
 " Plugin: FZF fuzzy finder
 "
 nmap <leader>t :FZF<cr>
@@ -312,14 +332,18 @@ let g:fzf_colors =
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-" Plugin: Vim Dash
-"
-:nmap <silent> <leader>d <Plug>DashSearch
-
 " Plugin: Git-gutter
 "
 " Turn highlighting
 highlight clear SignColumn
+
+" Plugin: Gutentags
+"
+let g:gutentags_cache_dir = '~/.tags_cache'
+
+" Plugin: NeoMake
+"
+autocmd! BufWritePost * Neomake
 
 " Plugin: Tabularize
 "
@@ -361,25 +385,3 @@ nmap <buffer> <F6> <Plug>(xmpfilter-mark)
 xmap <buffer> <F6> <Plug>(xmpfilter-mark)
 imap <buffer> <F6> <Plug>(xmpfilter-mark)
 
-" Plugin: Code Climate
-"
-nmap <Leader>aa :CodeClimateAnalyzeProject<CR>
-nmap <Leader>ao :CodeClimateAnalyzeOpenFiles<CR>
-nmap <Leader>af :CodeClimateAnalyzeCurrentFile<CR>
-
-" Plugin: Gutentags
-"
-let g:gutentags_cache_dir = '~/.tags_cache'
-
-" Plugin: NeoMake
-"
-autocmd! BufWritePost * Neomake
-
-" Plugin: Ack
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
