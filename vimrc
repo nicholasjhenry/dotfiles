@@ -341,6 +341,10 @@ highlight clear SignColumn
 "
 let g:gutentags_cache_dir = '~/.tags_cache'
 
+" Plugin: MixFormat
+"
+let g:mix_format_on_save = 1
+
 " Plugin: NeoMake
 "
 autocmd! BufWritePost * Neomake
