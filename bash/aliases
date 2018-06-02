@@ -38,14 +38,14 @@ alias flushcache='dscacheutil -flushcache'
 alias memcache-start='memcached -vv'
 alias myip="ifconfig | grep inet"
 alias tmux="TERM=screen-256color-bce tmux"
-alias wtf='cat ~/Development/dotfiles-local/bash/aliases'
+alias wtf='cat ~/Development/dotfiles.local/bash/aliases'
 
 #*****************************************************************************
 # Shortcuts
 #*****************************************************************************
 
 alias cds='cd ~/Development/apps'
-alias cdd="cd ~/Development/dotfiles-local/"
+alias cdd="cd ~/Development/dotfiles.local/"
 alias b="boom open"
 
 #*****************************************************************************

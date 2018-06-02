@@ -41,4 +41,4 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [include]
-  path = ~/Development/dotfiles-secret/gitconfig
+  path = ~/Development/dotfiles.secret/gitconfig
