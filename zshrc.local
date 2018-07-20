@@ -4,3 +4,6 @@
 
 source $HOME/Development/dotfiles.local/zsh/aliases
 source $HOME/Development/dotfiles.local/zsh/fzf
+
+alias dea='docker-compose exec application'
+alias deat='docker-compose exec -e MIX_ENV=test application'
