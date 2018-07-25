@@ -15,6 +15,7 @@
   # https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/
   sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
   sbu = "!f() { git subtree pull --prefix $2 $1 master --squash; }; f"
+  track = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
 [apply]
 	whitespace = nowarn
 [color]
@@ -36,7 +37,7 @@
 	gpgsign = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -45,5 +46,6 @@
   # [user]
   # name = Nicholas Henry
   # email = you@example.com
+  # signingkey = GPG signing key
   # signingkey = GPG signing key
   path = ~/Development/dotfiles.secret/gitconfig
