@@ -1,9 +1,13 @@
-# Add to top of .zshrc
-# autoload -U compinit && compinit
-# fpath=($HOME/.zsh-completions $fpath)
+# Load custom completions
+# Reload on-my-zsh to deal with compinit issues
+# source: https://github.com/zsh-users/zsh-completions/issues/277#issuecomment-72253611
+fpath=($HOME/.zsh-completions $fpath)
+source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/Development/dotfiles.local/zsh/aliases
+
+# https://github.com/junegunn/fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/Development/dotfiles.local/zsh/fzf
 
 alias dea='docker-compose exec application'

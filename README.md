@@ -9,11 +9,3 @@
 1. Setup CivilCode dotfiles: https://github.com/civilcode/dotfiles
 2. Clone this repo to ~/Development/dotfiles.local
 3. Execute `rcup`
-
-## Post-installation
-
-Add the following code to the top of .zshrc
-
-    # required for "sheet"
-    autoload -U compinit && compinit
-    fpath=($HOME/.zsh-completions $fpath)
