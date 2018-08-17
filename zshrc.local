@@ -6,6 +6,8 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/Development/dotfiles.local/zsh/aliases
 
+export EDITOR=vim
+
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/Development/dotfiles.local/zsh/fzf
