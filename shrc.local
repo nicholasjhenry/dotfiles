@@ -2,6 +2,12 @@
 # Reload on-my-zsh to deal with compinit issues
 # source: https://github.com/zsh-users/zsh-completions/issues/277#issuecomment-72253611
 fpath=($HOME/.zsh-completions $fpath)
+
+# homebrew shell completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/Development/dotfiles.local/zsh/aliases
