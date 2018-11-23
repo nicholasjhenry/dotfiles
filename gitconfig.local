@@ -12,6 +12,7 @@
   rbm = rebase master
 	ctags = !.git/hooks/ctags
   sweep = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  force-sweep = git branch | grep -v "master" | xargs git branch -D
   # https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/
   sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
   sbu = "!f() { git subtree pull --prefix $2 $1 master --squash; }; f"
@@ -37,7 +38,7 @@
 	gpgsign = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
