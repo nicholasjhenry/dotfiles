@@ -46,7 +46,6 @@ Plug 't9md/vim-ruby-xmpfilter'
 Plug 'wfleming/vim-codeclimate'
 Plug 'posva/vim-vue' "Syntax highlighting for Vue.js
 Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "Fuzzy finder
 
 if filereadable(expand("~/.vimrc.bundles.local"))
