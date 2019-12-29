@@ -73,6 +73,9 @@ set clipboard=unnamed
 set exrc
 set secure
 
+" Fugitive status line, resolves warning: Fugitive .git/tags support removed in favor of `:set tags^=./.git/tags;`
+set tags^=./.git/tags;
+
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
