@@ -47,6 +47,7 @@ Plug 'wfleming/vim-codeclimate'
 Plug 'posva/vim-vue' "Syntax highlighting for Vue.js
 Plug 'elixir-editors/vim-elixir'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "Fuzzy finder
+Plug 'djoshea/vim-autoread' "Automatically reload a file that has changed externally
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
