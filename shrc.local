@@ -12,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/Development/dotfiles.local/zsh/aliases
 
-export EDITOR=vim
+[ -z "$EDITOR" ] && export EDITOR=vim
 
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
