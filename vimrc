@@ -352,6 +352,12 @@ let g:mix_format_on_save = 1
 "
 autocmd! BufWritePost * Neomake
 
+" Plugin: SQL Formatter
+"
+let g:sqlfmt_command = "sqlformat"
+let g:sqlfmt_options = "-r -k upper"
+let g:sqlfmt_auto = 0
+
 " Plugin: Tabularize
 "
 nmap <Leader>ae :Tabularize /=<CR>
