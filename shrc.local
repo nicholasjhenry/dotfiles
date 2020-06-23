@@ -18,5 +18,9 @@ source $HOME/Development/dotfiles.local/zsh/aliases
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/Development/dotfiles.local/zsh/fzf
 
+# KubeCtl shee autocompletion
+# https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion
+source <(kubectl completion zsh)
+
 alias dea='docker-compose exec application'
 alias deat='docker-compose exec -e MIX_ENV=test application'
