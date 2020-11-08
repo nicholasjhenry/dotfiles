@@ -66,15 +66,9 @@ set pastetoggle=<F2>
 
 set colorcolumn=100                    " Highlights the nth column
 
-" http://robots.thoughtbot.com/post/19398560514/how-to-copy-and-paste-with-tmux-on-mac-os-x
-set clipboard=unnamed
-
 " enable project-specific .vimrc
 set exrc
 set secure
-
-" Fugitive status line, resolves warning: Fugitive .git/tags support removed in favor of `:set tags^=./.git/tags;`
-set tags^=./.git/tags;
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
@@ -97,9 +91,6 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
-
-" Uncomment to use Jamis Buck's file opening plugin
-map <Leader>ff :FuzzyFinderTextMate<Enter>
 
 " Controversial...swap colon and semicolon for easier commands
 "nnoremap ; :
@@ -150,101 +141,11 @@ cnoremap <f25> <nop>
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Custom Functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Execute in Shell
-"
-function! s:ExecuteInShell(command, bang)
-  let _ = a:bang != '' ? s:_ : a:command == '' ? '' : join(map(split(a:command), 'expand(v:val)'))
-
-  if (_ != '')
-    let s:_ = _
-    let bufnr = bufnr('%')
-    let winnr = bufwinnr('^' . _ . '$')
-    silent! execute  winnr < 0 ? 'new ' . fnameescape(_) : winnr . 'wincmd w'
-    setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
-    silent! :%d
-    let message = 'Execute ' . _ . '...'
-    call append(0, message)
-    echo message
-    silent! 2d | resize 1 | redraw
-    silent! execute 'silent! %!'. _
-    silent! execute 'resize ' . line('$')
-    silent! execute 'autocmd BufUnload <buffer> execute bufwinnr(' . bufnr . ') . ''wincmd w'''
-    silent! execute 'autocmd BufEnter <buffer> execute ''resize '' .  line(''$'')'
-    silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . _ . ''', '''')<CR>'
-    silent! execute 'nnoremap <silent> <buffer> <LocalLeader>g :execute bufwinnr(' . bufnr . ') . ''wincmd w''<CR>'
-  endif
-endfunction
-
-command! -complete=shellcmd -nargs=* -bang Shell call s:ExecuteInShell(<q-args>, '<bang>')
-cabbrev shell Shell
-
-" Configure for Vim and IRB
-" http://vimcasts.org/episodes/running-vim-within-irb/
-"
-if has("autocmd")
-  " Restore cursor position
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-endif
-if &t_Co > 2 || has("gui_running")
-  " Enable syntax highlighting
-  syntax on
-endif
-
-" Strip trailing whitespace
-" http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
-"
-function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-
 " Open files in directory of current file
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
-
-" Promote Variable to RSpec Let
-"
-function! PromoteToLet()
-  :normal! dd
-  " :exec '?^\s*it\>'
-  :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :normal ==
-endfunction
-:command! PromoteToLet :call PromoteToLet()
-:map <leader>p :PromoteToLet<cr>
-
-" Add automatic aligment
-" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure built-in components
@@ -256,145 +157,20 @@ let g:netrw_liststyle=3 " Use tree-mode as default view"
 " let g:netrw_browse_split=4 " Open file in previous buffer"
 " let g:netrw_winsize=20
 
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configure Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Plugin: Ack
-"
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
-
-autocmd QuickFixCmdPost *grep* cwindow
-
-" Plugin: Code Climate
-"
-nmap <Leader>aa :CodeClimateAnalyzeProject<CR>
-nmap <Leader>ao :CodeClimateAnalyzeOpenFiles<CR>
-nmap <Leader>af :CodeClimateAnalyzeCurrentFile<CR>
-
-" Plugin: Vim Dash
-"
-:nmap <silent> <leader>d <Plug>DashSearch
-" Plugin: FZF fuzzy finder
-"
-nmap <leader>t :FZF<cr>
-
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" An action can be a reference to a function that processes selected lines
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - down / up / left / right
-" let g:fzf_layout = { 'down': '~40%' }
-
-" You can set up fzf window using a Vim command (Neovim or latest Vim 8 required)
-" let g:fzf_layout = { 'window': 'enew' }
-" let g:fzf_layout = { 'window': '-tabnew' }
-" let g:fzf_layout = { 'window': '10split enew' }
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-" Plugin: Git-gutter
-"
-" Turn highlighting
-highlight clear SignColumn
-
-" Plugin: Gutentags
-"
-let g:gutentags_cache_dir = '~/.tags_cache'
-
-" Plugin: MixFormat
-"
-let g:mix_format_on_save = 1
-
-" Plugin: NeoMake
-"
-autocmd! BufWritePost * Neomake
-
-" Plugin: SQL Formatter
-"
-let g:sqlfmt_command = "sqlformat"
-let g:sqlfmt_options = "-r -k upper"
-let g:sqlfmt_auto = 0
-
-" Plugin: Tabularize
-"
-nmap <Leader>ae :Tabularize /=<CR>
-vmap <Leader>ae :Tabularize /=<CR>
-nmap <Leader>ar :Tabularize /=><CR>
-vmap <Leader>ar :Tabularize /=><CR>
-nmap <Leader>ac :Tabularize /:\zs<CR>
-vmap <Leader>ac :Tabularize /:\zs<CR>
-
-" Plugin: Turbux
-" http://joshuadavey.com/post/15619414829/faster-tdd-feedback-with-tmux-tslime-vim-and
-"
-let g:no_turbux_mappings = 'no'
-
-function! Run_all_specs()
-  if filereadable("./zeus.json")
-    return Send_to_Tmux("zeus rspec spec\n")
-  elseif filereadable("./bin/rspec_all")
-    return Send_to_Tmux("./bin/rspec_all\n")
-  elseif filereadable("./bin/rspec")
-    return Send_to_Tmux("bin/rspec spec\n")
-  else
-    return Send_to_Tmux("rspec spec\n")
-  endif
-endfunction
-
-nmap <leader>r <Plug>SendTestToTmux
-nmap <leader>R <Plug>SendFocusedTestToTmux
-nmap <leader>g :call Run_all_specs()<cr>
-
-" Plugin: Xmpfilter
-"
-nmap <buffer> <F7> <Plug>(xmpfilter-run)
-xmap <buffer> <F7> <Plug>(xmpfilter-run)
-imap <buffer> <F7> <Plug>(xmpfilter-run)
-
-nmap <buffer> <F6> <Plug>(xmpfilter-mark)
-xmap <buffer> <F6> <Plug>(xmpfilter-mark)
-imap <buffer> <F6> <Plug>(xmpfilter-mark)
-
+source ~/.vim/config/ack.vim
+source ~/.vim/config/code-climate.vim
+source ~/.vim/config/dash.vim
+source ~/.vim/config/execute-in-shell.vim
+source ~/.vim/config/fugitive.vim
+source ~/.vim/config/fzf.vim
+source ~/.vim/config/git-gutter.vim
+source ~/.vim/config/gutentags.vim
+source ~/.vim/config/mix-format.vim
+source ~/.vim/config/neo-make.vim
+source ~/.vim/config/ruby.vim
+source ~/.vim/config/sql-formatter.vim
+source ~/.vim/config/strip-trailing-spaces.vim
+source ~/.vim/config/tabularize.vim
+source ~/.vim/config/tmux.vim
+source ~/.vim/config/turbux-rspec.vim
+source ~/.vim/config/xmpfilter.vim

@@ -9,45 +9,60 @@ call plug#begin('~/.vim/bundle')
 
 " Define bundles viahub repos
 
+Plug 'neomake/neomake' "Async :make and linting framework for Neovim/Vim
+
+" Vim UI
 Plug 'mileszs/ack.vim' "Vim plugin for the Perl module / CLI script 'ack'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'rizzatti/dash.vim'
-Plug 'ElmCast/elm-vim'
 Plug 'roman/golden-ratio'
-Plug 'tomtom/tcomment_vim' "An extensible & universal comment vim-plugin that also handles embedded filetypes
-Plug 'jgdavey/tslime.vim' "Send command from vim to a running tmux session
-Plug 'godlygeek/tabular' "Vim script for text filtering and alignment
-Plug 'tpope/vim-bundler' "Lightweight support for Ruby's Bundler
-Plug 'kchmck/vim-coffee-script' "CoffeeScript support for vim
-Plug 'tpope/vim-endwise' "Wisely add 'end' in ruby, endfunction/endif/more in vim script
-Plug 'tpope/vim-eunuch' "Helpers for UNIX e.g. Rename
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "Fuzzy finder
+Plug 'tpope/vim-vinegar' "Nice enhancements to Netrw
+Plug 'altercation/vim-colors-solarized'
+
+" Git
 Plug 'tpope/vim-fugitive' "A Git wrapper
 Plug 'airblade/vim-gitgutter' "A Vim plugin which shows a diff in the gutter
-Plug 'ludovicchabant/vim-gutentags' "A Vim plugin that manages your tag files
-Plug 'neomake/neomake' "Async :make and linting framework for Neovim/Vim
-Plug 'sheerun/vim-polyglot' "A solid language pack for Vim
-Plug 'tpope/vim-ragtag' "Ghetto HTML/XML mappings
-Plug 'msanders/snipmate.vim' "Aims to be a concise vim script that implements some of TextMate's snippets features in Vim
-Plug 'altercation/vim-colors-solarized'
 Plug 'kana/vim-smartinput' "Punctuation pairs closed for you automatically
+Plug 'djoshea/vim-autoread' "Automatically reload a file that has changed externally
 Plug 'ervandew/supertab' "Perform all your vim insert mode completions with Tab
+Plug 'tpope/vim-repeat' "Enable repeating supported plugin maps with '.'
+Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings
+
+" Editor Enhancements
 Plug 'tpope/vim-surround' "Quoting/parenthesizing made simple
 Plug 'airblade/vim-rooter' "Changes Vim working directory to project root
-Plug 'tpope/vim-rails' "Ruby on Rails power tools
-Plug 'tpope/vim-repeat' "Enable repeating supported plugin maps with '.'
-Plug 'ngmy/vim-rubocop' "The Vim RuboCop plugin runs RuboCop and displays the results in Vim
-Plug 'ecomba/vim-ruby-refactoring' "Refactoring tool for Ruby
-Plug 'slim-template/vim-slim' "Slim template highlighting
-Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings
-Plug 'jgdavey/vim-turbux' "Turbo Ruby testing with tmux
-Plug 'tpope/vim-vinegar' "Nice enhancements to Netrw
-Plug 'sjl/vitality.vim' "Make Vim play nicely with iTerm 2 and tmux.
-Plug 't9md/vim-ruby-xmpfilter'
+Plug 'tpope/vim-eunuch' "Helpers for UNIX e.g. Rename
+Plug 'msanders/snipmate.vim' "Aims to be a concise vim script that implements some of TextMate's snippets features in Vim
+Plug 'rizzatti/dash.vim'
+Plug 'godlygeek/tabular' "Vim script for text filtering and alignment
+Plug 'tomtom/tcomment_vim' "An extensible & universal comment vim-plugin that also handles embedded filetypes
+Plug 'ludovicchabant/vim-gutentags' "A Vim plugin that manages your tag files - ctags
+
+" Linting
 Plug 'wfleming/vim-codeclimate'
-Plug 'posva/vim-vue' "Syntax highlighting for Vue.js
+
+" Code - Languages/Frameworks
+Plug 'sheerun/vim-polyglot' "A solid language pack for Vim
+Plug 'ElmCast/elm-vim'
 Plug 'elixir-editors/vim-elixir'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "Fuzzy finder
-Plug 'djoshea/vim-autoread' "Automatically reload a file that has changed externally
+Plug 'posva/vim-vue' "Syntax highlighting for Vue.js
+Plug 'slim-template/vim-slim' "Slim template highlighting
+Plug 'tpope/vim-ragtag' "Ghetto HTML/XML mappings
+
+" Tmux
+Plug 'sjl/vitality.vim' "Make Vim play nicely with iTerm 2 and tmux.
+Plug 'jgdavey/tslime.vim' "Send command from vim to a running tmux session
+
+" Code - Ruby/Rails
+Plug 'tpope/vim-rails' "Ruby on Rails power tools
+Plug 'ngmy/vim-rubocop' "The Vim RuboCop plugin runs RuboCop and displays the results in Vim
+Plug 'jgdavey/vim-turbux' "Turbo Ruby testing with tmux
+Plug 't9md/vim-ruby-xmpfilter'
+Plug 'tpope/vim-bundler' "Lightweight support for Ruby's Bundler
+Plug 'tpope/vim-endwise' "Wisely add 'end' in ruby, endfunction/endif/more in vim script
+Plug 'ecomba/vim-ruby-refactoring' "Refactoring tool for Ruby
+
+" Code - SQL
 Plug 'b4b4r07/vim-sqlfmt' "SQL Formatter
 Plug 'lifepillar/pgsql.vim'
 
