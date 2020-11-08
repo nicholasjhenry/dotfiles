@@ -165,7 +165,6 @@ source ~/.vim/config/fugitive.vim
 source ~/.vim/config/fzf.vim
 source ~/.vim/config/git-gutter.vim
 source ~/.vim/config/gutentags.vim
-source ~/.vim/config/mix-format.vim
 source ~/.vim/config/neo-make.vim
 source ~/.vim/config/ruby.vim
 source ~/.vim/config/sql-formatter.vim
