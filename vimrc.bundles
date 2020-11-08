@@ -39,6 +39,7 @@ Plug 'tomtom/tcomment_vim' "An extensible & universal comment vim-plugin that al
 Plug 'ludovicchabant/vim-gutentags' "A Vim plugin that manages your tag files - ctags
 
 " Linting
+Plug 'dense-analysis/ale'
 Plug 'wfleming/vim-codeclimate'
 
 " Code - Languages/Frameworks
