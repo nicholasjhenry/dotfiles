@@ -1,4 +1,6 @@
 ---
-BUNDLE_GEM__MIT: '0'
-BUNDLE_GEM__TEST: 'rspec PATH: vendor/bundle'
-BUNDLE_GLOBAL__PATH: vendor/bundle
+BUNDLE_GEM__MIT: "0"
+BUNDLE_GEM__TEST: 'rspec PATH: "vendor/bundle'"
+BUNDLE_GLOBAL__PATH: "vendor/bundle"
+BUNDLE_GEM__TEST: "rspec"
+BUNDLE_GEM__COC: "false"
