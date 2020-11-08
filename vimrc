@@ -159,6 +159,7 @@ let g:netrw_liststyle=3 " Use tree-mode as default view"
 
 source ~/.vim/config/ack.vim
 source ~/.vim/config/code-climate.vim
+source ~/.vim/config/ctags.vim
 source ~/.vim/config/dash.vim
 source ~/.vim/config/execute-in-shell.vim
 source ~/.vim/config/fugitive.vim
