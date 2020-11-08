@@ -54,6 +54,7 @@ Plug 'sjl/vitality.vim' "Make Vim play nicely with iTerm 2 and tmux.
 Plug 'jgdavey/tslime.vim' "Send command from vim to a running tmux session
 
 " Code - Ruby/Rails
+Plug 'vim-ruby/vim-ruby' "Vim's runtime files for ruby support
 Plug 'tpope/vim-rails' "Ruby on Rails power tools
 Plug 'ngmy/vim-rubocop' "The Vim RuboCop plugin runs RuboCop and displays the results in Vim
 Plug 'jgdavey/vim-turbux' "Turbo Ruby testing with tmux
