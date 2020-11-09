@@ -42,11 +42,7 @@ Plug 'dense-analysis/ale'
 Plug 'wfleming/vim-codeclimate'
 
 " Code - Languages/Frameworks
-Plug 'sheerun/vim-polyglot' "A solid language pack for Vim
-Plug 'ElmCast/elm-vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'posva/vim-vue' "Syntax highlighting for Vue.js
-Plug 'slim-template/vim-slim' "Slim template highlighting
+Plug 'sheerun/vim-polyglot' "A solid language pack for Vim (autoloads Elixir, Elm, Ruby etc, check before adding language pack if it's supported)
 Plug 'tpope/vim-ragtag' "Ghetto HTML/XML mappings
 
 " Tmux
@@ -54,7 +50,6 @@ Plug 'sjl/vitality.vim' "Make Vim play nicely with iTerm 2 and tmux.
 Plug 'jgdavey/tslime.vim' "Send command from vim to a running tmux session
 
 " Code - Ruby/Rails
-Plug 'vim-ruby/vim-ruby' "Vim's runtime files for ruby support
 Plug 'tpope/vim-rails' "Ruby on Rails power tools
 Plug 'ngmy/vim-rubocop' "The Vim RuboCop plugin runs RuboCop and displays the results in Vim
 Plug 'jgdavey/vim-turbux' "Turbo Ruby testing with tmux
