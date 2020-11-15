@@ -148,14 +148,8 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configure built-in components
+" Configure built-in components and plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Netrw
-"
-let g:netrw_liststyle=3 " Use tree-mode as default view"
-" let g:netrw_browse_split=4 " Open file in previous buffer"
-" let g:netrw_winsize=20
 
 source ~/.vim/config/ack.vim
 source ~/.vim/config/code-climate.vim
@@ -167,6 +161,7 @@ source ~/.vim/config/fzf.vim
 source ~/.vim/config/git-gutter.vim
 source ~/.vim/config/gutentags.vim
 source ~/.vim/config/neo-make.vim
+source ~/.vim/config/netrw.vim
 source ~/.vim/config/ruby.vim
 source ~/.vim/config/sql-formatter.vim
 source ~/.vim/config/strip-trailing-spaces.vim
