@@ -2,6 +2,8 @@ nmap <Leader>ae :Tabularize /=<CR>
 vmap <Leader>ae :Tabularize /=<CR>
 nmap <Leader>ar :Tabularize /=><CR>
 vmap <Leader>ar :Tabularize /=><CR>
+nmap <Leader>at :Tabularize /\|<CR>
+vmap <Leader>at :Tabularize /\|<CR>
 nmap <Leader>ac :Tabularize /:\zs<CR>
 vmap <Leader>ac :Tabularize /:\zs<CR>
 
