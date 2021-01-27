@@ -157,6 +157,7 @@ source ~/.vim/config/ctags.vim
 source ~/.vim/config/dash.vim
 source ~/.vim/config/execute-in-shell.vim
 source ~/.vim/config/fugitive.vim
+source ~/.vim/config/golden-ratio.vim
 source ~/.vim/config/fzf.vim
 source ~/.vim/config/git-gutter.vim
 source ~/.vim/config/gutentags.vim
