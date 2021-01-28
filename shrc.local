@@ -1,3 +1,5 @@
+export PATH="$HOME/Development/dotfiles.local/bin:$PATH"
+
 # Load custom completions
 # Reload on-my-zsh to deal with compinit issues
 # source: https://github.com/zsh-users/zsh-completions/issues/277#issuecomment-72253611
