@@ -28,8 +28,18 @@ function find() {
     fi
 }
 
+function edit() {
+    local file=$(tree -if $base_path | cut -d'/' -f5- | fzf --preview 'bat --style=numbers  $base_path{}')
+
+     $EDITOR "$base_path/$file"
+}
+
+function new() {
+     $EDITOR "$base_path/$1"
+}
+
 function list() {
-    ls -1 ~/.sheets
+    tree -if $base_path
 }
 
 case "$1" in
@@ -40,7 +50,10 @@ case "$1" in
         list
         ;;
     edit)
-        $EDITOR $base_path/$2
+        edit
+        ;;
+    new)
+        new $2
         ;;
     *)
         help task

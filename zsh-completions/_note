@@ -1,14 +1,14 @@
-#compdef sheet
+#compdef note
 local state expl ret=1
-local -a sheet commands
+local -a note commands
 
-snippets=( $(command ls -1 ${HOME}/.sheets) )
+notes=( $(command tree -if ${HOME}/.notes | cut -d'/' -f5-) )
 
 commands=(
-  'find:Find sheets'
-  'list:List sheets'
-  'new:Create a new sheet'
-  'edit:Edit sheet'
+  'find:Find notes'
+  'list:List notes'
+  'new:Create a new note'
+  'edit:Edit note'
 )
 
 _arguments \
@@ -18,18 +18,18 @@ _arguments \
 
 case "$state" in
   cmds)
-    _wanted sheets expl "sheets" compadd "$sheets[@]"
+    _wanted notes expl "notes" compadd "$notes[@]"
     _describe -t commands 'commands' commands && ret=0
   ;;
   args)
     case "$words[1]" in
       edit)
         _arguments \
-          '*:sheets:($sheets)' && ret=0
+          '*:notes:($notes)' && ret=0
         ;;
       new)
         _arguments \
-          '*:insert new name for your sheet:' && ret=0
+          '*:insert new name for your note:' && ret=0
         ;;
       *)
         (( ret )) && _message 'no more arguments'
