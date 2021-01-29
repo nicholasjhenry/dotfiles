@@ -16,12 +16,13 @@ echo
 }
 
 function find() {
-    local file=$(tree -if $base_path | cut -d'/' -f5- | fzf --preview 'bat --style=numbers  $base_path{}')
+    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview 'bat --style=numbers  $base_path{}')
 
     echo "$file"
     echo
 
     if [[ $file =~ (^"snippets") ]]; then
+        cat $base_path/$file | pbcopy
         bat --style plain --theme GitHub $base_path/$file
     else
         glow $base_path/$file -s $HOME/.glamour.json
@@ -29,7 +30,7 @@ function find() {
 }
 
 function edit() {
-    local file=$(tree -if $base_path | cut -d'/' -f5- | fzf --preview 'bat --style=numbers  $base_path{}')
+    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview 'bat --style=numbers  $base_path{}')
 
      $EDITOR "$base_path/$file"
 }
@@ -39,7 +40,7 @@ function new() {
 }
 
 function list() {
-    tree -if $base_path
+    fd --type f . $base_path
 }
 
 case "$1" in

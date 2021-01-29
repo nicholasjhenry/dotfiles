@@ -2,7 +2,7 @@
 local state expl ret=1
 local -a note commands
 
-notes=( $(command tree -if ${HOME}/.notes | cut -d'/' -f5-) )
+notes=( $(command fd --type f . ${HOME}/.notes | cut -d'/' -f5-) )
 
 commands=(
   'find:Find notes'
