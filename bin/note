@@ -16,7 +16,7 @@ echo
 }
 
 function find() {
-    local file=$(tree -if $base_path | cut -c 25- | fzf --preview 'bat --style=numbers  $base_path{}')
+    local file=$(tree -if $base_path | cut -d'/' -f5- | fzf --preview 'bat --style=numbers  $base_path{}')
 
     echo "$file"
     echo
@@ -24,7 +24,7 @@ function find() {
     if [[ $file =~ (^"snippets") ]]; then
         bat --style plain --theme GitHub $base_path/$file
     else
-        glow $base_path/$file -p -s $HOME/.glamour.json
+        glow $base_path/$file -s $HOME/.glamour.json
     fi
 }
 
