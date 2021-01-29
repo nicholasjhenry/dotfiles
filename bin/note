@@ -7,7 +7,7 @@ if [ -f .env ]; then
   export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
-base_path=$HOME/.sheets
+base_path=$HOME/.notes
 
 function help() {
 echo
