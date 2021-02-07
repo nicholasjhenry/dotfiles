@@ -54,6 +54,10 @@ function display {
     fi
 }
 
+function log() {
+  new "log/$(date +%s)-$1"
+}
+
 case "$1" in
     find)
         find
@@ -69,6 +73,9 @@ case "$1" in
         ;;
     new)
         new $2
+        ;;
+    log)
+        log $2
         ;;
     *)
     if test -f "$base_path/$1"; then
