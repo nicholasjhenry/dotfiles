@@ -18,15 +18,7 @@ echo
 function find() {
     local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview 'bat --style=numbers  $base_path{}')
 
-    echo "$file"
-    echo
-
-    if [[ $file =~ (^"snippets") ]]; then
-        cat $base_path/$file | pbcopy
-        bat --style plain --theme GitHub $base_path/$file
-    else
-        glow $base_path/$file -s $HOME/.glamour.json
-    fi
+    display $file
 }
 
 function edit() {
@@ -42,8 +34,24 @@ function new() {
      $EDITOR "$base_path/$1"
 }
 
+function search() {
+    rg $1 $base_path
+}
+
 function list() {
     fd --type f . $base_path
+}
+
+function display {
+    echo "$1"
+    echo
+
+    if [[ $1 =~ (^"snippets") ]]; then
+        cat $base_path/$1 | pbcopy
+        bat --style plain --theme GitHub $base_path/$1
+    else
+        glow $base_path/$1 -s $HOME/.glamour.json
+    fi
 }
 
 case "$1" in
@@ -56,10 +64,17 @@ case "$1" in
     edit)
         edit
         ;;
+    search)
+        search $2
+        ;;
     new)
         new $2
         ;;
     *)
+    if test -f "$base_path/$1"; then
+        display $1
+    else
         help task
         exit 1
+    fi
 esac
