@@ -58,6 +58,12 @@ function log() {
   new "log/$(date +%s)-$1"
 }
 
+function persist() {
+  git add .
+  git commit --allow-empty-message -m ""
+  git push
+}
+
 case "$1" in
     find)
         find
@@ -77,6 +83,9 @@ case "$1" in
     log)
         log $2
         ;;
+    persist)
+      persist
+      ;;
     *)
     if test -f "$base_path/$1"; then
         display $1
