@@ -36,6 +36,9 @@ function edit() {
 }
 
 function new() {
+    local dir=$(dirname $1)
+    echo "Enusre $dir exists..."
+     mkdir -p "$base_path/$dir"
      $EDITOR "$base_path/$1"
 }
 
