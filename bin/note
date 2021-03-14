@@ -16,15 +16,16 @@ echo
 }
 
 function find() {
-    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview 'bat --style=numbers  $base_path{}')
+    # find all files | trim the file name for display | fuzzy search and preview with bat
+    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
 
     display $file
 }
 
 function edit() {
-    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview 'bat --style=numbers  $base_path{}')
+    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
 
-     $EDITOR "$base_path/$file"
+    $EDITOR "$base_path/$file"
 }
 
 function new() {
