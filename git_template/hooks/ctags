@@ -5,5 +5,5 @@ PATH="/usr/local/bin:$PATH"
 trap "rm -f .git/tags.$$" EXIT
 # Uses config in $HOME/.ctags
 # vim-fugitive will use `.git/tags` instead of `./tags`
-ctags -f.git/tags.$$
-mv .git/tags.$$ .git/tags
+# ctags -f.git/tags.$$
+# mv .git/tags.$$ .git/tags
