@@ -1,0 +1,20 @@
+# Run $ flaker 30 apps/engine/test/engine/listings_test.exs:2165
+
+flaker () {
+  if [ "$#" -ne 2 ]
+  then
+    NEWLINE=$'\n'
+    echo "$(tput setaf 4)$(tput setab 2)\
+    Usage: Two arguments must be supplied.\
+    ${NEWLINE}The first argument is an integer indicating the number of test runs.\
+    ${NEWLINE}The second argument is the path to the test file.\
+    ${NEWLINE}Example: $ flaker 10 test/engine/dealers/dealer_test.exs
+    $(tput sgr0)"
+    (exit 33) && true
+  fi
+  for (( i=1; i<$1; i++ ));
+  do
+      echo "$(tput setaf 4)$(tput setab 2)test run number: $i$(tput sgr0)";
+      mix test $2 || break;
+  done
+}

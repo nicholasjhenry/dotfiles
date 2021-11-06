@@ -13,6 +13,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/Development/dotfiles.local/zsh/aliases
+source $HOME/Development/dotfiles.local/zsh/flaker
 
 [ -z "$EDITOR" ] && export EDITOR=vim
 
