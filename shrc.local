@@ -27,3 +27,5 @@ source <(kubectl completion zsh)
 
 alias dea='docker-compose exec application'
 alias deat='docker-compose exec -e MIX_ENV=test application'
+
+source $HOME/Development/dotfiles.secret/shrc
