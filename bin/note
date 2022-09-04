@@ -15,6 +15,13 @@ echo "A note task runner for $base_path"
 echo
 }
 
+function copy() {
+    # find all files | trim the file name for display | fuzzy search and preview with bat
+    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
+
+    copy_file $file
+}
+
 function find() {
     # find all files | trim the file name for display | fuzzy search and preview with bat
     local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
@@ -43,6 +50,13 @@ function list() {
     fd --type f . $base_path
 }
 
+function copy_file {
+    echo "$1"
+    echo
+
+    cat $base_path/$1 | pbcopy
+}
+
 function display {
     echo "$1"
     echo
@@ -66,6 +80,9 @@ function persist() {
 }
 
 case "$1" in
+    copy)
+        copy
+        ;;
     find)
         find
         ;;
