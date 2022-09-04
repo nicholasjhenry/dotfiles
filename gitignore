@@ -7,4 +7,11 @@ TODO.txt
 .vimrc
 .env
 .vscode
+.watchmanconfig
 .scratchpad
+.scratchpad.md
+.script
+.dccache
+.elixir_ls
+*.drawio.bkp
+.iex.exs
