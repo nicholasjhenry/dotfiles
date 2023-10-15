@@ -1,5 +1,0 @@
-export PATH="/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$HOME/Development/dotfiles.local/bin:/usr/local/lib/node_modules:/usr/local/share/npm/bin:$HOME"
-
-export EDITOR='vim'
-
-export NODE_PATH='/usr/local/lib/node'
