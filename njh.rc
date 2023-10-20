@@ -1,4 +1,5 @@
-export PATH="$HOME/Development/dotfiles.local/bin:$PATH"
+export PATH="$HOME/Development/dotfiles/bin:$PATH"
+export DOTFILES=$HOME/Development/dotfiles
 
 # Load custom completions
 # Reload on-my-zsh to deal with compinit issues
@@ -18,16 +19,13 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/Development/dotfiles.local/zsh/aliases
-source $HOME/Development/dotfiles.local/zsh/flaker
+source $DOTFILES/zsh/aliases
+source $DOTFILES/zsh/flaker
 
 [ -z "$EDITOR" ] && export EDITOR=vim
 
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source $HOME/Development/dotfiles.local/zsh/fzf
-
-alias dea='docker-compose exec application'
-alias deat='docker-compose exec -e MIX_ENV=test application'
+source $DOTFILES/zsh/fzf
 
 source $HOME/Development/dotfiles.secret/shrc

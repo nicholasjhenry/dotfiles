@@ -1,0 +1,33 @@
+[alias]
+  sweep = "!git branch --merged | grep  -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
+  co = checkout
+  st = status
+  ci = commit
+  df = diff
+  dfc = diff --cached
+  track = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+# [user]
+#   name = CivilCode Pairing
+#   email = 23707376+civilcode-pairing@users.noreply.github.com
+[commit]
+  template = ~/.gitmessage
+  cleanup = strip
+[include]
+  path = ~/.gitconfig.local
+[push]
+  default = current
+[credential]
+  helper = cache --timeout=3600
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
