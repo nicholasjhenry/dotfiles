@@ -1,31 +1,25 @@
-export PATH="$HOME/Development/dotfiles/bin:$PATH"
-export DOTFILES=$HOME/Development/dotfiles
+# Zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# Load custom completions
-# Reload on-my-zsh to deal with compinit issues
-# source: https://github.com/zsh-users/zsh-completions/issues/277#issuecomment-72253611
-fpath=($HOME/.zsh-completions $fpath)
+# Gray color for autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=247'
 
-# homebrew shell completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
+# Load plugins
+zplug "plugins/vi-mode", from:oh-my-zsh
+zplug "woefe/wbase.zsh"
+zplug "woefe/git-prompt.zsh", use:"{git-prompt.zsh,examples/wprompt.zsh}"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
+zplug load
 
-if command -v ngrok &>/dev/null; then
-  eval "$(ngrok completion)"
-fi
-
-source $ZSH/oh-my-zsh.sh
-
-source $DOTFILES/zsh/aliases
-source $DOTFILES/zsh/flaker
-
-[ -z "$EDITOR" ] && export EDITOR=vim
-
-# https://github.com/junegunn/fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source $DOTFILES/zsh/fzf
+source $HOME/.zsh/aliases
+source $HOME/.zsh/bindkey
+source $HOME/.zsh/flaker
+source $HOME/.zsh/fzf
+source $HOME/.zsh/homebrew
 
 source $HOME/Development/dotfiles.secret/shrc
