@@ -1,20 +1,7 @@
-# Zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-
 # Gray color for autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=247'
 
-# Load plugins
-zplug "plugins/vi-mode", from:oh-my-zsh
-zplug "woefe/wbase.zsh"
-zplug "woefe/git-prompt.zsh", use:"{git-prompt.zsh,examples/wprompt.zsh}"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-zplug load
+source $HOME/.zsh/plugins
 
 source $HOME/.zsh/aliases
 source $HOME/.zsh/bindkey
