@@ -38,4 +38,8 @@ if [ ! -e "$HOME"/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 
+if [ ! -e "$HOME"/Development/dotfiles.secret/shrc ]; then
+  touch "$HOME"/Development/dotfiles.secret/shrc
+end
+
 append_to_zshrc 'source $HOME/.njh.rc'
