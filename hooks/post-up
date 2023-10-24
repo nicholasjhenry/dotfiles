@@ -40,6 +40,6 @@ fi
 
 if [ ! -e "$HOME"/Development/dotfiles.secret/shrc ]; then
   touch "$HOME"/Development/dotfiles.secret/shrc
-end
+fi
 
 append_to_zshrc 'source $HOME/.njh.rc'
