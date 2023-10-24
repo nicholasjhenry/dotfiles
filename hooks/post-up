@@ -11,3 +11,10 @@ echo "Install Vim Plugins..."
 
 # Use `xargs -o` to fix: "Vim: Warning: Input is not from a terminal"
 echo "${HOME}/.vimrc.bundles +PlugInstall +PlugClean! +qa" | xargs -o vim -u
+
+echo "Installing Tmux Plugin Manager (TPM)..."
+
+if [ ! -e "$HOME"/.tmux/plugins/tpm ]; then
+  mkdir -p $HOME/.tmux/plugins
+  git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+fi
