@@ -44,6 +44,7 @@ fi
 
 append_to_zshrc 'source $HOME/.njh.rc'
 
+
 if [ ! -e $HOME/Development/dotfiles.secret/gitconfig ]; then
   op read op://Setup/gitconfig/notesPlain > ~/Downloads/gitconfig
-end
+fi
