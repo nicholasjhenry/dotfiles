@@ -21,8 +21,8 @@ append_to_zshrc() {
 
 # Install and run vim-plug
 
-if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
-  curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
+if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
+  curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
@@ -31,15 +31,15 @@ echo "Install/update Vim Plugins..."
 # Use `xargs -o` to fix: "Vim: Warning: Input is not from a terminal"
 echo "${HOME}/.vimrc.bundles +PlugInstall +PlugClean! +qa" | xargs -o vim -u
 
-
-if [ ! -e "$HOME"/.tmux/plugins/tpm ]; then
+if [ ! -e $HOME/.tmux/plugins/tpm ]; then
   echo "Install Tmux Plugin Manager (TPM)..."
   mkdir -p $HOME/.tmux/plugins
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 
-if [ ! -e "$HOME"/Development/dotfiles.secret/shrc ]; then
-  touch "$HOME"/Development/dotfiles.secret/shrc
+if [ ! -e $HOME/Development/dotfiles.secret/shrc ]; then
+  mkdir -p $HOME/Development/dotfiles.secret
+  touch $HOME/Development/dotfiles.secret/shrc
 fi
 
 append_to_zshrc 'source $HOME/.njh.rc'
