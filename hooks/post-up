@@ -1,5 +1,24 @@
 #!/usr/bin/env zsh
 
+append_to_zshrc() {
+  local text="$1" zshrc
+  local skip_new_line="${2:-0}"
+
+  if ((0)); then # [ -w "$HOME/.zshrc.local" ]
+    zshrc="$HOME/.zshrc.local"
+  else
+    zshrc="$HOME/.zshrc"
+  fi
+
+  if ! grep -Fqs "$text" "$zshrc"; then
+    if [ "$skip_new_line" -eq 1 ]; then
+      printf "%s\\n" "$text" >> "$zshrc"
+    else
+      printf "\\n%s\\n" "$text" >> "$zshrc"
+    fi
+  fi
+}
+
 # Install and run vim-plug
 
 if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
@@ -7,14 +26,16 @@ if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-echo "Install Vim Plugins..."
+echo "Install/update Vim Plugins..."
 
 # Use `xargs -o` to fix: "Vim: Warning: Input is not from a terminal"
 echo "${HOME}/.vimrc.bundles +PlugInstall +PlugClean! +qa" | xargs -o vim -u
 
-echo "Installing Tmux Plugin Manager (TPM)..."
 
 if [ ! -e "$HOME"/.tmux/plugins/tpm ]; then
+  echo "Install Tmux Plugin Manager (TPM)..."
   mkdir -p $HOME/.tmux/plugins
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
+
+append_to_zshrc 'source $HOME/.njh.rc'
