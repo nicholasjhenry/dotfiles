@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+# List tags for a repo on Docker Hub
+#
+# set -o errexit
+# set -o pipefail
+# set -o nounset
+
+repo="${1}"
+image="${2}"
+
+curl --silent \
+  "https://hub.docker.com/v2/namespaces/${repo}/repositories/${image}/tags?page_size=1000" \
+  | jq -r ".results[].name" | sort --version-sort
