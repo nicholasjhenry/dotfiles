@@ -1,6 +1,8 @@
 # Gray color for autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=247'
 
+export WORKSPACES=$HOME/Workspaces
+
 source $HOME/.zsh/plugins
 
 source $HOME/.zsh/aliases
@@ -9,4 +11,4 @@ source $HOME/.zsh/flaker
 source $HOME/.zsh/fzf
 source $HOME/.zsh/homebrew
 
-source $HOME/Development/dotfiles.secret/shrc
+source $WORKSPACES/dotfiles.secret/shrc

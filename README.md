@@ -7,7 +7,7 @@
 ## Installation
 
 1. Setup CivilCode dotfiles: https://github.com/civilcode/dotfiles
-2. Clone this repo to ~/Development/dotfiles.local
+2. Clone this repo to ~/Workspaces/dotfiles.local
 3. Execute `rcup`
 
 See individual README's in sub-directories for more information.

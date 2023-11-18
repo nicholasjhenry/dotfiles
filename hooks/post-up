@@ -37,14 +37,15 @@ if [ ! -e $HOME/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 
-if [ ! -e $HOME/Development/dotfiles.secret/shrc ]; then
-  mkdir -p $HOME/Development/dotfiles.secret
-  touch $HOME/Development/dotfiles.secret/shrc
+WORKSPACES="$HOME/Workspaces"
+
+if [ ! -e $WORKSPACES/dotfiles.secret/shrc ]; then
+  mkdir -p $WORKSPACES/dotfiles.secret
+  touch $WORKSPACES/dotfiles.secret/shrc
 fi
 
 append_to_zshrc 'source $HOME/.njh.rc'
 
-
-if [ ! -e $HOME/Development/dotfiles.secret/gitconfig ]; then
-  op read op://Setup/gitconfig/notesPlain > $HOME/Development/dotfiles.secret/gitconfig
+if [ ! -e $WORKSPACES/dotfiles.secret/gitconfig ]; then
+  op read op://Setup/gitconfig/notesPlain > $WORKSPACES/dotfiles.secret/gitconfig
 fi
