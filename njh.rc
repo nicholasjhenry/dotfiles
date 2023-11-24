@@ -11,4 +11,6 @@ source $HOME/.zsh/flaker
 source $HOME/.zsh/fzf
 source $HOME/.zsh/homebrew
 
+fpath=( ~/.zsh-completions $fpath )
+
 source $WORKSPACES/dotfiles.secret/shrc
