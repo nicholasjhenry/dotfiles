@@ -120,6 +120,7 @@ _1st_arguments=(
     'profile.fprof:Profiles the given file or expression with fprof'
     'run:Runs the given file or expression'
     "test:Runs a project's tests"
+    "test.watch:Runs a project's tests"
     'xref:Performs cross reference checks'
     '--help:Describe available tasks'
     '--version:Prints the Elixir version information'
@@ -202,6 +203,7 @@ __task_list ()
         'profile.fprof'
         'run'
         'test'
+        'test.watch'
         'xref'
     )
 
@@ -227,6 +229,10 @@ case $state in
     case $line[1] in
       (help)
          _arguments ':feature:__task_list'
+         return
+      ;;
+      (test.watch)
+         _arguments ':PATH:_files'
          return
       ;;
       (test|format|run)
