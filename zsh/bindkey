@@ -1,12 +1,11 @@
-# Keybindings for substring search plugin. Maps up and down arrows.
-bindkey -M main '^[OA' history-substring-search-up
-bindkey -M main '^[OB' history-substring-search-down
-bindkey -M main '^[[A' history-substring-search-up
-bindkey -M main '^[[B' history-substring-search-up
+# Use Ctrl-V to determine key codes
+#
 
-# Keybindings for autosuggestions plugin
-bindkey '^ ' autosuggest-accept
-bindkey '^f' autosuggest-accept
+# Substring search plugin. Maps up and down arrows.
+bindkey -M main '^[OA' history-substring-search-up     # ↑
+bindkey -M main '^[OB' history-substring-search-down   # ↓
 
-# Custom bindings
-bindkey \^K kill-line
+# CLI navigation
+bindkey '^[[1;5D' backward-word     # Ctrl+←
+bindkey '^[[1;5C' forward-word      # Ctrl+→
+bindkey '^K'      kill-line         # Ctrl+k
