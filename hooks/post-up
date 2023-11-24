@@ -44,7 +44,7 @@ if [ ! -e $WORKSPACES/dotfiles.secret/shrc ]; then
   touch $WORKSPACES/dotfiles.secret/shrc
 fi
 
-append_to_zshrc 'source $HOME/.njh.rc'
+append_to_zshrc 'source $HOME/.njhrc'
 
 if [ ! -e $WORKSPACES/dotfiles.secret/gitconfig ]; then
   op read op://Setup/gitconfig/notesPlain > $WORKSPACES/dotfiles.secret/gitconfig
