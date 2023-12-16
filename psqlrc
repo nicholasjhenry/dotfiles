@@ -10,5 +10,5 @@
 \pset unicode_header_linestyle double
 \set intervalstyle to 'postgres_verbose';
 \setenv LESS '-iMFXSx4R'
-\setenv EDITOR '/Applications/Code.app'
+\setenv EDITOR 'code -w'
 \set show_slow_queries 'SELECT (total_time / 1000 / 60) as total_minutes, (total_time/calls) as average_time, query FROM pg_stat_statements ORDER BY 1 DESC LIMIT 100;'
