@@ -1,14 +1,47 @@
-#!/usr/bin/env zsh
-
-# List tags for a repo on Docker Hub
+#!/bin/bash
 #
-# set -o errexit
-# set -o pipefail
-# set -o nounset
+# Search docker hub for an image:
+#
+#    script/docker/hub/search OS ELIXIR_VSN ERLANG_VSN
+#
+# Example:
+#
+#    script/docker/hub/search debian 1.15.7 26.1.2
+#
 
-repo="${1}"
-image="${2}"
+function search() {
+  local page=$1
 
-curl --silent \
-  "https://hub.docker.com/v2/namespaces/${repo}/repositories/${image}/tags?page_size=1000" \
-  | jq -r ".results[].name" | sort --version-sort
+  echo "$(
+    curl --silent \
+      "https://hub.docker.com/v2/namespaces/hexpm/repositories/elixir/tags?page_size=100&page=${page}" |
+      jq -r ".results[].name" | sort --version-sort | grep $2 | grep $3 | grep $4
+  )"
+}
+
+if [ "$#" -ne 3 ]; then
+  echo "Usage: $0 OS ELIXIR_VSN ERLANG_VSN"
+  exit 1
+fi
+
+os=$1
+elixir_vsn=$2
+erlang_vsn=$3
+
+echo "Start Docker Hub search..."
+page=1
+
+while true; do
+  echo "Searching page ${page}..."
+  result=$(search $page $os $elixir_vsn $erlang_vsn)
+
+  if [ -n "$result" ]; then
+    echo "$result"
+    echo "Continue? Press any key or Ctrl-C to exit."
+    read -r input
+  else
+    echo "No results, continue searching..."
+  fi
+
+  ((page++))
+done
