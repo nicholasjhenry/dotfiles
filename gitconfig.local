@@ -48,7 +48,6 @@
   # name = Nicholas Henry
   # email = you@example.com
   # signingkey = GPG signing key
-  # signingkey = GPG signing key
   path = ~/Workspaces/dotfiles.secret/gitconfig
 [filter "lfs"]
 	clean = git-lfs clean -- %f
