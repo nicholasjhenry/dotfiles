@@ -15,4 +15,9 @@ TODO.txt
 .elixir_ls
 *.drawio.bkp
 .iex.exs
-
+NEXT.md
+*~.md
+.zed
+.claude
+.conductor
+.expert
