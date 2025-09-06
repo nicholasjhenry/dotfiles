@@ -4,6 +4,10 @@ else
   export EDITOR=vim
 fi
 
+export MIX_OS_DEPS_COMPILE_PARTITION_COUNT=$(
+  echo "$(sysctl -n hw.physicalcpu) / 2" | bc
+)
+
 # Enable history Elixir iex
 export ERL_AFLAGS="-kernel shell_history enabled"
 
