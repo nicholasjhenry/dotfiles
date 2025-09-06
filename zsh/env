@@ -1,3 +1,9 @@
+if [[ -v ZED_ENVIRONMENT ]]; then
+  export EDITOR='zed -- wait'
+else
+  export EDITOR=vim
+fi
+
 # Enable history Elixir iex
 export ERL_AFLAGS="-kernel shell_history enabled"
 
