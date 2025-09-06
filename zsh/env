@@ -12,3 +12,4 @@ export MIX_OS_DEPS_COMPILE_PARTITION_COUNT=$(
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 export GPG_TTY=$(tty)
+setopt INTERACTIVE_COMMENTS
