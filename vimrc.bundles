@@ -36,6 +36,7 @@ Plug 'msanders/snipmate.vim' "Aims to be a concise vim script that implements so
 Plug 'rizzatti/dash.vim'
 Plug 'godlygeek/tabular' "Vim script for text filtering and alignment
 Plug 'tomtom/tcomment_vim' "An extensible & universal comment vim-plugin that also handles embedded filetypes
+Plug 'chrisbra/csv.vim'
 
 " Linting
 Plug 'dense-analysis/ale'
