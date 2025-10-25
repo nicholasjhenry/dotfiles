@@ -13,3 +13,5 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 export GPG_TTY=$(tty)
 setopt INTERACTIVE_COMMENTS
+
+export PATH="$HOME/Workspaces/bin:$PATH"
