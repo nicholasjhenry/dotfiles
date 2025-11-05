@@ -7,11 +7,13 @@ source $HOME/.zsh/plugins
 
 source $HOME/.zsh/aliases
 source $HOME/.zsh/bindkey
+source $HOME/.zsh/elixir
 source $HOME/.zsh/env
 source $HOME/.zsh/flaker
 source $HOME/.zsh/git-prompt
 source $HOME/.zsh/fzf
 source $HOME/.zsh/homebrew
+source $HOME/.zsh/mise
 
 fpath=( ~/.zsh-completions $fpath )
 
