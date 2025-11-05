@@ -1,0 +1,2 @@
+# Do not set this here as it prevents overrides in .env.local files
+# export MISE_ENV_FILE=.env
