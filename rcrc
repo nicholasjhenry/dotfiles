@@ -1,2 +1,2 @@
-EXCLUDES="README.md LICENSE.md"
+EXCLUDES="README.md LICENSE.md tmp"
 DOTFILES_DIRS="$HOME/Workspaces/dotfiles $HOME/Workspaces/claude-code"
