@@ -6,7 +6,7 @@
 
 ## Installation
 
-1. Clone this repo to ~/Workspaces/dotfiles.local
+1. Clone this repo
 2. Execute `rcup -vv`
 
 See individual README's in sub-directories for more information.
