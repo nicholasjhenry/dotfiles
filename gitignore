@@ -11,6 +11,7 @@ TODO.txt
 .scratchpad
 .scratchpad.md
 .script
+.*.swp
 .dccache
 .elixir_ls
 *.drawio.bkp
