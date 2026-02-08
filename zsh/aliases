@@ -1,5 +1,4 @@
-alias flushcache='dscacheutil -flushcache'
-alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
+# General Aliases, specific aliases live in zsh/*.
 
 alias flushcache='dscacheutil -flushcache'
 
