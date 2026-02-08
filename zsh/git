@@ -1,0 +1,4 @@
+alias changelog='!bash -C git log --pretty=format:\"- %ad %B\" \
+  --grep=\"^Bump\" \
+  --invert-grep \
+  --date=short $(git describe --tags --abbrev=0)..HEAD' -
