@@ -1,2 +1,4 @@
 # Do not set this here as it prevents overrides in .env.local files
 # export MISE_ENV_FILE=.env
+
+alias mise-install='KERL_BUILD_DOCS="yes" KERL_CONFIGURE_OPTIONS="--with-ssl=$(brew --prefix openssl) --enable-wx --with-wx-config=/$(brew --prefix wxwidgets@3.2)/bin/wx-config-3.2" mise install'
