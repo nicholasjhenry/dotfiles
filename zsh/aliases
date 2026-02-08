@@ -1,8 +1,6 @@
 alias flushcache='dscacheutil -flushcache'
 alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
 
-alias asdf_install_erlang='KERL_BUILD_DOCS="yes" \
-  KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl@1.1)" \
-  asdf install erlang'
+alias flushcache='dscacheutil -flushcache'
 
 alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
