@@ -1,2 +1,3 @@
 EXCLUDES="README.md LICENSE.md tmp"
 DOTFILES_DIRS="$HOME/Workspaces/dotfiles $HOME/Workspaces/agents/claude-code"
+SYMLINK_DIRS="bin bundle ctags.d git_template hooks iterm2 marked2 ssh vim zsh zsh-completions"
