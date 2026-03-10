@@ -1,4 +1,5 @@
 nmap <leader>t :FZF<cr>
+nmap <leader>p :Buffers<cr>
 
 " This is the default extra key bindings
 let g:fzf_action = {

@@ -13,9 +13,9 @@ Plug 'neomake/neomake' "Async :make and linting framework for Neovim/Vim
 
 " Vim UI
 Plug 'mileszs/ack.vim' "Vim plugin for the Perl module / CLI script 'ack'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'roman/golden-ratio'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "Fuzzy finder
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-vinegar' "Nice enhancements to Netrw
 Plug 'altercation/vim-colors-solarized'
 

@@ -29,5 +29,5 @@ function! PromoteToLet()
   :normal ==
 endfunction
 :command! PromoteToLet :call PromoteToLet()
-:map <leader>p :PromoteToLet<cr>
+" :map <leader>p :PromoteToLet<cr>
 
