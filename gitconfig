@@ -7,7 +7,7 @@
   dfc = diff --cached
   track = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
 [core]
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore.global
   editor = vim
   pager = delta
 [difftool "sourcetree"]
