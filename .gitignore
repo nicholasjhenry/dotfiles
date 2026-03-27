@@ -10,3 +10,4 @@ bundle/cache
 vim/bundle
 tags.lock
 tags.temp
+ssh/known_hosts
