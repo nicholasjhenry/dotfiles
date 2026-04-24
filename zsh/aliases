@@ -35,3 +35,40 @@ alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
 #   changed-tests | xargs mix test.watch --seed 0 --max-failures 1 || echo "No changed tests"
 #
 alias changed-tests='p=$(pwd | sed "s|^$(git rev-parse --show-toplevel)/||"); files=$(git diff --name-only origin/main...HEAD | grep "_test.exs$" | grep "^$p/" | sed "s|^$p/||"); [ -n "$files" ] && echo "$files"'
+
+# ------------------------------------------------------------------------------
+# GitHub (gh)
+# ------------------------------------------------------------------------------
+
+# Fetch all comments, reviews, and metadata for a pull request and write them
+# to `./tmp/pr-<number>.json`.
+#
+# Combines the PR body, inline review comments, top-level comments, review
+# summaries, review requests, title, and author into a single JSON file that
+# can be inspected or passed to other tools.
+#
+# USAGE
+#   pr_json <pr-number>
+#
+# ARGUMENTS
+#   pr-number   The integer pull request number (e.g. 42).
+#
+# OUTPUT
+#   ./tmp/pr-<pr-number>.json
+#
+# EXAMPLES
+#   pr_json 42
+#   cat tmp/pr-42.json | jq '.comments'
+#
+# DEPENDENCIES
+#   gh  — GitHub CLI (https://cli.github.com)
+#
+function pr_json() {
+    local pr_number=$1
+    local repo
+    local target_path="$PWD/tmp/pr-$pr_number.json"
+    echo "$target_path"
+    repo=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+    gh pr view "$pr_number" --json body,comments,reviews,reviewRequests,title,author > "$target_path"
+    gh api "repos/$repo/pulls/$pr_number/comments" >> "$target_path"
+}
