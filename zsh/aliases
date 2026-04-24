@@ -3,3 +3,9 @@
 alias flushcache='dscacheutil -flushcache'
 
 alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
+
+# Prints changes tests in the current branch diffed with `main`, can be used in running tests that have changed only:
+#
+#   changed-tests | xargs mix test.watch --seed 0 --max-failures 1 || echo "No changed tests"
+#
+alias changed-tests='p=$(pwd | sed "s|^$(git rev-parse --show-toplevel)/||"); files=$(git diff --name-only origin/main...HEAD | grep "_test.exs$" | grep "^$p/" | sed "s|^$p/||"); [ -n "$files" ] && echo "$files"'
