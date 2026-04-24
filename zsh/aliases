@@ -1,11 +1,37 @@
-# General Aliases, specific aliases live in zsh/*.
+# General Aliases
+#
+# Specific tool aliases live in zsh/*.
 
+# ------------------------------------------------------------------------------
+# System
+# ------------------------------------------------------------------------------
+
+# Flush the macOS DNS cache.
 alias flushcache='dscacheutil -flushcache'
 
+# Open a URL or file in Google Chrome.
+#
+# USAGE
+#   ch <url|path>
+#
+# EXAMPLES
+#   ch https://example.com
+#   ch index.html
 alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
 
-# Prints changes tests in the current branch diffed with `main`, can be used in running tests that have changed only:
+# ------------------------------------------------------------------------------
+# Git
+# ------------------------------------------------------------------------------
+
+# Print the test files changed in the current branch relative to `origin/main`.
 #
+# Outputs a newline-delimited list of changed `*_test.exs` files scoped to the
+# current working directory. Produces no output (exit 0) when no files match,
+# making it safe to pipe unconditionally.
+#
+# USAGE
+#   changed-tests
+#   changed-tests | xargs mix test --seed 0 --max-failures 1
 #   changed-tests | xargs mix test.watch --seed 0 --max-failures 1 || echo "No changed tests"
 #
 alias changed-tests='p=$(pwd | sed "s|^$(git rev-parse --show-toplevel)/||"); files=$(git diff --name-only origin/main...HEAD | grep "_test.exs$" | grep "^$p/" | sed "s|^$p/||"); [ -n "$files" ] && echo "$files"'
