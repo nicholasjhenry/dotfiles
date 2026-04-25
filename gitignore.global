@@ -2,6 +2,7 @@
 *~.md
 .*.swp
 .DS_Store
+.agents
 .claude
 .codex
 .conductor
