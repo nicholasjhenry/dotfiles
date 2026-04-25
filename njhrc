@@ -14,6 +14,7 @@ source $HOME/.zsh/git-prompt
 source $HOME/.zsh/fzf
 source $HOME/.zsh/homebrew
 source $HOME/.zsh/mise
+source $HOME/.zsh/pnpm
 
 fpath=( ~/.zsh-completions $fpath )
 
