@@ -1,28 +1,47 @@
 *.drawio.bkp
-*~.md
-.*.swp
 .DS_Store
-.agents
-.claude
-.codex
-.conductor
 .dccache
-.elixir_ls
 .env
-.expert
-.iex.exs
 .obsidian
-.ruby-gemset
 .scratchpad
 .scratchpad.md
 .script
 .tags
 .tags1
 .tool-versions
-.vimrc
-.vscode
 .watchmanconfig
-.zed
-CLAUDE.local.md
 NEXT.md
 TODO.txt
+
+# Editors
+
+*~.md
+.*.swp
+.vimrc
+.vscode
+.zed
+
+# Ruby
+.ruby-gemset
+
+# Elixir
+
+.elixir_ls
+.expert
+.iex.exs
+
+# Agents
+.agents
+.codex
+.conductor
+
+# Claude Code — personal/machine-local, never commit
+.claude/settings.local.json
+.claude/**/*.local.json
+.claude/**/*.local.md
+CLAUDE.local.md
+
+# Claude Code — runtime artifacts (if anything gets written here by hooks/scripts)
+.claude/cache/
+.claude/tmp/
+.claude/logs/
