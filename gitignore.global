@@ -45,3 +45,4 @@ CLAUDE.local.md
 .claude/cache/
 .claude/tmp/
 .claude/logs/
+.claude/plans
