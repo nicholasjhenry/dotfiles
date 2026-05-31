@@ -23,6 +23,7 @@ TODO.txt
 
 # Ruby
 .ruby-gemset
+vendor/bundle
 
 # Elixir
 
