@@ -3,18 +3,18 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=247'
 
 export WORKSPACES=$HOME/Workspaces
 
-source $HOME/.zsh/plugins
+source $HOME/.config/zsh/plugins
 
-source $HOME/.zsh/aliases
-source $HOME/.zsh/bindkey
-source $HOME/.zsh/elixir
-source $HOME/.zsh/env
-source $HOME/.zsh/flaker
-source $HOME/.zsh/git-prompt
-source $HOME/.zsh/fzf
-source $HOME/.zsh/homebrew
-source $HOME/.zsh/mise
-source $HOME/.zsh/pnpm
+source $HOME/.config/zsh/aliases
+source $HOME/.config/zsh/bindkey
+source $HOME/.config/zsh/elixir
+source $HOME/.config/zsh/env
+source $HOME/.config/zsh/flaker
+source $HOME/.config/zsh/git-prompt
+source $HOME/.config/zsh/fzf
+source $HOME/.config/zsh/homebrew
+source $HOME/.config/zsh/mise
+source $HOME/.config/zsh/pnpm
 
 fpath=( ~/.zsh-completions $fpath )
 
