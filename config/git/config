@@ -1,78 +1,78 @@
 [alias]
-  # Basics
-  s = status
-  st = status
-  co = checkout
-  ci = commit
-  df = diff
-  dfc = diff --cached
-  unstage = reset HEAD
-  revert-last-commit = reset --soft HEAD^
-  l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
-  # Set the current branch's upstream to its origin counterpart
-  track = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
-  # Delete local branches already merged; never the long-lived ones
-  sweep = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
-  force-sweep = "!git branch | grep -v master | xargs git branch -D"
-  # git-friendly (https://github.com/jamiew/git-friendly)
-  sm = smart-merge
-  sp = smart-pull
-  sl = smart-log
-  # Branch ops
-  rbm = rebase master
-  pom = push origin master
-  phm = push heroku master
-  ctags = "!.git/hooks/ctags"
-  # Subtree (https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/)
-  sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
-  sbu = "!f() { git subtree pull --prefix $2 $1 master --squash; }; f"
+	# Basics
+	s = status
+	st = status
+	co = checkout
+	ci = commit
+	df = diff
+	dfc = diff --cached
+	unstage = reset HEAD
+	revert-last-commit = reset --soft HEAD^
+	l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+	# Set the current branch's upstream to its origin counterpart
+	track = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
+	# Delete local branches already merged; never the long-lived ones
+	sweep = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
+	force-sweep = "!git branch | grep -v master | xargs git branch -D"
+	# git-friendly (https://github.com/jamiew/git-friendly)
+	sm = smart-merge
+	sp = smart-pull
+	sl = smart-log
+	# Branch ops
+	rbm = rebase master
+	pom = push origin master
+	phm = push heroku master
+	ctags = "!.git/hooks/ctags"
+	# Subtree (https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/)
+	sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
+	sbu = "!f() { git subtree pull --prefix $2 $1 master --squash; }; f"
 [apply]
-  whitespace = nowarn
+	whitespace = nowarn
 [color]
-  ui = auto
+	ui = auto
 [core]
-  excludesfile = ~/.config/git/ignore.global
-  editor = vim
-  pager = delta
-  quotepath = false
+	excludesfile = ~/.config/git/ignore.global
+	editor = vim
+	pager = delta
+	quotepath = false
 [commit]
-  template = ~/.config/git/message
-  cleanup = strip
-  gpgsign = true
+	template = ~/.config/git/message
+	cleanup = strip
+	gpgsign = true
 [push]
-  default = current
+	default = current
 [pull]
-  rebase = false
+	rebase = false
 [init]
-  defaultBranch = main
-  templatedir = ~/.config/git/template
+	defaultBranch = main
+	templatedir = ~/.config/git/template
 [credential]
-  helper = cache --timeout=3600
+	helper = cache --timeout=3600
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [delta]
-  navigate = true    # use n and N to move between diff sections
-  light = true       # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	navigate = true    # use n and N to move between diff sections
+	light = true       # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 [merge]
-  conflictstyle = diff3
+	conflictstyle = diff3
 [diff]
-  colorMoved = default
+	colorMoved = default
 [branch "master"]
-  remote = origin
-  merge = refs/heads/master
-  # Rebase master on top of the fetched branch instead of merging on `git pull`
-  rebase = true
+	remote = origin
+	merge = refs/heads/master
+	# Rebase master on top of the fetched branch instead of merging on `git pull`
+	rebase = true
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
 [mergetool "sourcetree"]
-  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 # Machine-specific identity + signing key, provisioned from 1Password by
 # hooks/post-up. Expected contents:
 #   [user]
@@ -80,4 +80,4 @@
 #     email = you@example.com
 #     signingkey = <GPG signing key>
 [include]
-  path = ~/.config/secrets/gitconfig
+	path = ~/.config/secrets/gitconfig
