@@ -31,4 +31,4 @@ source $ZDOTDIR/pnpm
 source $ZDOTDIR/prompt
 
 # Secrets last — overrides everything above
-[ -f $XDG_CONFIG_HOME/secrets/shrc ] && source $XDG_CONFIG_HOME/secrets/shrc
+[ -f "$XDG_CONFIG_HOME/secrets/shrc" ] && source "$XDG_CONFIG_HOME/secrets/shrc"
