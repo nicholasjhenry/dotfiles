@@ -10,9 +10,9 @@ flaker () {
     ${NEWLINE}The second argument is the path to the test file.\
     ${NEWLINE}Example: $ flaker 10 test/engine/dealers/dealer_test.exs
     $(tput sgr0)"
-    (exit 33) && true
+    return 33
   fi
-  for (( i=1; i<$1; i++ ));
+  for (( i=1; i<=$1; i++ ));
   do
       echo "$(tput setaf 4)$(tput setab 2)test run number: $i$(tput sgr0)";
       mix test $2 || break;
