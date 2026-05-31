@@ -5,6 +5,7 @@ else
 fi
 
 export GPG_TTY=$(tty)
+export PSQLRC="$XDG_CONFIG_HOME/psql/psqlrc"
 setopt INTERACTIVE_COMMENTS
 
 export PATH="$HOME/.local/bin:$PATH"
