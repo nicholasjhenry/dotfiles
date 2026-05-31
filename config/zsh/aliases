@@ -6,6 +6,10 @@
 # System
 # ------------------------------------------------------------------------------
 
+# Jump back to the previous working directory. The leading `--` stops zsh
+# parsing `-` as a flag for `alias` itself.
+alias -- -='cd -'
+
 # Flush the macOS DNS cache.
 alias flushcache='dscacheutil -flushcache'
 
