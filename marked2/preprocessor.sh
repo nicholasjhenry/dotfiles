@@ -16,8 +16,7 @@ MERMAID_SCRIPT=$(cat <<'EOF'
 EOF
 )
 
-# Add Mermaid script to the INPUT
-OUTPUT=$(echo -e "$MERMAID_SCRIPT\n$INPUT")
-
-# Output the result to stdout (back to Marked 2)
-echo "$OUTPUT"
+# Emit the Mermaid script followed by the original input.
+# printf is portable; `echo -e` depends on a bash flag and gets weird with
+# backslashes in $INPUT.
+printf '%s\n%s\n' "$MERMAID_SCRIPT" "$INPUT"
