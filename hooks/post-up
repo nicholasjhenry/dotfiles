@@ -19,11 +19,12 @@ append_to_zshrc() {
     fi
 }
 
-# Create required dirs
+# Create required XDG dirs (idempotent; -p so re-running rcup never errors).
+# The zsh subdirs must exist before compinit (zcompdump) and history can write.
 
-mkdir $HOME/.cache
-mkdir -p $HOME/.local/share
-mkdir -p $HOME/.local/state
+mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+mkdir -p "${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
+mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}"
 
 # Install and run vim-plug
 
@@ -53,6 +54,16 @@ if [ ! -e $NJH_CONFIG_SECRETS/shrc ]; then
     touch $NJH_CONFIG_SECRETS/shrc
 fi
 
+# Provision the git identity + signing key (commit.gpgsign = true depends on it).
+# Guard the bootstrap: only run if `op` is present, and remove the file on
+# failure so a later rcup retries instead of leaving an empty, broken gitconfig.
 if [ ! -e $NJH_CONFIG_SECRETS/gitconfig ]; then
-    op read op://Setup/gitconfig/notesPlain >$NJH_CONFIG_SECRETS/gitconfig
+    if command -v op >/dev/null 2>&1; then
+        if ! op read op://Setup/gitconfig/notesPlain >$NJH_CONFIG_SECRETS/gitconfig; then
+            rm -f $NJH_CONFIG_SECRETS/gitconfig
+            echo "WARNING: could not read gitconfig from 1Password; commits will fail while commit.gpgsign is true." >&2
+        fi
+    else
+        echo "WARNING: 1Password CLI (op) not found; skipping gitconfig provisioning." >&2
+    fi
 fi
