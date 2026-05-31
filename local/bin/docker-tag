@@ -1,22 +1,24 @@
 #!/bin/bash
 #
-# Search docker hub for an image:
+# Search Docker Hub for hexpm/elixir image tags matching an OS, an Elixir
+# version, and an Erlang/OTP version.
 #
-#    script/docker/hub/search OS ELIXIR_VSN ERLANG_VSN
+# Usage:
+#
+#    docker-tag OS ELIXIR_VSN ERLANG_VSN
 #
 # Example:
 #
-#    script/docker/hub/search debian 1.15.7 26.1.2
+#    docker-tag debian 1.15.7 26.1.2
 #
 
-function search() {
+# Fetch one page of tag names, newest-sorted.
+function fetch_page() {
   local page=$1
 
-  echo "$(
-    curl --silent \
-      "https://hub.docker.com/v2/namespaces/hexpm/repositories/elixir/tags?page_size=100&page=${page}" |
-      jq -r ".results[].name" | sort --version-sort | grep $2 | grep $3 | grep $4
-  )"
+  curl --silent \
+    "https://hub.docker.com/v2/namespaces/hexpm/repositories/elixir/tags?page_size=100&page=${page}" |
+    jq -r ".results[].name" | sort --version-sort
 }
 
 if [ "$#" -ne 3 ]; then
@@ -33,14 +35,22 @@ page=1
 
 while true; do
   echo "Searching page ${page}..."
-  result=$(search $page $os $elixir_vsn $erlang_vsn)
+  tags=$(fetch_page "$page")
+
+  # An empty page means we have walked past the last tag; stop paging.
+  if [ -z "$tags" ]; then
+    echo "No more tags; done."
+    break
+  fi
+
+  result=$(echo "$tags" | grep "$os" | grep "$elixir_vsn" | grep "$erlang_vsn")
 
   if [ -n "$result" ]; then
     echo "$result"
     echo "Continue? Press any key or Ctrl-C to exit."
     read -r input
   else
-    echo "No results, continue searching..."
+    echo "No matches on this page, continue searching..."
   fi
 
   ((page++))
