@@ -9,12 +9,12 @@ setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 export WORKSPACES=$HOME/Workspaces
 
 # These sources need to be first
+source $ZDOTDIR/completion
 source $ZDOTDIR/env
 source $ZDOTDIR/plugins
 
 source $ZDOTDIR/aliases
 source $ZDOTDIR/bindkey
-source $ZDOTDIR/completion
 source $ZDOTDIR/elixir
 source $ZDOTDIR/flaker
 source $ZDOTDIR/fzf
