@@ -22,23 +22,31 @@ function help() {
     echo
 }
 
+# Fuzzy-pick a note and echo its path relative to $base_path.
+# Stripping the $base_path prefix with sed works regardless of how many path
+# segments $HOME has (the old `cut -f5-` assumed a /Users/<name> home).
+function pick_note() {
+    fd --type f . "$base_path" | sed "s|^$base_path/||" | fzf --preview "bat --style=numbers $base_path/{}"
+}
+
 function copy() {
-    # find all files | trim the file name for display | fuzzy search and preview with bat
-    local file=$(fd --type f . "$base_path" | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
+    local file
+    file=$(pick_note)
 
     copy_file "$file"
 }
 
 # Named find_note (not find) so it does not shadow the find(1) command.
 function find_note() {
-    # find all files | trim the file name for display | fuzzy search and preview with bat
-    local file=$(fd --type f . "$base_path" | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
+    local file
+    file=$(pick_note)
 
     display "$file"
 }
 
 function edit() {
-    local file=$(fd --type f . "$base_path" | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
+    local file
+    file=$(pick_note)
 
     $EDITOR "$base_path/$file"
 }
