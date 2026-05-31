@@ -1,4 +1,11 @@
-alias changelog='!bash -C git log --pretty=format:\"- %ad %B\" \
-  --grep=\"^Bump\" \
-  --invert-grep \
-  --date=short $(git describe --tags --abbrev=0)..HEAD' -
+# Print commits since the most recent tag as changelog lines ("- <date> <body>"),
+# excluding "Bump" commits. A function (not an alias) so the tag lookup runs at
+# call time, in the current repo.
+changelog() {
+  git log \
+    --pretty=format:"- %ad %B" \
+    --grep="^Bump" \
+    --invert-grep \
+    --date=short \
+    "$(git describe --tags --abbrev=0)..HEAD"
+}
