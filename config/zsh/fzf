@@ -2,3 +2,8 @@
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type f'
+
+if [[ -f $HOME/.fzf/shell/completion.zsh ]]; then
+  source  $HOME/.fzf/shell/key-bindings.zsh
+  source   $HOME/.fzf/shell/completion.zsh
+fi
