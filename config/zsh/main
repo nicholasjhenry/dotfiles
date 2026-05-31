@@ -16,13 +16,13 @@ source $ZDOTDIR/aliases
 source $ZDOTDIR/bindkey
 source $ZDOTDIR/completion
 source $ZDOTDIR/elixir
-source $ZDOTDIR/history
 source $ZDOTDIR/flaker
-source $ZDOTDIR/git-prompt
 source $ZDOTDIR/fzf
+source $ZDOTDIR/history
 source $ZDOTDIR/homebrew
 source $ZDOTDIR/mise
 source $ZDOTDIR/pnpm
+source $ZDOTDIR/prompt
 
 fpath=( ~/.zsh-completions $fpath )
 

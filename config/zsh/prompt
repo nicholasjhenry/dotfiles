@@ -26,3 +26,10 @@ ZSH_THEME_GIT_PROMPT_TAGS_SEPARATOR=", "
 ZSH_THEME_GIT_PROMPT_TAGS_PREFIX="🏷 "
 ZSH_THEME_GIT_PROMPT_TAGS_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_TAG="%{$fg_bold[magenta]%}"
+
+# Prevent Python virtualenv from polluting the prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+FUNCNEST=100
+
+eval "$(starship init zsh)"
