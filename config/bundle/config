@@ -1,5 +1,5 @@
 ---
-BUNDLE_GEM__MIT: "0"
-BUNDLE_GLOBAL__PATH: "vendor/bundle"
+BUNDLE_GEM__MIT: "false"
+BUNDLE_PATH: "vendor/bundle"
 BUNDLE_GEM__TEST: "rspec"
 BUNDLE_GEM__COC: "false"
