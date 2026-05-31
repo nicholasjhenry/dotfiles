@@ -4,8 +4,10 @@ export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle/config"
 export GPG_TTY=$(tty)
 export PATH="$HOME/.local/bin:$PATH"
 
-# Render man pages with bat when available.
-command -v bat >/dev/null && export MANPAGER="bat -l man -p"
+# Render man pages with bat when available. `col -bx` strips the backspace
+# overstrike sequences (`B^HB`) that groff uses for bold/underline; without it
+# bat shows literal `^H` characters.
+command -v bat >/dev/null && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Match bat's syntax theme to the Solarized Light terminal background.
 export BAT_THEME='Solarized (light)'
