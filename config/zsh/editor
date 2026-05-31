@@ -1,5 +1,5 @@
 if [[ -v ZED_ENVIRONMENT ]]; then
-  export EDITOR='zed -- wait'
+  export EDITOR='zed --wait'
 else
   export EDITOR=vim
-fi[ -z "$EDITOR" ] && export EDITOR=vim
+fi
