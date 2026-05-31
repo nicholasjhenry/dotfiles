@@ -1,9 +1,16 @@
 # https://github.com/junegunn/fzf
+#
+# Load fzf's shell integration (key bindings + completion) directly from the
+# binary via `fzf --zsh` (fzf >= 0.48), instead of the generated ~/.fzf.zsh.
+# This works no matter how fzf was installed:
+#   - Homebrew: already on PATH
+#   - git method (~/.fzf, see vimrc.bundles): added to PATH below
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type f'
 
-if [[ -f $HOME/.fzf/shell/completion.zsh ]]; then
-  source  $HOME/.fzf/shell/key-bindings.zsh
-  source   $HOME/.fzf/shell/completion.zsh
+# The git install isn't on PATH by default; add it. Skipped for Homebrew.
+if [[ -d ~/.fzf/bin && ":$PATH:" != *":$HOME/.fzf/bin:"* ]]; then
+  PATH="$PATH:$HOME/.fzf/bin"
 fi
+
+command -v fzf >/dev/null && source <(fzf --zsh)
