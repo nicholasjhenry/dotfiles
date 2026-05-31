@@ -17,9 +17,11 @@ source $ZDOTDIR/completion
 # Feature modules (order-independent)
 source $ZDOTDIR/aliases
 source $ZDOTDIR/bindkey
+source $ZDOTDIR/editor
 source $ZDOTDIR/elixir
 source $ZDOTDIR/flaker
 source $ZDOTDIR/fzf
+source $ZDOTDIR/git
 source $ZDOTDIR/history
 source $ZDOTDIR/homebrew
 source $ZDOTDIR/mise
