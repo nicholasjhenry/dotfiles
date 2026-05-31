@@ -22,7 +22,7 @@
   rbm = rebase master
   pom = push origin master
   phm = push heroku master
-  ctags = !.git/hooks/ctags
+  ctags = "!.git/hooks/ctags"
   # Subtree (https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/)
   sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
   sbu = "!f() { git subtree pull --prefix $2 $1 master --squash; }; f"
