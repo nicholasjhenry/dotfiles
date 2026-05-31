@@ -2,9 +2,13 @@
 
 set -euo pipefail
 
-# load env vars
+# Load env vars from a local .env, if present. `set -a` exports everything the
+# file defines; sourcing handles quotes/spaces that the old `xargs` form broke.
 if [ -f .env ]; then
-    export $(cat .env | sed 's/#.*//g' | xargs)
+    set -a
+    # shellcheck disable=SC1091
+    source ./.env
+    set +a
 fi
 
 base_path=$HOME/.notes
@@ -13,48 +17,53 @@ function help() {
     echo
     echo "A note task runner for $base_path"
     echo
+    echo "Usage: note <copy|find|list|edit|search <pattern>|new <path>|log <name>|persist>"
+    echo "       note <path>   # display a note"
+    echo
 }
 
 function copy() {
     # find all files | trim the file name for display | fuzzy search and preview with bat
-    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
+    local file=$(fd --type f . "$base_path" | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
 
-    copy_file $file
+    copy_file "$file"
 }
 
-function find() {
+# Named find_note (not find) so it does not shadow the find(1) command.
+function find_note() {
     # find all files | trim the file name for display | fuzzy search and preview with bat
-    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
+    local file=$(fd --type f . "$base_path" | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
 
-    display $file
+    display "$file"
 }
 
 function edit() {
-    local file=$(fd --type f . $base_path | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
+    local file=$(fd --type f . "$base_path" | cut -d'/' -f5- | fzf --preview "bat --style=numbers $base_path/{}")
 
     $EDITOR "$base_path/$file"
 }
 
 function new() {
-    local dir=$(dirname $1)
-    echo "Enusre $dir exists..."
+    local dir
+    dir=$(dirname "$1")
+    echo "Ensure $dir exists..."
     mkdir -p "$base_path/$dir"
     $EDITOR "$base_path/$1"
 }
 
 function search() {
-    rg $1 $base_path
+    rg "$1" "$base_path"
 }
 
 function list() {
-    fd --type f . $base_path
+    fd --type f . "$base_path"
 }
 
 function copy_file {
     echo "$1"
     echo
 
-    cat $base_path/$1 | pbcopy
+    pbcopy < "$base_path/$1"
 }
 
 function display {
@@ -62,10 +71,10 @@ function display {
     echo
 
     if [[ $1 =~ (^"snippets") ]]; then
-        cat $base_path/$1 | pbcopy
-        bat --style plain --theme GitHub $base_path/$1
+        pbcopy < "$base_path/$1"
+        bat --style plain --theme GitHub "$base_path/$1"
     else
-        glow $base_path/$1 -s $HOME/.glamour.json
+        glow "$base_path/$1" -s "$HOME/.glamour.json"
     fi
 }
 
@@ -79,12 +88,12 @@ function persist() {
     git push
 }
 
-case "$1" in
+case "${1:-help}" in
 copy)
     copy
     ;;
 find)
-    find
+    find_note
     ;;
 list)
     list
@@ -93,22 +102,25 @@ edit)
     edit
     ;;
 search)
-    search $2
+    search "${2:?usage: note search <pattern>}"
     ;;
 new)
-    new $2
+    new "${2:?usage: note new <path>}"
     ;;
 log)
-    log $2
+    log "${2:?usage: note log <name>}"
     ;;
 persist)
     persist
     ;;
+help)
+    help
+    ;;
 *)
     if test -f "$base_path/$1"; then
-        display $1
+        display "$1"
     else
-        help task
+        help
         exit 1
     fi
     ;;

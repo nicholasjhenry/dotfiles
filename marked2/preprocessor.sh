@@ -11,10 +11,10 @@ MERMAID_SCRIPT=$(cat <<'EOF'
 <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
 <script>
   mermaid.initialize({ startOnLoad: true });
-  mermaid.initialize({ startOnLoad: true });
   Marked.hooks.register('update', function() { mermaid.run(); });
 </script>
-EOF)
+EOF
+)
 
 # Add Mermaid script to the INPUT
 OUTPUT=$(echo -e "$MERMAID_SCRIPT\n$INPUT")
