@@ -1,5 +1,4 @@
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
+# NOTE: brew's zsh site-functions are added to fpath in `completion` (must run
+# before compinit), not here.
 
 export PATH="$(brew --prefix)/bin:$PATH"

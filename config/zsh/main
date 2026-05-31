@@ -8,13 +8,13 @@ setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 
 export WORKSPACES=$HOME/Workspaces
 
-# NOTE: Must run in this order
-# plugins populates fpath (zsh-completions) → completion runs compinit → aliases uses compdef
+# Ordered prelude: plugins populate fpath (zsh-completions) → completion gathers
+# all fpath contributions and runs compinit → later files may use compdef.
 source $ZDOTDIR/env
 source $ZDOTDIR/plugins
 source $ZDOTDIR/completion
 
-# Custom
+# Feature modules (order-independent)
 source $ZDOTDIR/aliases
 source $ZDOTDIR/bindkey
 source $ZDOTDIR/elixir
@@ -24,8 +24,9 @@ source $ZDOTDIR/history
 source $ZDOTDIR/homebrew
 source $ZDOTDIR/mise
 source $ZDOTDIR/pnpm
+
+# Prompt last — installs precmd hooks (starship)
 source $ZDOTDIR/prompt
 
-fpath=( ~/.zsh-completions $fpath )
-
+# Secrets last — overrides everything above
 [ -f $XDG_CONFIG_HOME/secrets/shrc ] && source $XDG_CONFIG_HOME/secrets/shrc
