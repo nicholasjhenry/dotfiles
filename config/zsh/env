@@ -1,3 +1,5 @@
-export GPG_TTY=$(tty)
 export PSQLRC="$XDG_CONFIG_HOME/psql/psqlrc"
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
+
+export GPG_TTY=$(tty)
 export PATH="$HOME/.local/bin:$PATH"
