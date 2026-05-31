@@ -1,6 +1,8 @@
 # Gray color for autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=247'
 
+setopt INTERACTIVE_COMMENTS
+
 export WORKSPACES=$HOME/Workspaces
 
 source $HOME/.config/zsh/plugins
