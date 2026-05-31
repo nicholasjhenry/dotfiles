@@ -110,8 +110,10 @@ set nofoldenable
 set foldlevel=0
 
 " Custom Mappings
-nmap <leader>l :set list!<CR>            " Use the same symbols as TextMate for tabstops and EOLs
-nmap <leader>rt :%s=\s\+$==<CR>          " Removes trailing spaces
+" Toggle display of invisible characters (tabs/EOLs)
+nmap <leader>l :set list!<CR>
+" Remove trailing whitespace
+nmap <leader>rt :%s=\s\+$==<CR>
 
 " Edit or view files in same directory as current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
