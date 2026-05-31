@@ -141,12 +141,6 @@ cnoremap <f25> <nop>
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
 
-" Open files in directory of current file
-" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
-map <leader>v :view %%
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configure built-in components and plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
