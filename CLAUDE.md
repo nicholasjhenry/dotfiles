@@ -47,6 +47,7 @@ vim/, vimrc, vimrc.bundles
 - **XDG everywhere:** `HISTFILE="$XDG_STATE_HOME/zsh/history"`, `PSQLRC="$XDG_CONFIG_HOME/psql/psqlrc"`, etc. New tool configs go under `$XDG_CONFIG_HOME/<tool>/`.
 - **Functions for runtime values, aliases for static strings.** `changelog()` in `config/zsh/git` shells out at call time; static strings stay as `alias`.
 - **Don't shadow builtins.** See `find_note` (not `find`) in `local/bin/note`.
+- **No extensions on `config/zsh/` modules.** They're sourced by `main`, not executed — name by role (`env`, `aliases`, `git`), not language. Adding `.zsh` would churn every `source` line for editor syntax detection that belongs in editor config instead.
 
 ## Real examples
 
