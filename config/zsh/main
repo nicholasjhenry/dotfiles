@@ -4,7 +4,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=247'
 setopt INTERACTIVE_COMMENTS
 setopt AUTOCD
 setopt NOBEEP
-setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
+setopt NUMERIC_GLOB_SORT # sort file10 after file9, not after file1
 
 export WORKSPACES=$HOME/Workspaces
 

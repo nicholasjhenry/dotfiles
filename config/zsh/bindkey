@@ -2,10 +2,10 @@
 #
 
 # Substring search plugin. Maps up and down arrows.
-bindkey -M main '^[OA' history-substring-search-up     # ↑
-bindkey -M main '^[OB' history-substring-search-down   # ↓
+bindkey -M main '^[OA' history-substring-search-up   # ↑
+bindkey -M main '^[OB' history-substring-search-down # ↓
 
 # CLI navigation
-bindkey '^[[1;5D' backward-word     # Ctrl+←
-bindkey '^[[1;5C' forward-word      # Ctrl+→
-bindkey '^K'      kill-line         # Ctrl+k
+bindkey '^[[1;5D' backward-word # Ctrl+←
+bindkey '^[[1;5C' forward-word  # Ctrl+→
+bindkey '^K' kill-line          # Ctrl+k

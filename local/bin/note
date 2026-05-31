@@ -5,131 +5,131 @@ set -euo pipefail
 # Load env vars from a local .env, if present. `set -a` exports everything the
 # file defines; sourcing handles quotes/spaces that the old `xargs` form broke.
 if [ -f .env ]; then
-    set -a
-    # shellcheck disable=SC1091
-    source ./.env
-    set +a
+  set -a
+  # shellcheck disable=SC1091
+  source ./.env
+  set +a
 fi
 
 base_path=$HOME/.notes
 
 function help() {
-    echo
-    echo "A note task runner for $base_path"
-    echo
-    echo "Usage: note <copy|find|list|edit|search <pattern>|new <path>|log <name>|persist>"
-    echo "       note <path>   # display a note"
-    echo
+  echo
+  echo "A note task runner for $base_path"
+  echo
+  echo "Usage: note <copy|find|list|edit|search <pattern>|new <path>|log <name>|persist>"
+  echo "       note <path>   # display a note"
+  echo
 }
 
 # Fuzzy-pick a note and echo its path relative to $base_path.
 # cd into the notes dir in a subshell so fd emits relative paths directly —
 # no fragile sed delimiter dance with whatever characters $base_path holds.
 function pick_note() {
-    (cd "$base_path" && fd --type f .) | fzf --preview "bat --style=numbers $base_path/{}"
+  (cd "$base_path" && fd --type f .) | fzf --preview "bat --style=numbers $base_path/{}"
 }
 
 function copy() {
-    local file
-    file=$(pick_note)
+  local file
+  file=$(pick_note)
 
-    copy_file "$file"
+  copy_file "$file"
 }
 
 # Named find_note (not find) so it does not shadow the find(1) command.
 function find_note() {
-    local file
-    file=$(pick_note)
+  local file
+  file=$(pick_note)
 
-    display "$file"
+  display "$file"
 }
 
 function edit() {
-    local file
-    file=$(pick_note)
+  local file
+  file=$(pick_note)
 
-    $EDITOR "$base_path/$file"
+  $EDITOR "$base_path/$file"
 }
 
 function new() {
-    local dir
-    dir=$(dirname "$1")
-    echo "Ensure $dir exists..."
-    mkdir -p "$base_path/$dir"
-    $EDITOR "$base_path/$1"
+  local dir
+  dir=$(dirname "$1")
+  echo "Ensure $dir exists..."
+  mkdir -p "$base_path/$dir"
+  $EDITOR "$base_path/$1"
 }
 
 function search() {
-    rg "$1" "$base_path"
+  rg "$1" "$base_path"
 }
 
 function list() {
-    fd --type f . "$base_path"
+  fd --type f . "$base_path"
 }
 
 function copy_file {
-    echo "$1"
-    echo
+  echo "$1"
+  echo
 
-    pbcopy < "$base_path/$1"
+  pbcopy <"$base_path/$1"
 }
 
 function display {
-    echo "$1"
-    echo
+  echo "$1"
+  echo
 
-    if [[ $1 =~ (^"snippets") ]]; then
-        pbcopy < "$base_path/$1"
-        bat --style plain --theme GitHub "$base_path/$1"
-    else
-        glow "$base_path/$1" -s "$HOME/.glamour.json"
-    fi
+  if [[ $1 =~ (^"snippets") ]]; then
+    pbcopy <"$base_path/$1"
+    bat --style plain --theme GitHub "$base_path/$1"
+  else
+    glow "$base_path/$1" -s "$HOME/.glamour.json"
+  fi
 }
 
 function log() {
-    new "log/$(date +%s)-$1"
+  new "log/$(date +%s)-$1"
 }
 
 function persist() {
-    git add .
-    git commit --allow-empty-message -m ""
-    git push
+  git add .
+  git commit --allow-empty-message -m ""
+  git push
 }
 
 case "${1:-help}" in
 copy)
-    copy
-    ;;
+  copy
+  ;;
 find)
-    find_note
-    ;;
+  find_note
+  ;;
 list)
-    list
-    ;;
+  list
+  ;;
 edit)
-    edit
-    ;;
+  edit
+  ;;
 search)
-    search "${2:?usage: note search <pattern>}"
-    ;;
+  search "${2:?usage: note search <pattern>}"
+  ;;
 new)
-    new "${2:?usage: note new <path>}"
-    ;;
+  new "${2:?usage: note new <path>}"
+  ;;
 log)
-    log "${2:?usage: note log <name>}"
-    ;;
+  log "${2:?usage: note log <name>}"
+  ;;
 persist)
-    persist
-    ;;
+  persist
+  ;;
 help)
-    help
-    ;;
+  help
+  ;;
 *)
-    if test -f "$base_path/$1"; then
-        display "$1"
-    else
-        help
-        exit 1
-    fi
-    ;;
+  if test -f "$base_path/$1"; then
+    display "$1"
+  else
+    help
+    exit 1
+  fi
+  ;;
 esac

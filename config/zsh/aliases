@@ -88,11 +88,11 @@ alias changed-tests='p=$(pwd | sed "s|^$(git rev-parse --show-toplevel)/||"); fi
 #   gh  — GitHub CLI (https://cli.github.com)
 #
 function pr_json() {
-    local pr_number=$1
-    local repo
-    local target_path="$PWD/tmp/pr-$pr_number.json"
-    echo "$target_path"
-    repo=$(gh repo view --json nameWithOwner -q .nameWithOwner)
-    gh pr view "$pr_number" --json body,comments,reviews,reviewRequests,title,author > "$target_path"
-    gh api "repos/$repo/pulls/$pr_number/comments" >> "$target_path"
+  local pr_number=$1
+  local repo
+  local target_path="$PWD/tmp/pr-$pr_number.json"
+  echo "$target_path"
+  repo=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+  gh pr view "$pr_number" --json body,comments,reviews,reviewRequests,title,author >"$target_path"
+  gh api "repos/$repo/pulls/$pr_number/comments" >>"$target_path"
 }
