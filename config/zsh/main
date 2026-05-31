@@ -8,20 +8,21 @@ setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 
 export WORKSPACES=$HOME/Workspaces
 
-source $HOME/.config/zsh/plugins
+# These sources need to be first
+source $ZDOTDIR/env
+source $ZDOTDIR/plugins
 
-source $HOME/.config/zsh/aliases
-source $HOME/.config/zsh/bindkey
-source $HOME/.config/zsh/completion
-source $HOME/.config/zsh/elixir
-source $HOME/.config/zsh/env
-source $HOME/.config/zsh/history
-source $HOME/.config/zsh/flaker
-source $HOME/.config/zsh/git-prompt
-source $HOME/.config/zsh/fzf
-source $HOME/.config/zsh/homebrew
-source $HOME/.config/zsh/mise
-source $HOME/.config/zsh/pnpm
+source $ZDOTDIR/aliases
+source $ZDOTDIR/bindkey
+source $ZDOTDIR/completion
+source $ZDOTDIR/elixir
+source $ZDOTDIR/history
+source $ZDOTDIR/flaker
+source $ZDOTDIR/git-prompt
+source $ZDOTDIR/fzf
+source $ZDOTDIR/homebrew
+source $ZDOTDIR/mise
+source $ZDOTDIR/pnpm
 
 fpath=( ~/.zsh-completions $fpath )
 

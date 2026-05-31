@@ -19,6 +19,12 @@ append_to_zshrc() {
     fi
 }
 
+# Create required dirs
+
+mkdir $HOME/.cache
+mkdir -p $HOME/.local/share
+mkdir -p $HOME/.local/state
+
 # Install and run vim-plug
 
 if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
@@ -37,15 +43,16 @@ if [ ! -e $HOME/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 
-WORKSPACES="$HOME/Workspaces"
-
-if [ ! -e $WORKSPACES/dotfiles.secret/shrc ]; then
-    mkdir -p $WORKSPACES/dotfiles.secret
-    touch $WORKSPACES/dotfiles.secret/shrc
-fi
+ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export NJH_CONFIG_SECRETS="$XDG_CONFIG_HOME/secrets"
 
 append_to_zshrc 'source $ZDOTDIR/main'
 
-if [ ! -e $WORKSPACES/dotfiles.secret/gitconfig ]; then
-    op read op://Setup/gitconfig/notesPlain >$WORKSPACES/dotfiles.secret/gitconfig
+if [ ! -e $NJH_CONFIG_SECRETS/shrc ]; then
+    mkdir -p $NJH_CONFIG_SECRETS
+    touch $NJH_CONFIG_SECRETS/shrc
+fi
+
+if [ ! -e $NJH_CONFIG_SECRETS/gitconfig ]; then
+    op read op://Setup/gitconfig/notesPlain >$NJH_CONFIG_SECRETS/gitconfig
 fi
