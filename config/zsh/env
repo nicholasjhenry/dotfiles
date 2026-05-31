@@ -7,6 +7,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # Render man pages with bat when available.
 command -v bat >/dev/null && export MANPAGER="bat -l man -p"
 
+# Match bat's syntax theme to the Solarized Light terminal background.
+export BAT_THEME='Solarized (light)'
+
 # Resolve the Homebrew prefix once; later modules (plugins, completion,
 # homebrew) reuse $BREW_PREFIX instead of each shelling out to `brew --prefix`.
 command -v brew >/dev/null && export BREW_PREFIX="$(brew --prefix)"
