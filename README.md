@@ -1,104 +1,90 @@
-nicholasjhenry dotfiles
-=======================
+# nicholasjhenry dotfiles
 
-![prompt](http://images.thoughtbot.com/thoughtbot-dotfiles-prompt.png)
+Personal macOS dotfiles: an XDG-compliant **zsh** setup with
+[starship](https://starship.rs) for the prompt, [mise](https://mise.jdx.dev) for
+runtime versions, and a delta-powered git config. Managed with
+[rcm](https://github.com/thoughtbot/rcm).
 
-Prerequisites
--------------
+## Prerequisites
 
-The following dependencies have been installed using the [laptop](https://github.com/nicholasjhenry/laptop)
-script and you SHOULD NOT have to install these manually.
+- [Homebrew](https://brew.sh)
+- [rcm](https://github.com/thoughtbot/rcm) — `brew install rcm`
+- [1Password CLI](https://developer.1password.com/docs/cli/) (`op`) — used by
+  `hooks/post-up` to provision the git identity / signing key
 
-Install [rcm](https://github.com/thoughtbot/rcm):
+The shell config leans on a handful of CLI tools (installed via Homebrew):
+`starship`, `mise`, `zplug`, `eza`, `fd`, `fzf`, `bat`, `ripgrep`, `delta`,
+`gh`, `jq`, `glow`. `zplug`, `vim-plug`, and `tmux`'s TPM bootstrap themselves on
+first run.
 
-    brew tap thoughtbot/formulae
-    brew install rcm
+## Install
 
-Install
--------
+Clone into `~/Workspaces`:
 
-Clone onto your laptop:
+```sh
+mkdir -p ~/Workspaces && cd ~/Workspaces
+git clone https://github.com/nicholasjhenry/dotfiles.git
+```
 
-    mkdir -p ~/Workspaces && cd ~/Workspaces
-    git clone https://github.com/nicholasjhenry/dotfiles.git
+Install the dotfiles (the one-time `RCRC` var points `rcup` at this repo's
+`rcrc`):
 
-Install the dotfiles:
+```sh
+env RCRC=$HOME/Workspaces/dotfiles/rcrc rcup
+```
 
-    env RCRC=$HOME/Workspaces/dotfiles/rcrc rcup
+`rcup` symlinks the files into place and runs `hooks/post-up`, which creates the
+required XDG directories, installs vim-plug + TPM, appends `source $ZDOTDIR/main`
+to `~/.zshrc`, and provisions secrets (see below). After the first run, `rcup`
+symlinks `rcrc` to `~/.rcrc`, so subsequent updates are just:
 
-After the initial installation, you can run `rcup` without the one-time variable
-`RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
-runs of `rcup`). [See
-example](https://github.com/thoughtbot/dotfiles/blob/master/rcrc).
+```sh
+rcup
+```
 
-This command will create symlinks for config files in your home directory.
-Setting the `RCRC` environment variable tells `rcup` to use standard
-configuration options:
+Run `rcup` again after pulling new changes to symlink any new files.
 
-* Exclude the `README.md` and `LICENSE` files, which are part of
-  the `dotfiles` repository but do not need to be symlinked in.
-* Give precedence to personal overrides which by default are placed in
-  `~/Workspaces/dotfiles.local`
+## Layout
 
-You can safely run `rcup` multiple times to update:
+| Path | Purpose |
+| --- | --- |
+| `zshenv` → `~/.zshenv` | XDG base dirs + `ZDOTDIR=$XDG_CONFIG_HOME/zsh` |
+| `config/zsh/` | Shell config; `main` is the entry point (sourced from `~/.zshrc`) |
+| `config/git/` | git `config`, global ignore, commit message template, `template/` hooks (ctags) |
+| `config/starship.toml` | Prompt |
+| `config/tmux/tmux.conf` | tmux |
+| `config/{bundle,ctags,irb,pry,psql}/` | Per-tool config |
+| `local/bin/` → `~/.local/bin/` | Small scripts (`note`, `haikunator`, `docker-tag`) |
+| `vim/`, `vimrc`, `vimrc.bundles` | vim — the `EDITOR` fallback (Zed is primary); plugins via vim-plug |
+| `iterm2/` | iTerm2 color schemes |
+| `hooks/post-up` | rcm post-install hook |
+| `rcrc` | rcm configuration |
 
-    rcup
+## Local & secret overrides
 
-You should run `rcup` after pulling a new version of the repository to symlink
-any new files in the repository.
+Machine-local and secret settings live in `~/.config/secrets/` (kept out of this
+repo):
 
-Make your own customizations
-----------------------------
+- **`~/.config/secrets/shrc`** — sourced last by `config/zsh/main`, so it can
+  override anything above it. Put machine-specific env vars, aliases, and
+  secrets here. `hooks/post-up` creates an empty one on first run.
+- **`~/.config/secrets/gitconfig`** — included by `config/git/config`. Holds your
+  git identity and signing key:
 
-Create a directory for your personal customizations:
+  ```ini
+  [user]
+    name = Your Name
+    email = you@example.com
+    signingkey = <GPG signing key>
+  ```
 
-    mkdir ~/Workspaces/dotfiles.local
+  `hooks/post-up` provisions this from 1Password
+  (`op read op://Setup/gitconfig/notesPlain`). Because `commit.gpgsign = true`,
+  commits will fail until this file exists with a valid `signingkey`.
 
-Put your customizations in `~/dotfiles.local` appended with `.local`:
+## Credits
 
-* `~/Workspaces/dotfiles.local/aliases.local`
-* `~/Workspaces/dotfiles.local/config/git/template.local/*`
-* `~/Workspaces/dotfiles.local/config/git/config.local`
-* `~/Workspaces/dotfiles.local/psqlrc.local` (we supply a blank `psqlrc.local` to prevent `psql` from
-  throwing an error, but you should overwrite the file with your own copy)
-
-For example, your `~/.aliases.local` might look like this:
-
-    # Productivity
-    alias todo='$EDITOR ~/.todo'
-
-Your `~/.config/git/config.local` might look like this:
-
-    [alias]
-      l = log --pretty=colored
-    [pretty]
-      colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
-    [user]
-      name = Dan Croak
-      email = dan@thoughtbot.com
-
-To extend your `git` hooks, create executable scripts in
-`~/.config/git/template.local/hooks/*` files.
-
-Your `~/.bash.local` might look like this:
-
-    # load pyenv if available
-    if which pyenv &>/dev/null ; then
-      eval "$(pyenv init -)"
-    fi
-
-Credits
--------
-
-These dotfiles is based on and inspired by
-[thoughtbot's dotfiles](https://github.com/thoughtbot/dotfiles).
-
-thoughtbot's original work remains covered under an
+Based on and inspired by
+[thoughtbot's dotfiles](https://github.com/thoughtbot/dotfiles), whose original
+work remains under an
 [MIT License](https://github.com/thoughtbot/dotfiles/blob/a8bc74d10c62c813b625c0c8a28a996249d71c4c/LICENSE).
-
-About the Me
-------------
-
-* Senior Software Developer
-* Follow me on [Twitter](http://www.twitter.com/nicholasjhenry)
-* Connect via [LinkedIn](http://ca.linkedin.com/in/nicholasjhenry)
