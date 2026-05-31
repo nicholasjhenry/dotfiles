@@ -12,11 +12,13 @@
 #    docker-tag debian 1.15.7 26.1.2
 #
 
+set -euo pipefail
+
 # Fetch one page of tag names, newest-sorted.
 function fetch_page() {
   local page=$1
 
-  curl --silent \
+  curl --silent --show-error --fail \
     "https://hub.docker.com/v2/namespaces/hexpm/repositories/elixir/tags?page_size=100&page=${page}" |
     jq -r ".results[].name" | sort --version-sort
 }
@@ -43,7 +45,9 @@ while true; do
     break
   fi
 
-  result=$(echo "$tags" | grep "$os" | grep "$elixir_vsn" | grep "$erlang_vsn")
+  # grep -F so version strings with dots stay literal; `|| true` because a
+  # page with no matches is normal, not an error.
+  result=$(echo "$tags" | grep -F "$os" | grep -F "$elixir_vsn" | grep -F "$erlang_vsn") || true
 
   if [ -n "$result" ]; then
     echo "$result"
