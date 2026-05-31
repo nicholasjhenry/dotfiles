@@ -26,4 +26,4 @@ source $ZDOTDIR/prompt
 
 fpath=( ~/.zsh-completions $fpath )
 
-[ -f $WORKSPACES/dotfiles.secret/shrc ] && source $WORKSPACES/dotfiles.secret/shrc
+[ -f $XDG_CONFIG_HOME/secrets/shrc ] && source $XDG_CONFIG_HOME/secrets/shrc
