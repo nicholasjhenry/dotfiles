@@ -20,7 +20,7 @@ Install
 Clone onto your laptop:
 
     mkdir -p ~/Workspaces && cd ~/Workspaces
-    git clone https://github.com/civilcode/dotfiles.git
+    git clone https://github.com/nicholasjhenry/dotfiles.git
 
 Install the dotfiles:
 
@@ -57,8 +57,8 @@ Create a directory for your personal customizations:
 Put your customizations in `~/dotfiles.local` appended with `.local`:
 
 * `~/Workspaces/dotfiles.local/aliases.local`
-* `~/Workspaces/dotfiles.local/git_template.local/*`
-* `~/Workspaces/dotfiles.local/gitconfig.local`
+* `~/Workspaces/dotfiles.local/config/git/template.local/*`
+* `~/Workspaces/dotfiles.local/config/git/config.local`
 * `~/Workspaces/dotfiles.local/psqlrc.local` (we supply a blank `psqlrc.local` to prevent `psql` from
   throwing an error, but you should overwrite the file with your own copy)
 
@@ -67,7 +67,7 @@ For example, your `~/.aliases.local` might look like this:
     # Productivity
     alias todo='$EDITOR ~/.todo'
 
-Your `~/.gitconfig.local` might look like this:
+Your `~/.config/git/config.local` might look like this:
 
     [alias]
       l = log --pretty=colored
@@ -78,7 +78,7 @@ Your `~/.gitconfig.local` might look like this:
       email = dan@thoughtbot.com
 
 To extend your `git` hooks, create executable scripts in
-`~/.git_template.local/hooks/*` files.
+`~/.config/git/template.local/hooks/*` files.
 
 Your `~/.bash.local` might look like this:
 

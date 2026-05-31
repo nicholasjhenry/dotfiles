@@ -32,7 +32,7 @@
 	# Push current branch even if you've never pushed it before
 	default = current
 [init]
-	templatedir = ~/.git_template
+	templatedir = ~/.config/git/template
 [commit]
 	gpgsign = true
 [difftool "sourcetree"]

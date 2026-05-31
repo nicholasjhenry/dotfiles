@@ -7,7 +7,7 @@
   dfc = diff --cached
   track = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
 [core]
-  excludesfile = ~/.gitignore.global
+  excludesfile = ~/.config/git/ignore.global
   editor = vim
   pager = delta
 [difftool "sourcetree"]
@@ -20,10 +20,10 @@
 #   name = CivilCode Pairing
 #   email = 23707376+civilcode-pairing@users.noreply.github.com
 [commit]
-  template = ~/.gitmessage
+  template = ~/.config/git/message
   cleanup = strip
 [include]
-  path = ~/.gitconfig.local
+  path = ~/.config/git/config.local
 [push]
   default = current
 [credential]
