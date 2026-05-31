@@ -23,10 +23,10 @@ function help() {
 }
 
 # Fuzzy-pick a note and echo its path relative to $base_path.
-# Stripping the $base_path prefix with sed works regardless of how many path
-# segments $HOME has (the old `cut -f5-` assumed a /Users/<name> home).
+# cd into the notes dir in a subshell so fd emits relative paths directly —
+# no fragile sed delimiter dance with whatever characters $base_path holds.
 function pick_note() {
-    fd --type f . "$base_path" | sed "s|^$base_path/||" | fzf --preview "bat --style=numbers $base_path/{}"
+    (cd "$base_path" && fd --type f .) | fzf --preview "bat --style=numbers $base_path/{}"
 }
 
 function copy() {
