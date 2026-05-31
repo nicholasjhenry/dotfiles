@@ -12,6 +12,7 @@ source $HOME/.config/zsh/plugins
 
 source $HOME/.config/zsh/aliases
 source $HOME/.config/zsh/bindkey
+source $HOME/.config/zsh/completion
 source $HOME/.config/zsh/elixir
 source $HOME/.config/zsh/env
 source $HOME/.config/zsh/history
