@@ -1,4 +1,4 @@
 # NOTE: brew's zsh site-functions are added to fpath in `completion` (must run
 # before compinit), not here.
 
-export PATH="$(brew --prefix)/bin:$PATH"
+export PATH="${BREW_PREFIX:-$(brew --prefix)}/bin:$PATH"
