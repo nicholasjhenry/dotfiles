@@ -20,6 +20,26 @@ alias flushcache='dscacheutil -flushcache'
 alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
 
 # ------------------------------------------------------------------------------
+# Listing (eza)
+# ------------------------------------------------------------------------------
+
+# List files with icons.
+alias ls='eza --icons'
+
+# Long listing with human-readable sizes and git status.
+alias ll='eza -lh --icons --git'
+
+# Long listing including hidden files.
+alias la='eza -lah --icons --git'
+
+# Recursive tree view with icons.
+alias tree='eza --tree --icons'
+
+# Reuse `ls` completions for eza (avoids defining a separate completion
+# function).
+compdef eza=ls
+
+# ------------------------------------------------------------------------------
 # Git
 # ------------------------------------------------------------------------------
 
