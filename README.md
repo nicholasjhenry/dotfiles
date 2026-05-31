@@ -1,4 +1,4 @@
-# nicholasjhenry dotfiles
+# @nicholasjhenry dotfiles
 
 Personal macOS dotfiles: an XDG-compliant **zsh** setup with
 [starship](https://starship.rs) for the prompt, [mise](https://mise.jdx.dev) for
@@ -82,6 +82,11 @@ repo):
   (`op read op://Setup/gitconfig/notesPlain`). Because `commit.gpgsign = true`,
   commits will fail until this file exists with a valid `signingkey`.
 
+## About
+
+- Follow me on [BlueSky](https://bsky.app/profile/nicholasjhenry.github.io)
+- Connect via [LinkedIn](http://ca.linkedin.com/in/nicholasjhenry)
+ 
 ## Credits
 
 Based on and inspired by
