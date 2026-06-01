@@ -40,10 +40,10 @@ echo "Install/update Vim Plugins..."
 # Use `xargs -o` to fix: "Vim: Warning: Input is not from a terminal"
 echo "${HOME}/.vimrc.bundles +PlugInstall +PlugClean! +qa" | xargs -o vim -u
 
-if [ ! -e "$HOME/.tmux/plugins/tpm" ]; then
+if [ ! -e "$HOME/.config/tmux/plugins/tpm" ]; then
   echo "Install Tmux Plugin Manager (TPM)..."
-  mkdir -p "$HOME/.tmux/plugins"
-  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+  mkdir -p "$HOME/.config/tmux/plugins"
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
 fi
 
 # Default XDG_CONFIG_HOME so post-up survives running outside the zsh env
