@@ -2,14 +2,23 @@
 
 set -euo pipefail
 
+# Default XDG paths so post-up survives running outside the zsh env that
+# normally sets them.
+: "${XDG_CACHE_HOME:=$HOME/.cache}"
+: "${XDG_STATE_HOME:=$HOME/.local/state}"
+: "${XDG_DATA_HOME:=$HOME/.local/share}"
+: "${XDG_CONFIG_HOME:=$HOME/.config}"
+
+: "${ZDOTDIR:=$XDG_CONFIG_HOME/zsh}"
+
 append_to_zshrc() {
   local text="$1" zshrc
   local skip_new_line="${2:-0}"
 
   if ((0)); then # [ -w "$HOME/.zshrc.local" ]
-    zshrc="$HOME/.config/zsh/.zshrc.local"
+    zshrc="$ZDOTDIR/.zshrc.local"
   else
-    zshrc="$HOME/.config/zsh/.zshrc"
+    zshrc="$ZDOTDIR/.zshrc"
   fi
 
   if ! grep -Fqs "$text" "$zshrc"; then
@@ -24,9 +33,9 @@ append_to_zshrc() {
 # Create required XDG dirs (idempotent; -p so re-running rcup never errors).
 # The zsh subdirs must exist before compinit (zcompdump) and history can write.
 
-mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
-mkdir -p "${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
-mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}"
+mkdir -p "$XDG_CACHE_HOME/zsh"
+mkdir -p "$XDG_STATE_HOME/zsh"
+mkdir -p "$XDG_DATA_HOME"
 
 # Install and run vim-plug
 
@@ -40,36 +49,30 @@ echo "Install/update Vim Plugins..."
 # Use `xargs -o` to fix: "Vim: Warning: Input is not from a terminal"
 echo "${HOME}/.vimrc.bundles +PlugInstall +PlugClean! +qa" | xargs -o vim -u
 
-if [ ! -e "$HOME/.config/tmux/plugins/tpm" ]; then
+if [ ! -e "$XDG_CONFIG_HOME/tmux/plugins/tpm" ]; then
   echo "Install Tmux Plugin Manager (TPM)..."
-  mkdir -p "$HOME/.config/tmux/plugins"
-  git clone https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
+  mkdir -p "$XDG_CONFIG_HOME/tmux/plugins"
+  git clone https://github.com/tmux-plugins/tpm "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 fi
 
 echo "Install/update Tmux plugins..."
-"$HOME/.config/tmux/plugins/tpm/bin/install_plugins"
-
-# Default XDG_CONFIG_HOME so post-up survives running outside the zsh env
-# that normally sets it.
-: "${XDG_CONFIG_HOME:=$HOME/.config}"
-
-ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export NJH_CONFIG_SECRETS="$XDG_CONFIG_HOME/secrets"
+"$XDG_CONFIG_HOME/tmux/plugins/tpm/bin/install_plugins"
 
 append_to_zshrc 'source $ZDOTDIR/main'
 
-if [ ! -e "$NJH_CONFIG_SECRETS/shrc" ]; then
-  mkdir -p "$NJH_CONFIG_SECRETS"
-  touch "$NJH_CONFIG_SECRETS/shrc"
+MY_CONFIG_SECRETS="$XDG_CONFIG_HOME/secrets"
+if [ ! -e "$MY_CONFIG_SECRETS/shrc" ]; then
+  mkdir -p "$MY_CONFIG_SECRETS"
+  touch "$MY_CONFIG_SECRETS/shrc"
 fi
 
 # Provision the git identity + signing key (commit.gpgsign = true depends on it).
 # Guard the bootstrap: only run if `op` is present, and remove the file on
 # failure so a later rcup retries instead of leaving an empty, broken gitconfig.
-if [ ! -e "$NJH_CONFIG_SECRETS/gitconfig" ]; then
+if [ ! -e "$MY_CONFIG_SECRETS/gitconfig" ]; then
   if command -v op >/dev/null 2>&1; then
-    if ! op read op://Setup/gitconfig/notesPlain >"$NJH_CONFIG_SECRETS/gitconfig"; then
-      rm -f "$NJH_CONFIG_SECRETS/gitconfig"
+    if ! op read op://Setup/gitconfig/notesPlain >"$MY_CONFIG_SECRETS/gitconfig"; then
+      rm -f "$MY_CONFIG_SECRETS/gitconfig"
       echo "WARNING: could not read gitconfig from 1Password; commits will fail while commit.gpgsign is true." >&2
     fi
   else
