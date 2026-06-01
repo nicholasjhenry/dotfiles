@@ -52,7 +52,7 @@ while true; do
   if [ -n "$result" ]; then
     echo "$result"
     echo "Continue? Press any key or Ctrl-C to exit."
-    read -r input
+    read -r
   else
     echo "No matches on this page, continue searching..."
   fi

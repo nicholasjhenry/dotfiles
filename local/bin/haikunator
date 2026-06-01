@@ -26,10 +26,6 @@ nouns=("waterfall" "river" "breeze" "moon" "rain" "wind" "sea" "morning" "snow"
 adjective=${adjectives[$RANDOM % ${#adjectives[@]}]}
 noun=${nouns[$RANDOM % ${#nouns[@]}]}
 
-# Generate a random number (1 to 1000)
-number=$((RANDOM % 1000 + 1))
-
-# Combine the adjective, noun, and number
 haikunator="${adjective}_${noun}"
 
 # Output the Haikunator name

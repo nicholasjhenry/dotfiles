@@ -13,6 +13,6 @@ flaker() {
   fi
   for ((i = 1; i <= $1; i++)); do
     echo "$(tput setaf 4)$(tput setab 2)test run number: $i$(tput sgr0)"
-    mix test $2 || break
+    mix test "$2" || break
   done
 }

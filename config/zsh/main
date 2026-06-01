@@ -10,25 +10,25 @@ export WORKSPACES=$HOME/Workspaces
 
 # Ordered prelude: plugins populate fpath (zsh-completions) → completion gathers
 # all fpath contributions and runs compinit → later files may use compdef.
-source $ZDOTDIR/env
-source $ZDOTDIR/plugins
-source $ZDOTDIR/completion
+source "$ZDOTDIR/env"
+source "$ZDOTDIR/plugins"
+source "$ZDOTDIR/completion"
 
 # Feature modules (order-independent)
-source $ZDOTDIR/aliases
-source $ZDOTDIR/bindkey
-source $ZDOTDIR/editor
-source $ZDOTDIR/elixir
-source $ZDOTDIR/flaker
-source $ZDOTDIR/fzf
-source $ZDOTDIR/git
-source $ZDOTDIR/history
-source $ZDOTDIR/homebrew
-source $ZDOTDIR/mise
-source $ZDOTDIR/pnpm
+source "$ZDOTDIR/aliases"
+source "$ZDOTDIR/bindkey"
+source "$ZDOTDIR/editor"
+source "$ZDOTDIR/elixir"
+source "$ZDOTDIR/flaker"
+source "$ZDOTDIR/fzf"
+source "$ZDOTDIR/git"
+source "$ZDOTDIR/history"
+source "$ZDOTDIR/homebrew"
+source "$ZDOTDIR/mise"
+source "$ZDOTDIR/pnpm"
 
 # Prompt last — installs precmd hooks (starship)
-source $ZDOTDIR/prompt
+source "$ZDOTDIR/prompt"
 
 # Secrets last — overrides everything above
 [ -f "$XDG_CONFIG_HOME/secrets/shrc" ] && source "$XDG_CONFIG_HOME/secrets/shrc"

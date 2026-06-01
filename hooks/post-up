@@ -58,6 +58,8 @@ fi
 echo "Install/update Tmux plugins..."
 "$XDG_CONFIG_HOME/tmux/plugins/tpm/bin/install_plugins"
 
+# Single-quoted so $ZDOTDIR is written literally and expanded by zsh at shell startup, not now.
+# shellcheck disable=SC2016
 append_to_zshrc 'source $ZDOTDIR/main'
 
 MY_CONFIG_SECRETS="$XDG_CONFIG_HOME/secrets"
