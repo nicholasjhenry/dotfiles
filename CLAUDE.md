@@ -41,7 +41,7 @@ vim/, vimrc, vimrc.bundles
 - **Comments: WHY only.** Never describe what the code does. Every existing comment in this repo explains a non-obvious reason (a bug worked around, an ordering constraint, a shell quirk). If the WHY is obvious, omit the comment.
 - **`set -euo pipefail`** at the top of every bash script in `local/bin/` and `hooks/`.
 - **Quote paths.** Recent history is mostly hardening quotes — don't regress.
-- **Run `shfmt -i 2`** on any shell file you touch before considering the change done.
+- **Run `scripts/precommit`** after editing anything under `hooks/`, `local/bin/`, `scripts/`, or `config/zsh/` — it runs `shfmt -i 2 -d` and `shellcheck` over those trees, and a change isn't done until it's clean.
 - **Guard optional tools:** `command -v bat >/dev/null && export MANPAGER=...`. Never assume Homebrew tools are present.
 - **Cache expensive shell-outs once:** see `BREW_PREFIX` in `config/zsh/env`, reused by `plugins`, `completion`, `homebrew`.
 - **XDG everywhere:** `HISTFILE="$XDG_STATE_HOME/zsh/history"`, `PSQLRC="$XDG_CONFIG_HOME/psql/psqlrc"`, etc. New tool configs go under `$XDG_CONFIG_HOME/<tool>/`.
