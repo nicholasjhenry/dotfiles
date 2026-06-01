@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+bash_files=(hooks/* local/bin/* scripts/*)
+zsh_files=(config/zsh/*)
+
+shfmt -i 2 -d "${bash_files[@]}"
+# shfmt has no zsh dialect; bash is the closest match for the modules under config/zsh.
+shfmt -i 2 -ln bash -d "${zsh_files[@]}"
+
+shellcheck "${bash_files[@]}"
+# zsh modules are sourced (no shebang) and use zsh-only idioms (array syntax, plugin-consumed vars,
+# alias-scope eval). Suppress the codes that fire as false positives under shellcheck-as-bash:
+#   SC1090/SC1091 — non-constant / unfollowable source paths
+#   SC2034        — vars consumed by zsh itself or plugins look unused
+#   SC2128/SC2206 — zsh fpath array syntax differs from bash
+#   SC2154        — vars assigned and used inside the same alias body
+#   SC2155        — declare+assign is fine here, we don't care about masked exit codes
+shellcheck --shell=bash -e SC1090,SC1091,SC2034,SC2128,SC2154,SC2155,SC2206 "${zsh_files[@]}"
