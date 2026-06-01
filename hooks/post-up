@@ -46,6 +46,9 @@ if [ ! -e "$HOME/.config/tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
 fi
 
+echo "Install/update Tmux plugins..."
+"$HOME/.config/tmux/plugins/tpm/bin/install_plugins"
+
 # Default XDG_CONFIG_HOME so post-up survives running outside the zsh env
 # that normally sets it.
 : "${XDG_CONFIG_HOME:=$HOME/.config}"
