@@ -7,9 +7,9 @@ append_to_zshrc() {
   local skip_new_line="${2:-0}"
 
   if ((0)); then # [ -w "$HOME/.zshrc.local" ]
-    zshrc="$HOME/.zshrc.local"
+    zshrc="$HOME/.config/zsh/.zshrc.local"
   else
-    zshrc="$HOME/.zshrc"
+    zshrc="$HOME/.config/zsh/.zshrc"
   fi
 
   if ! grep -Fqs "$text" "$zshrc"; then
