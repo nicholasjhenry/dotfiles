@@ -2,7 +2,7 @@
 
 add_newline = false
 
-format = "$directory$os$git_branch$git_status$nodejs$rust$golang$php $character"
+format = "$directory$os$git_branch$git_status$nodejs$elixir$character"
 
 [os]
 disabled = false
@@ -39,15 +39,7 @@ conflicted = "[⚡$count ](bold red)"
 symbol = ""
 format = "[$symbol $version](green) "
 
-[rust]
-symbol = ""
-format = "[$symbol $version](red) "
-
-[golang]
-symbol = ""
-format = "[$symbol $version](cyan) "
-
-[php]
+[elixir]
 symbol = ""
 format = "[$symbol $version](purple) "
 
