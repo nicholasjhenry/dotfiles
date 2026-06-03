@@ -47,3 +47,4 @@ CLAUDE.local.md
 .claude/tmp/
 .claude/logs/
 .claude/plans
+.claude/sessions
