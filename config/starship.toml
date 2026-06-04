@@ -31,17 +31,17 @@ behind     = "[⇣$count ](bold cyan)"
 diverged   = "[⇡$ahead_count⇣$behind_count ](bold cyan)"
 staged     = "[+$count ](bold green)"
 modified   = "[●$count ](bold yellow)"
-untracked  = "[?$count ](bold white)"
+untracked  = "[?$count ](bold yellow)"
 deleted    = "[✘$count ](bold red)"
 conflicted = "[⚡$count ](bold red)"
 
 [nodejs]
-symbol = ""
-format = "[$symbol $version](green) "
+symbol = " "
+format = "[$symbol$version ](green)"
 
 [elixir]
-symbol = ""
-format = "[$symbol $version](purple) "
+symbol = " "
+format = "[$symbol$version ](purple)"
 
 [character]
 success_symbol = "[❯](green)"
