@@ -1,0 +1,16 @@
+# Jump back to the previous working directory. The leading `--` stops zsh
+# parsing `-` as a flag for `alias` itself.
+alias -- -='cd -'
+
+# Flush the macOS DNS cache.
+alias flushcache='dscacheutil -flushcache'
+
+# Open a URL or file in Google Chrome.
+#
+# USAGE
+#   ch <url|path>
+#
+# EXAMPLES
+#   ch https://example.com
+#   ch index.html
+alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"

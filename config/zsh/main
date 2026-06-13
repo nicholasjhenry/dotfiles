@@ -15,7 +15,8 @@ source "$ZDOTDIR/plugins"
 source "$ZDOTDIR/completion"
 
 # Feature modules (order-independent)
-source "$ZDOTDIR/aliases"
+# Aliases split by category under aliases/; (N) so an empty dir is not an error.
+for f in "$ZDOTDIR"/aliases/*(N); do source "$f"; done
 source "$ZDOTDIR/bindkey"
 source "$ZDOTDIR/editor"
 source "$ZDOTDIR/elixir"

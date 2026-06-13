@@ -4,7 +4,13 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 bash_files=(hooks/* local/bin/* scripts/*)
-zsh_files=(config/zsh/*)
+
+# aliases/ is a directory of category modules; collect files only so the
+# linters below are never handed a directory.
+zsh_files=()
+for f in config/zsh/* config/zsh/aliases/*; do
+  [[ -f "$f" ]] && zsh_files+=("$f")
+done
 
 shfmt -i 2 -d "${bash_files[@]}"
 # shfmt has no zsh dialect; bash is the closest match for the modules under config/zsh.
