@@ -1,0 +1,23 @@
+shell = "zsh"
+
+# Load order is file order. zsh-syntax-highlighting must come near the end, and
+# zsh-history-substring-search must follow it (replaces zplug's defer:2/defer:3).
+
+[plugins.vi-mode]
+github = "ohmyzsh/ohmyzsh"
+use = ["plugins/vi-mode/vi-mode.plugin.zsh"]
+
+[plugins.wbase]
+github = "woefe/wbase.zsh"
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"

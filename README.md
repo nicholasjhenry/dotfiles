@@ -13,8 +13,8 @@ runtime versions, and a delta-powered git config. Managed with
   `hooks/post-up` to provision the git identity / signing key
 
 The shell config leans on a handful of CLI tools (installed via Homebrew):
-`starship`, `mise`, `zplug`, `eza`, `fd`, `fzf`, `bat`, `ripgrep`, `delta`,
-`gh`, `jq`, `glow`. `zplug`, `vim-plug`, and `tmux`'s TPM bootstrap themselves on
+`starship`, `mise`, `sheldon`, `eza`, `fd`, `fzf`, `bat`, `ripgrep`, `delta`,
+`gh`, `jq`, `glow`. `sheldon`, `vim-plug`, and `tmux`'s TPM bootstrap themselves on
 first run.
 
 ## Install
