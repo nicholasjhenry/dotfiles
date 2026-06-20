@@ -1,0 +1,17 @@
+# Smoke-test GPG signing. `commit.gpgsign = true` means a wedged agent (expired
+# TTL, missing/locked pinentry) blocks every commit with an opaque error.
+#
+# A bare `gpg --clearsign` hangs forever when the passphrase cache is cold and
+# pinentry can't prompt — surfacing nothing. Bound it with a timeout so a wedged
+# agent fails fast, while leaving room to type a passphrase if pinentry appears.
+# `timeout` is guarded since it ships with coreutils, which may be absent.
+#
+# USAGE
+#   gpg-test
+function gpg-test() {
+  if command -v timeout >/dev/null; then
+    echo "test" | timeout 30 gpg --clearsign
+  else
+    echo "test" | gpg --clearsign
+  fi
+}
