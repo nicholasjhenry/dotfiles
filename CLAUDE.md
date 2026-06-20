@@ -17,7 +17,7 @@ Personal macOS dotfiles. Single-user, managed with [rcm](https://github.com/thou
 ## Tech stack
 
 - macOS, zsh, bash 3.2+ (system bash) for `local/bin/` scripts
-- Homebrew-installed: starship, mise, zplug, eza, fd, fzf, bat, ripgrep, delta, gh, jq, glow
+- Homebrew-installed: starship, mise, sheldon, eza, fd, fzf, bat, ripgrep, delta, gh, jq, glow
 - 1Password CLI (`op`) for secret provisioning
 - vim 9 (EDITOR fallback; Zed is primary editor)
 - Format shell files with `shfmt -i 2` (2-space indent, Google style)

@@ -1,22 +1,7 @@
-export ZPLUG_HOME="${BREW_PREFIX:-$(brew --prefix)}/opt/zplug"
-
-if [[ ! -f $ZPLUG_HOME/init.zsh ]]; then
-  echo "Installing zplug..."
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+if ! command -v sheldon >/dev/null; then
+  echo "Installing sheldon..."
+  brew install sheldon
 fi
 
-source "$ZPLUG_HOME/init.zsh"
-
-zplug "plugins/vi-mode", from:oh-my-zsh
-zplug "woefe/wbase.zsh"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# Install packages that have not been installed yet
-if ! zplug check --verbose; then
-  zplug install
-fi
-
-zplug load
+# sheldon source clones any missing plugins, then emits the source script.
+eval "$(sheldon source)"
