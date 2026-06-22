@@ -1,0 +1,21 @@
+# List the Anthropic model IDs available to the current API key.
+#
+# This is the exact list Zed resolves `commit_message_model` / `default_model`
+# against — it matches by exact ID from this same /v1/models endpoint, so an ID
+# absent here will silently fail to bind in settings.json.
+#
+# USAGE
+#   claude_models
+#
+# DEPENDENCIES
+#   curl, jq, and $ANTHROPIC_API_KEY (set in ~/.config/secrets/shrc)
+#
+function claude_models() {
+  if [[ -z "$ANTHROPIC_API_KEY" ]]; then
+    echo "claude_models: ANTHROPIC_API_KEY is not set" >&2
+    return 1
+  fi
+  curl -fsS "https://api.anthropic.com/v1/models?limit=1000" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01" | jq -r '.data[].id'
+}
