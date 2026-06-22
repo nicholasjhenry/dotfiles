@@ -37,7 +37,6 @@ vim/, vimrc, vimrc.bundles
 
 ## Conventions
 
-- **Commits:** `<area>: <imperative lowercase>` — e.g., `zsh/env: strip overstrike sequences before piping man to bat`, `note: drop the sed delimiter in pick_note`. Body explains why.
 - **Comments: WHY only.** Never describe what the code does. Every existing comment in this repo explains a non-obvious reason (a bug worked around, an ordering constraint, a shell quirk). If the WHY is obvious, omit the comment.
 - **`set -euo pipefail`** at the top of every bash script in `local/bin/` and `hooks/`.
 - **Quote paths.** Recent history is mostly hardening quotes — don't regress.
