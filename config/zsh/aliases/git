@@ -10,3 +10,5 @@
 #   changed-tests | xargs mix test.watch --seed 0 --max-failures 1 || echo "No changed tests"
 #
 alias changed-tests='p=$(pwd | sed "s|^$(git rev-parse --show-toplevel)/||"); files=$(git diff --name-only origin/main...HEAD | grep "_test.exs$" | grep "^$p/" | sed "s|^$p/||"); [ -n "$files" ] && echo "$files"'
+
+alias gcan='git commit --amend --no-edit'
