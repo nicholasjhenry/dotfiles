@@ -1,0 +1,20 @@
+[
+  {
+    "context": "Terminal",
+    "bindings": {
+      "shift-enter": ["terminal::SendText", "\u001b\r"],
+    },
+  },
+  {
+    "context": "Panel",
+    "bindings": {
+      "ctrl-backspace": "editor::ToggleFocus",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-backspace": "editor::ToggleFocus",
+    },
+  },
+]
