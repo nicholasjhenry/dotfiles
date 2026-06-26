@@ -1,7 +1,7 @@
 {
   "pretty_print": {
-    "prefix": "pp",
-    "body": ["IO.inspect($1), pretty: true", "$0"],
+    "prefix": "ex-pp",
+    "body": ["IO.inspect($1, pretty: true)", "$0"],
     "description": "Pretty print"
   },
   "docs": {
