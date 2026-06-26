@@ -1,0 +1,81 @@
+{
+  "pretty_print": {
+    "prefix": "pp",
+    "body": ["IO.inspect($1), pretty: true", "$0"],
+    "description": "Pretty print"
+  },
+  "docs": {
+    "prefix": "ex-dc",
+    "body": [
+      "@doc \"\"\"",
+      "",
+      "VERB_DESCRIPTION",
+      "## Examples",
+      "",
+      "## Options",
+      "",
+      "* `:OPTION` - DESCRIPTION, Defaults to...",
+      "",
+      "\"\"\""
+    ],
+    "description": "Documentation Template"
+  },
+  "controller": {
+    "prefix": "ex-cntr",
+    "body": [
+      "defmodule NomifyWeb.DocumentController do",
+      "  use NomifyWeb, :controller",
+      "",
+      "  def index(conn, _params) do",
+      "    render(conn, :index)",
+      "  end",
+      "end",
+      "",
+      "defmodule NomifyWeb.TodoHTML do",
+      "  use NomifyWeb, :html",
+      "",
+      "  embed_templates \"document_html/*\"",
+      "end"
+    ],
+    "description": "Controller Template"
+  },
+  "mix_project": {
+    "prefix": "ex-dc-cnfg",
+    "body": [
+      "def project do",
+      "  [",
+      "    # Docs",
+      "    name: \"${1:MyApp}\",",
+      "    source_url: \"https://github.com/${2:USER}/${3:PROJECT}\",",
+      "    homepage_url: \"http://${4:YOUR_PROJECT_HOMEPAGE}\",",
+      "    docs: &docs/0",
+      "  ]",
+      "end",
+      "",
+      "defp docs do",
+      "  [",
+      "    main: \"${1:MyApp}\",",
+      "    # logo: \"path/to/logo.png\",",
+      "    formatters: [\"html\"],",
+      "    ignore_apps: [${5::my_app_web}],",
+      "    main: \"readme\",",
+      "    extras: [",
+      "      \"README.md\"",
+      "    ],",
+      "    assets: %{",
+      "      \"guides/assets\" => \"assets\"",
+      "    },",
+      "    api_reference: true,",
+      "    groups_for_modules: [",
+      "      MyDomain: [",
+      "      ~r\"^MyApp\\.MyDomain\\..*\"",
+      "      ]",
+      "    ],",
+      "    nest_modules_by_prefix: [",
+      "    ]",
+      "  ]",
+      "end"
+    ],
+    "description": "Docs Configuration"
+  }
+}
