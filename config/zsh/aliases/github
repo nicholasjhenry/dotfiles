@@ -30,3 +30,5 @@ function pr_json() {
   gh pr view "$pr_number" --json body,comments,reviews,reviewRequests,title,author >"$target_path"
   gh api "repos/$repo/pulls/$pr_number/comments" >>"$target_path"
 }
+
+alias ghciw='gh run watch; terminal-notifier -message "CI finished" -title "GitHub Actions"'
