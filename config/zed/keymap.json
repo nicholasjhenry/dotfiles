@@ -1,4 +1,8 @@
 [
+  // ⇧+Enter in the terminal** sends the raw bytes `ESC` + carriage return (`\u001b` is Escape, `\r`
+  // is Return). This is the "meta+enter" escape sequence — REPLs and tools like Elixir's IEx or
+  // shells with multi-line editing use it to insert a newline *without submitting*, or to trigger
+  // an alt-enter action. Without this, ⇧+Enter in a terminal usually just acts like plain Enter.
   {
     "context": "Terminal",
     "bindings": {
@@ -17,4 +21,10 @@
       "ctrl-backspace": "editor::ToggleFocus",
     },
   },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-r": "task::Rerun"
+    }
+  }
 ]
