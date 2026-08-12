@@ -21,3 +21,7 @@ bindkey -M vicmd 'v' edit-command-line # ␛ then v
 
 # Expand history expressions like !! or !$ when you press space
 bindkey ' ' magic-space
+
+# Hotkeys: \e[D puts the cursor inside the quotes. Not \C-b — viins binds ^B to
+# self-insert, so it lands a literal ^B in the buffer instead of moving.
+bindkey -s '^Ogc' 'git commit -m ""\e[D'
