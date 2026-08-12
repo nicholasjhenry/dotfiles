@@ -1,0 +1,16 @@
+# Copy *current command buffer* to clipboard
+function copy-buffer-to-clipboard() {
+  if [[ -z "$BUFFER" ]]; then
+    zle -M "Buffer is empty"
+    return
+  fi
+
+  printf '%s' "$BUFFER" | pbcopy
+  # zle -M, not -R: the highlighting plugins redisplay right after this widget
+  # returns, which wipes a -R status before you can read it. The tradeoff is
+  # that -M lingers until accept-line, even under later widgets.
+  zle -M "Copied to clipboard"
+}
+zle -N copy-buffer-to-clipboard
+bindkey -M viins '^Oc' copy-buffer-to-clipboard
+bindkey -M vicmd '^Oc' copy-buffer-to-clipboard

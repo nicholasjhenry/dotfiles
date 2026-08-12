@@ -1,5 +1,9 @@
 # Use Ctrl-V to determine key codes
 #
+# Custom widgets go behind the ^O leader (see widgets). ^O is unused in viins,
+# and unlike ^X it is not the tmux prefix. Never bind ^O on its own — as a pure
+# prefix zsh waits for the next key instead of racing KEYTIMEOUT.
+bindkey -M viins -r '^O' # drop the default self-insert, else ^O stalls 0.4s
 
 # Substring search plugin. Maps up and down arrows.
 bindkey -M main '^[OA' history-substring-search-up   # ↑

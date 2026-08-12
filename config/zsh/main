@@ -27,6 +27,7 @@ source "$ZDOTDIR/history"
 source "$ZDOTDIR/homebrew"
 source "$ZDOTDIR/mise"
 source "$ZDOTDIR/pnpm"
+source "$ZDOTDIR/widgets"
 
 # Prompt last — installs precmd hooks (starship)
 source "$ZDOTDIR/prompt"
