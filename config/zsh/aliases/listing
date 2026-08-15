@@ -1,16 +1,19 @@
 # Listing (eza)
 
+# --icons takes an optional WHEN, so a bare --icons swallows the first path
+# argument: `ls local/bin/tip` fails with "invalid value for --icons".
+
 # List files with icons.
-alias ls='eza --icons'
+alias ls='eza --icons=auto'
 
 # Long listing with human-readable sizes and git status.
-alias ll='eza -lh --icons --git'
+alias ll='eza -lh --icons=auto --git'
 
 # Long listing including hidden files.
-alias la='eza -lah --icons --git'
+alias la='eza -lah --icons=auto --git'
 
 # Recursive tree view with icons.
-alias tree='eza --tree --icons'
+alias tree='eza --tree --icons=auto'
 
 # Reuse `ls` completions for eza (avoids defining a separate completion
 # function).
