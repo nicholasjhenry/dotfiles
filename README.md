@@ -53,7 +53,7 @@ Run `rcup` again after pulling new changes to symlink any new files.
 | `config/git/` | git `config`, global ignore, commit message template, `template/` hooks (ctags) |
 | `config/starship.toml` | Prompt |
 | `config/tmux/tmux.conf` | tmux |
-| `config/{bundle,ctags,irb,pry,psql}/` | Per-tool config |
+| `config/{ctags,irb,pry,psql}/` | Per-tool config |
 | `local/bin/` → `~/.local/bin/` | Small scripts (`note`, `haikunator`, `docker-tag`) |
 | `vim/`, `vimrc`, `vimrc.bundles` | vim — the `EDITOR` fallback (Zed is primary); plugins via vim-plug |
 | `iterm2/` | iTerm2 color schemes |
