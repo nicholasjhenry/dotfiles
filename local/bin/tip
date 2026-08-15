@@ -7,24 +7,65 @@ cheatsheet="$HOME/Workspaces/dotfiles/CHEATSHEET.md"
 
 [[ -f "$cheatsheet" ]] || exit 0
 
+width=80
+
 if [[ -t 1 ]]; then
-  bold=$'\033[1m' dim=$'\033[2m' reset=$'\033[0m'
+  bold=$'\033[1m' dim=$'\033[2m' cyan=$'\033[36m' purple=$'\033[35m' reset=$'\033[0m'
+  # tput forks, so only pay for it when there is a terminal to measure.
+  width=$(tput cols 2>/dev/null || printf 80)
 else
-  bold='' dim='' reset=''
+  bold='' dim='' cyan='' purple='' reset=''
 fi
+
+# Prose past ~90 columns is harder to read than it is wide.
+if ((width > 90)); then width=90; fi
 
 # awk's srand() has one-second resolution, so back-to-back shells would get the
 # same tip — seed it from the shell instead.
-awk -v seed="${RANDOM}${$}" -v bold="$bold" -v dim="$dim" -v reset="$reset" '
+awk -v seed="${RANDOM}${$}" -v width="$((width - 3))" \
+  -v bold="$bold" -v dim="$dim" -v cyan="$cyan" -v purple="$purple" -v reset="$reset" '
   function trim(s) { gsub(/^[[:space:]]+|[[:space:]]+$/, "", s); return s }
-  function clean(s) { gsub(/`|\*\*/, "", s); gsub(/\001/, "|", s); return trim(s) }
+  function plain(s) { gsub(/`|\*\*/, "", s); gsub(/\001/, "|", s); return trim(s) }
 
-  BEGIN { srand(seed) }
+  # Markdown delimiters alternate, so every even field of a split is inside a
+  # span. Colourising after wrapping keeps the wrap arithmetic on plain text.
+  function spans(s, delim, color,   n, i, p, out) {
+    n = split(s, p, delim)
+    out = p[1]
+    for (i = 2; i <= n; i++) out = out (i % 2 == 0 ? color p[i] reset : p[i])
+    return out
+  }
 
-  /^#+ / { section = trim(substr($0, index($0, " "))); rows = 0; next }
+  # Bracketed so the separators stay regexes: a bare single-character separator
+  # makes this awk split on newlines too, swallowing the wrapping.
+  function markup(s) { gsub(/\001/, "|", s); return spans(spans(s, "[`]", cyan), "[*][*]", bold) }
 
-  # The dashed row under a table header is where the data rows start.
-  /^\|[ :|-]+\|$/ { rows = 1; next }
+  function wrap(s,   n, i, w, line, out) {
+    n = split(s, w, /[[:space:]]+/)
+    for (i = 1; i <= n; i++) {
+      if (line == "") { line = w[i]; continue }
+      if (length(line) + length(w[i]) + 1 <= width) { line = line " " w[i]; continue }
+      out = out indent line "\n"
+      line = w[i]
+    }
+    return out indent line
+  }
+
+  function column(row, i,   col) { return split(row, col, "|") < 4 ? "" : plain(col[i]) }
+
+  # Headings gloss themselves for a reader of the whole cheatsheet; as a
+  # breadcrumb only the name earns its width.
+  function heading(s) { sub(/ *[(—].*$/, "", s); return plain(s) }
+
+  BEGIN { srand(seed); indent = "   " }
+
+  /^# /   { h2 = ""; h3 = ""; rows = 0; next }
+  /^## /  { h2 = heading(substr($0, 4)); h3 = ""; rows = 0; next }
+  /^### / { h3 = heading(substr($0, 5)); rows = 0; next }
+
+  # The dashed row under a table header is where the data rows start, and the
+  # header itself says whether the first column is typed or pressed.
+  /^\|[ :|-]+\|$/ { rows = 1; verb = tolower(column(last, 2)); next }
 
   !/^\|/ { rows = 0 }
 
@@ -33,14 +74,19 @@ awk -v seed="${RANDOM}${$}" -v bold="$bold" -v dim="$dim" -v reset="$reset" '
     gsub(/\\\|/, "\001", line) # an escaped pipe is content, not a column separator
     if (split(line, col, "|") < 4) next
 
-    key = clean(col[2]); val = clean(col[3])
+    key = plain(col[2]); val = trim(col[3])
     if (key == "" || val == "") next
 
     # Reservoir sample of one: keep row N with probability 1/N.
-    if (++count * rand() < 1) { k = key; v = val; s = section }
+    if (++count * rand() < 1) { k = key; v = val; s = h3 ? h2 " › " h3 : h2; verb0 = verb }
   }
 
+  { last = $0 }
+
   END {
-    if (count) printf "%s %s%s%s — %s %s(%s)%s\n", "💡", bold, k, reset, v, dim, s, reset
+    if (!count) exit
+    label = verb0 ? dim verb0 " " reset : ""
+    where = s ? "  " dim purple "· " s reset : ""
+    printf "💡 %s%s%s%s%s\n%s\n\n", label, bold cyan, k, reset, where, markup(wrap(v))
   }
 ' "$cheatsheet"
