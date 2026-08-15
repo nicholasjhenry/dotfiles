@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# CHEATSHEET.md is in rcrc's EXCLUDES, so it lives in the repo, not under $HOME.
+cheatsheet="$HOME/Workspaces/dotfiles/CHEATSHEET.md"
+
+[[ -f "$cheatsheet" ]] || exit 0
+
+if [[ -t 1 ]]; then
+  bold=$'\033[1m' dim=$'\033[2m' reset=$'\033[0m'
+else
+  bold='' dim='' reset=''
+fi
+
+# awk's srand() has one-second resolution, so back-to-back shells would get the
+# same tip — seed it from the shell instead.
+awk -v seed="${RANDOM}${$}" -v bold="$bold" -v dim="$dim" -v reset="$reset" '
+  function trim(s) { gsub(/^[[:space:]]+|[[:space:]]+$/, "", s); return s }
+  function clean(s) { gsub(/`|\*\*/, "", s); gsub(/\001/, "|", s); return trim(s) }
+
+  BEGIN { srand(seed) }
+
+  /^#+ / { section = trim(substr($0, index($0, " "))); rows = 0; next }
+
+  # The dashed row under a table header is where the data rows start.
+  /^\|[ :|-]+\|$/ { rows = 1; next }
+
+  !/^\|/ { rows = 0 }
+
+  rows {
+    line = $0
+    gsub(/\\\|/, "\001", line) # an escaped pipe is content, not a column separator
+    if (split(line, col, "|") < 4) next
+
+    key = clean(col[2]); val = clean(col[3])
+    if (key == "" || val == "") next
+
+    # Reservoir sample of one: keep row N with probability 1/N.
+    if (++count * rand() < 1) { k = key; v = val; s = section }
+  }
+
+  END {
+    if (count) printf "%s %s%s%s — %s %s(%s)%s\n", "💡", bold, k, reset, v, dim, s, reset
+  }
+' "$cheatsheet"
