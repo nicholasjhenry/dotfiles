@@ -18,6 +18,7 @@ source "$ZDOTDIR/completion"
 # Aliases split by category under aliases/; (N) so an empty dir is not an error.
 for f in "$ZDOTDIR"/aliases/*(N); do source "$f"; done
 source "$ZDOTDIR/bindkey"
+source "$ZDOTDIR/bookmarks"
 source "$ZDOTDIR/editor"
 source "$ZDOTDIR/elixir"
 source "$ZDOTDIR/flaker"
