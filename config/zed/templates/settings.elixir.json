@@ -22,7 +22,6 @@
   "languages": {
     "Elixir": {
       "show_edit_predictions": true,
-      // "format_on_save": "off",
       "format_on_save": "on",
       "formatter": {
         "external": {
