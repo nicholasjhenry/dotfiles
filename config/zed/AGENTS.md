@@ -8,3 +8,7 @@
 For the initial prompt, UNLESS already prompted, you **MUST** review applicable skills in `$HOME/.agents/skills` and `./waterpark-agents/skills` to determine if any are valid for the task. ONLY read the front-matter to avoid context bloat.
 
 Echo the skills that will be used will be used to fulfill the prompt.
+
+## Appendix
+
+@./system/communication_protocol.md
