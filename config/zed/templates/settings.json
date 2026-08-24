@@ -1,0 +1,58 @@
+{
+  "context_servers": {
+    "postgres-context-server": {
+      "enabled": true,
+      "remote": false,
+      "settings": {}
+    },
+    "tidewave-mcp": {
+      "enabled": true,
+      "settings": {}
+    },
+    "mcp-server-context7": {
+      "enabled": true,
+      "settings": {
+        "context7_api_key": "YOUR API KEY"
+      }
+    }
+  },
+  "edit_predictions": {
+    "disabled_globs": ["./guides/**/*.md"]
+  },
+  "languages": {
+    "Elixir": {
+      "show_edit_predictions": true,
+      // "format_on_save": "off",
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "mix",
+          "arguments": ["format", "--stdin-filename", "{buffer_path}", "-"]
+        }
+      },
+      "language_servers": ["expert", "!elixir-ls", "!next-ls", "!lexical"]
+    },
+    "HEEX": {
+      "language_servers": [
+        "expert",
+        "!elixir-ls",
+        "!next-ls",
+        "!lexical",
+        "tailwindcss-language-server",
+        "emmet-language-server"
+      ]
+    },
+    "SQL": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "pg_format",
+          "arguments": ["--inplace", "--function-case", "2"]
+        }
+      }
+    }
+  },
+  "node": {
+    "path": "~/.local/share/mise/installs/node/24.4.1/bin/node"
+  }
+}
