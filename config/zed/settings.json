@@ -1,0 +1,156 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+//
+//
+{
+  "cli_default_open_behavior": "new_window",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
+  "command_aliases": {
+    "crp": "workspace::CopyRelativePath",
+    "cpp": "workspace::CopyPath",
+    "out": "outline::Toggle",
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "collaboration_panel": {
+    "dock": "right",
+  },
+  "git_panel": {
+    "dock": "right",
+    "tree_view": false,
+    "show_count_badge": true,
+    "file_icons": true,
+  },
+  // Git
+  "diff_view_style": "unified",
+  // # AI Configuration
+  // ## Agent
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "default_config_options": {
+        "model": "default",
+        "mode": "bypassPermissions",
+      },
+      "type": "registry",
+    },
+  },
+  // ⚠️ disable in project/.zed/settings.json only
+  "disable_ai": false,
+  "agent": {
+    // https://zed.dev/docs/git#ai-support-in-git
+    "commit_message_model": {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+    },
+    "commit_message_instructions": "Use the Conventional Commits format: <type>(<scope>): <description (all lower case)>.",
+    // "terminal_init_command": "CLAUDE_CONFIG_DIR=$(mktemp -d) claude CLAUDE_CONFIG_DIR=$(mktemp -d) claude",
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o",
+    },
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-opus-4-8",
+    },
+    "favorite_models": [
+      {
+        "provider": "anthropic",
+        "model": "claude-opus-4-6",
+      },
+    ],
+    "thinking_display": "always_expanded",
+    "dock": "left",
+    "tool_permissions": {
+      "default": "allow",
+    },
+    "play_sound_when_agent_done": "always",
+  },
+  // ## Edit Predictions
+  // https://zed.dev/docs/ai/edit-prediction
+  // NOTE: show_edit_predictions is configured per language below.
+  // "show_edit_predictions": false,
+  "edit_predictions": {
+    // https://zed.dev/docs/ai/edit-prediction#switching-modes
+    // eager: predictions only appear inline when you hold a specific modifier key (by default, the Alt key)
+    "provider": "copilot",
+    "mode": "subtle", // or "eager"
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+    },
+    // ⚠️ project/.zed/settings.json only
+    "disabled_globs": [],
+  },
+  "edit_predictions_disabled_in": [],
+  // ## Model Context Protocol (MCP) Servers
+  // https://zed.dev/docs/ai/mcp
+  // ⚠️ project/.zed/settings.json only for other MCP servers
+  "context_servers": {
+    "mcp-server-github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+    },
+  },
+  "project_panel": { "dock": "right", "diagnostic_badges": true },
+  // ## Language-specific Settings
+  "languages": {
+    "Markdown": {
+      "show_edit_predictions": false,
+      "format_on_save": "off",
+    },
+    "Shell Script": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": ["-i", "2"],
+        },
+      },
+    },
+  },
+  // ## Editor UI
+  "theme": {
+    "mode": "light",
+    "light": "Gruvbox Light Hard",
+    "dark": "One Dark",
+  },
+  "colorize_brackets": true,
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 14.0,
+  "buffer_font_family": ".ZedMono",
+  "show_wrap_guides": true,
+  "wrap_guides": [80, 100],
+  // none, editor_width, preferred_line_length, bounded
+  "soft_wrap": "editor_width",
+  "preferred_line_length": 100,
+  "tab_bar": {
+    "show": false,
+  },
+  // ## Terminal
+  "terminal": {
+    "dock": "right",
+    // "font_family": "Zed Plex Mono",
+    "font_family": "FiraCode Nerd Font",
+    "env": {
+      "VISUAL_EDITOR": "zed --wait",
+    },
+  },
+  // ## Other Settings
+  "use_system_path_prompts": false,
+  // ⚠️ project/.zed/settings.json only
+  "ssh_connections": [],
+}
