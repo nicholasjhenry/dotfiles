@@ -52,6 +52,7 @@
   "disable_ai": false,
   "agent": {
     // https://zed.dev/docs/git#ai-support-in-git
+    // Anthropic API Key configured
     "commit_message_model": {
       "provider": "anthropic",
       "model": "claude-haiku-4-5-20251001",
