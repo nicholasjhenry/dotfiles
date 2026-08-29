@@ -73,7 +73,7 @@ fi
 # failure so a later rcup retries instead of leaving an empty, broken gitconfig.
 if [ ! -e "$MY_CONFIG_SECRETS/gitconfig" ]; then
   if command -v op >/dev/null 2>&1; then
-    if ! op read op://Setup/gitconfig/notesPlain >"$MY_CONFIG_SECRETS/gitconfig"; then
+    if ! op inject -i ../templates/gitconfig.tpl -o "$MY_CONFIG_SECRETS/gitconfig"; then
       rm -f "$MY_CONFIG_SECRETS/gitconfig"
       echo "WARNING: could not read gitconfig from 1Password; commits will fail while commit.gpgsign is true." >&2
     fi
