@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(~/.config/secrets/**)",
+      "Read(//**/.env)"
+    ]
+  }
+}
