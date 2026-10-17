@@ -11,6 +11,8 @@ runtime versions, and a delta-powered git config. Managed with
 - [rcm](https://github.com/thoughtbot/rcm) — `brew install rcm`
 - [1Password CLI](https://developer.1password.com/docs/cli/) (`op`) — used by
   `hooks/post-up` to provision the git identity / signing key
+- [Ghostty](https://ghostty.org) and FiraCode Nerd Font —
+  `brew install --cask ghostty font-fira-code-nerd-font`
 
 The shell config leans on a handful of CLI tools (installed via Homebrew):
 `starship`, `mise`, `sheldon`, `eza`, `fd`, `fzf`, `bat`, `ripgrep`, `delta`,
@@ -53,6 +55,7 @@ Run `rcup` again after pulling new changes to symlink any new files.
 | `config/git/` | git `config`, global ignore, commit message template, `template/` hooks (ctags) |
 | `config/starship.toml` | Prompt |
 | `config/tmux/tmux.conf` | tmux |
+| `config/ghostty/config.ghostty` | Ghostty: Solarized theme that follows macOS appearance, FiraCode Nerd Font, tmux bindings behind a `ctrl+x` leader |
 | `config/{ctags,irb,pry,psql}/` | Per-tool config |
 | `local/bin/` → `~/.local/bin/` | Small scripts (`note`, `haikunator`, `docker-tag`) |
 | `vim/`, `vimrc`, `vimrc.bundles` | vim — the `EDITOR` fallback (Zed is primary); plugins via vim-plug |

@@ -1,0 +1,30 @@
+theme = light:iTerm2 Solarized Light,dark:iTerm2 Solarized Dark
+font-family = FiraCode Nerd Font Mono
+
+# Ports the tmux bindings: ctrl+x is the leader, as tmux's prefix is.
+
+keybind = ctrl+x>h=goto_split:left
+keybind = ctrl+x>j=goto_split:down
+keybind = ctrl+x>k=goto_split:up
+keybind = ctrl+x>l=goto_split:right
+
+keybind = ctrl+x>r=reload_config
+
+keybind = ctrl+x>shift+backslash=new_split:right
+keybind = ctrl+x>minus=new_split:down
+
+keybind = ctrl+x>c=new_tab
+
+# Sequences cannot repeat like tmux's `bind -r`, so the leader is pressed for each step.
+keybind = ctrl+x>shift+h=resize_split:left,5
+keybind = ctrl+x>shift+j=resize_split:down,5
+keybind = ctrl+x>shift+k=resize_split:up,5
+keybind = ctrl+x>shift+l=resize_split:right,5
+
+keybind = ctrl+x>p=paste_from_clipboard
+keybind = ctrl+x>ctrl+c=copy_to_clipboard
+keybind = ctrl+x>ctrl+v=paste_from_clipboard
+
+keybind = ctrl+l=clear_screen
+
+copy-on-select = clipboard
