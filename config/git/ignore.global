@@ -32,7 +32,6 @@ vendor/bundle
 .iex.exs
 
 # Agents
-.agents
 .codex
 .conductor
 
