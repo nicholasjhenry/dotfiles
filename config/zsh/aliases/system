@@ -14,3 +14,12 @@ alias flushcache='dscacheutil -flushcache'
 #   ch https://example.com
 #   ch index.html
 alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
+
+# Symlink every top-level directory in a source directory into a target
+# directory. `:A` makes the link targets absolute, since a relative target
+# resolves from the link's location, not the caller's. `^D` keeps dot
+# directories out even if GLOB_DOTS is set.
+#
+# USAGE
+#   link_dirs <source> <target>
+function link_dirs() { ln -sfn "${1:A}"/*(/N^D) "$2"/; }
