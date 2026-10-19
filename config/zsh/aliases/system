@@ -15,11 +15,26 @@ alias flushcache='dscacheutil -flushcache'
 #   ch index.html
 alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
 
-# Symlink every top-level directory in a source directory into a target
-# directory. `:A` makes the link targets absolute, since a relative target
-# resolves from the link's location, not the caller's. `^D` keeps dot
-# directories out even if GLOB_DOTS is set.
+# Symlink each given directory into a target directory. Paths are globbed by
+# the caller, so non-directories in the expansion are skipped. Dot directories
+# are skipped too, in case GLOB_DOTS is set. `:A` makes the link targets
+# absolute, since a relative target resolves from the link's location, not the
+# caller's.
+#
+# The indexed loop stands in for zsh's `$@[1,-2]` slice, which shfmt cannot
+# parse.
 #
 # USAGE
-#   link_dirs <source> <target>
-function link_dirs() { ln -sfn "${1:A}"/*(/N^D) "$2"/; }
+#   link_dirs <dir>... <target>
+#
+# EXAMPLES
+#   link_dirs ~/src/* ~/links
+#   link_dirs ~/src/elixir_* ~/links
+function link_dirs() {
+  local target=${argv[$#]} i
+  for ((i = 1; i < $#; i++)); do
+    if [[ -d ${argv[i]} && ${argv[i]:t} != .* ]]; then
+      ln -sfn "${argv[i]:A}" "$target"/
+    fi
+  done
+}
