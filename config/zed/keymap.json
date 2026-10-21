@@ -26,5 +26,11 @@
     "bindings": {
       "cmd-r": "task::Rerun"
     }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-e": "workspace::ToggleRightDock"
+    }
   }
 ]
