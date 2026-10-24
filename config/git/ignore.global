@@ -34,6 +34,7 @@ vendor/bundle
 # Agents
 .codex
 .conductor
+.delta
 
 # Claude Code — personal/machine-local, never commit
 .claude/settings.local.json
