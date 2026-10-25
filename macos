@@ -1,0 +1,7 @@
+# Always open windows in tabs
+defaults write NSGlobalDomain AppleWindowTabbingMode -string always
+
+# Set screenshots path
+mkdir -p "$HOME/Pictures/Screenshots"
+defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
+killall SystemUIServer
