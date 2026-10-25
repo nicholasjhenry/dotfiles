@@ -5,7 +5,7 @@ Personal macOS dotfiles. Single-user, managed with [rcm](https://github.com/thou
 ## Architecture
 
 - `zshenv` (→ `~/.zshenv`) sets XDG paths and `ZDOTDIR=$XDG_CONFIG_HOME/zsh`.
-- `~/.zshrc` sources `$ZDOTDIR/main`, which is the orchestrator.
+- `$ZDOTDIR/.zshrc` (written by `hooks/post-up`) sources `$ZDOTDIR/main`, which is the orchestrator.
 - `config/zsh/main` has a **critical ordering contract**:
   1. `env` → `plugins` → `completion` (ordered prelude — fpath populated before `compinit`)
   2. feature modules (`aliases`, `bindkey`, `fzf`, `git`, etc. — order-independent)
