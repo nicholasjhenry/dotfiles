@@ -102,6 +102,7 @@
   // ⚠️ project/.zed/settings.json only for other MCP servers
   "context_servers": {
     "mcp-server-github": {
+      "enabled": true,
       "url": "https://api.githubcopilot.com/mcp/",
     },
   },
