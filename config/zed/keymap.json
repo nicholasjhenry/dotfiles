@@ -30,7 +30,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-shift-e": "workspace::ToggleRightDock"
+      "cmd-shift-e": "project_panel::Toggle"
     }
   }
 ]
