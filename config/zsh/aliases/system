@@ -32,6 +32,7 @@ alias ch="/usr/bin/open -a /Applications/Google\ Chrome.app"
 #   link_dirs ~/src/elixir_* ~/links
 function link_dirs() {
   local target=${argv[$#]} i
+  mkdir -p "$target" || return
   for ((i = 1; i < $#; i++)); do
     if [[ -d ${argv[i]} && ${argv[i]:t} != .* ]]; then
       ln -sfn "${argv[i]:A}" "$target"/
