@@ -26,7 +26,9 @@
 	# Subtree (https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/)
 	sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
 	sbu = "!f() { git subtree pull --prefix $2 $1 master --squash; }; f"
-[apply]
+	# Reset
+		hard-reset-origin = "!git fetch origin && git reset --hard origin/`git symbolic-ref --short HEAD`"
+	[apply]
 	whitespace = nowarn
 [color]
 	ui = auto
