@@ -112,6 +112,7 @@
     "Markdown": {
       "show_edit_predictions": false,
       "format_on_save": "off",
+      "soft_wrap": "none",
     },
     "Shell Script": {
       "format_on_save": "on",
