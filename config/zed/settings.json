@@ -53,6 +53,8 @@
   "agent": {
     // https://zed.dev/docs/git#ai-support-in-git
     // Anthropic API Key configured
+    "expand_terminal_card": false,
+    "expand_edit_card": false,
     "commit_message_model": {
       "provider": "anthropic",
       "model": "claude-haiku-4-5-20251001",
