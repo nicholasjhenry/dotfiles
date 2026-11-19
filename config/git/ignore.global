@@ -48,3 +48,5 @@ CLAUDE.local.md
 .claude/logs/
 .claude/plans
 .claude/sessions
+
+**/.claude/settings.local.json
